@@ -26,8 +26,50 @@
           "body": "Hi Team,\n\nOur entire checkout pipeline is failing right now. Every call to /v2/checkout/process is returning HTTP 500 with error code ERR_DB_POOL_EXHAUSTED.\n\nWe are losing roughly $8,000 per minute in transaction volume. We need an immediate escalation to on-call engineering. Please respond with a bridge link ASAP.\n\nMarcus Vance\nVP Engineering, Acme Corp\nPhone: +1-555-0192"
         }
       ],
-      "triage": null,
-      "draft": null,
+      "triage": {
+        "priority": "P0",
+        "category": "bug",
+        "summary": "Production API throwing 500 errors across all US-East clusters. Issue: Our entire checkout pipeline is failing right now. Every call to /v2/checkout/process is returning HTTP 500 with error code ERR_DB_POOL_EXHA...",
+        "suggestedOwner": "Core Platform Engineering",
+        "dueBy": "2026-09-23T08:15:00.000Z",
+        "sentiment": "urgent",
+        "confidence": 0.96,
+        "reasoning": "Critical customer-facing checkout failure causing active revenue loss. Highest incident severity."
+      },
+      "draft": {
+        "id": "draft-thread-001",
+        "threadId": "thread-001",
+        "recipient": "marcus.vance@acme-enterprise.com",
+        "subject": "Re: URGENT: Production API throwing 500 errors across all US-East clusters",
+        "body": "Hi Marcus,\n\nThank you for reaching out with highest urgency. Our on-call incident team has been paged and is actively investigating the incident. A priority bridge has been opened.\n\nWe will provide an update within 30 minutes with our mitigation progress and root cause analysis.\n\nSincerely,\nIncident Response Team",
+        "tone": "apologetic",
+        "suggestedActions": [
+          {
+            "id": "act-1",
+            "title": "Escalate to P0 On-Call SRE Bridge",
+            "type": "escalation",
+            "completed": false,
+            "systemTarget": "PagerDuty"
+          },
+          {
+            "id": "act-2",
+            "title": "Post incident update to public status page",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "StatusPage"
+          },
+          {
+            "id": "act-3",
+            "title": "Collect worker / cluster diagnostics logs",
+            "type": "investigation",
+            "completed": false,
+            "systemTarget": "CloudWatch"
+          }
+        ],
+        "version": 1,
+        "lastModifiedAt": "2026-09-23T15:24:36.401Z",
+        "lastModifiedBy": "ai"
+      },
       "approvalStatus": "pending",
       "snoozedUntil": null,
       "status": "open",
@@ -39,6 +81,23 @@
           "actor": "System",
           "action": "thread_imported",
           "note": "Ingested from inbox feed"
+        },
+        {
+          "id": "audit-triage-1790177076401-bl2e",
+          "threadId": "thread-001",
+          "timestamp": "2026-09-23T15:24:36.401Z",
+          "actor": "AI Butler",
+          "action": "triage_performed",
+          "note": "Assigned P0 (bug) to Core Platform Engineering. Confidence: 96%"
+        },
+        {
+          "id": "audit-draft-1790177076401-k5f5",
+          "threadId": "thread-001",
+          "timestamp": "2026-09-23T15:24:36.401Z",
+          "actor": "AI Butler",
+          "action": "draft_generated",
+          "note": "Generated reply draft (apologetic tone) with 3 suggested actions. Awaiting human approval.",
+          "draftSnapshot": "Hi Marcus,\n\nThank you for reaching out with highest urgency. Our on-call incident team has been paged and is actively investigating the incident. A priority bridge has been opened.\n\nWe will provide an update within 30 minutes with our mitigation progress and root cause analysis.\n\nSincerely,\nIncident Response Team"
         }
       ]
     },
@@ -68,8 +127,50 @@
           "body": "Hello Support,\n\nOur accounting department just flagged an automated renewal charge of $4,200 on our card ending in 8831 for invoice INV-2026-9921. We explicitly submitted a downgrade request three weeks ago via ticket #48122.\n\nIf this charge is not reversed by end of business today, our CFO will file an immediate chargeback and initiate vendor termination. Please confirm the refund transaction ID immediately.\n\nRegards,\nElena Rostova\nController"
         }
       ],
-      "triage": null,
-      "draft": null,
+      "triage": {
+        "priority": "P0",
+        "category": "billing",
+        "summary": "Unauthorized charge of $4,200 on corporate Amex - please refund immediately. Issue: Hello Support,...",
+        "suggestedOwner": "Billing Ops",
+        "dueBy": "2026-09-23T08:40:00.000Z",
+        "sentiment": "frustrated",
+        "confidence": 0.96,
+        "reasoning": "High-dollar unauthorized billing dispute with immediate chargeback and churn threat."
+      },
+      "draft": {
+        "id": "draft-thread-002",
+        "threadId": "thread-002",
+        "recipient": "elena.r@fintechholdings.io",
+        "subject": "Re: Unauthorized charge of $4,200 on corporate Amex - please refund immediately",
+        "body": "Hi Elena,\n\nThank you for bringing this to our attention. Our billing operations team has reviewed your account details.\n\nWe are processing the requested adjustment and will provide the transaction confirmation receipt once finalized.\n\nWarm regards,\nBilling & Accounts Team",
+        "tone": "apologetic",
+        "suggestedActions": [
+          {
+            "id": "act-1",
+            "title": "Review Stripe transaction history",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "Stripe"
+          },
+          {
+            "id": "act-2",
+            "title": "Initiate payment refund / credit memo",
+            "type": "refund",
+            "completed": false,
+            "systemTarget": "Stripe"
+          },
+          {
+            "id": "act-3",
+            "title": "Update invoice record in CRM",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "Salesforce"
+          }
+        ],
+        "version": 1,
+        "lastModifiedAt": "2026-09-23T15:24:36.403Z",
+        "lastModifiedBy": "ai"
+      },
       "approvalStatus": "pending",
       "snoozedUntil": null,
       "status": "open",
@@ -81,6 +182,23 @@
           "actor": "System",
           "action": "thread_imported",
           "note": "Ingested from inbox feed"
+        },
+        {
+          "id": "audit-triage-1790177076403-9eid",
+          "threadId": "thread-002",
+          "timestamp": "2026-09-23T15:24:36.403Z",
+          "actor": "AI Butler",
+          "action": "triage_performed",
+          "note": "Assigned P0 (billing) to Billing Ops. Confidence: 96%"
+        },
+        {
+          "id": "audit-draft-1790177076403-l6xt",
+          "threadId": "thread-002",
+          "timestamp": "2026-09-23T15:24:36.403Z",
+          "actor": "AI Butler",
+          "action": "draft_generated",
+          "note": "Generated reply draft (apologetic tone) with 3 suggested actions. Awaiting human approval.",
+          "draftSnapshot": "Hi Elena,\n\nThank you for bringing this to our attention. Our billing operations team has reviewed your account details.\n\nWe are processing the requested adjustment and will provide the transaction confirmation receipt once finalized.\n\nWarm regards,\nBilling & Accounts Team"
         }
       ]
     },
@@ -110,8 +228,50 @@
           "body": "Good day,\n\nGlobal Logistics is evaluating workflow automation vendors for our Q4 digital transformation initiative. We have shortlisted your solution for a 500-seat rollout across North America and EMEA.\n\nAttached is our standard vendor questionnaire covering SOC2 Type II compliance, SSO/SAML integration, and custom data residency. Could an enterprise account executive contact me to arrange a technical briefing before Thursday?\n\nBest regards,\nDavid Sterling\nDirector of Global Procurement"
         }
       ],
-      "triage": null,
-      "draft": null,
+      "triage": {
+        "priority": "P1",
+        "category": "sales",
+        "summary": "Enterprise Procurement RFP: 500 seat rollout requirement questions. Issue: Global Logistics is evaluating workflow automation vendors for our Q4 digital transformation initiative. We have shortlisted your solution f...",
+        "suggestedOwner": "Enterprise Sales",
+        "dueBy": "2026-09-23T11:22:00.000Z",
+        "sentiment": "neutral",
+        "confidence": 0.96,
+        "reasoning": "Large enterprise expansion deal (500 seats) with time-sensitive procurement questionnaire."
+      },
+      "draft": {
+        "id": "draft-thread-003",
+        "threadId": "thread-003",
+        "recipient": "dsterling@globallogistics.com",
+        "subject": "Re: Enterprise Procurement RFP: 500 seat rollout requirement questions",
+        "body": "Hi David,\n\nThank you for considering ApproveGate for your team. We would be delighted to arrange a dedicated technical walk-through tailored to your organization's workflow and compliance requirements.\n\nPlease let us know what time slots work best for your team this week, or book directly via our team calendar link.\n\nBest regards,\nEnterprise Solutions Team",
+        "tone": "professional",
+        "suggestedActions": [
+          {
+            "id": "act-1",
+            "title": "Route contact to Enterprise Account Executive",
+            "type": "escalation",
+            "completed": false,
+            "systemTarget": "Salesforce"
+          },
+          {
+            "id": "act-2",
+            "title": "Send executive demo scheduling link",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "Hubspot"
+          },
+          {
+            "id": "act-3",
+            "title": "Prepare custom SOC2 / Security packet",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "CompliancePortal"
+          }
+        ],
+        "version": 1,
+        "lastModifiedAt": "2026-09-23T15:24:36.404Z",
+        "lastModifiedBy": "ai"
+      },
       "approvalStatus": "pending",
       "snoozedUntil": null,
       "status": "open",
@@ -123,6 +283,23 @@
           "actor": "System",
           "action": "thread_imported",
           "note": "Ingested from inbox feed"
+        },
+        {
+          "id": "audit-triage-1790177076404-xnr0",
+          "threadId": "thread-003",
+          "timestamp": "2026-09-23T15:24:36.404Z",
+          "actor": "AI Butler",
+          "action": "triage_performed",
+          "note": "Assigned P1 (sales) to Enterprise Sales. Confidence: 96%"
+        },
+        {
+          "id": "audit-draft-1790177076404-rf9y",
+          "threadId": "thread-003",
+          "timestamp": "2026-09-23T15:24:36.404Z",
+          "actor": "AI Butler",
+          "action": "draft_generated",
+          "note": "Generated reply draft (professional tone) with 3 suggested actions. Awaiting human approval.",
+          "draftSnapshot": "Hi David,\n\nThank you for considering ApproveGate for your team. We would be delighted to arrange a dedicated technical walk-through tailored to your organization's workflow and compliance requirements.\n\nPlease let us know what time slots work best for your team this week, or book directly via our team calendar link.\n\nBest regards,\nEnterprise Solutions Team"
         }
       ]
     },
@@ -151,8 +328,43 @@
           "body": "I will be out of the office starting Sep 22 returning Oct 5. I will have limited access to email. If your matter is urgent please reach out to operations-team@external-partner.com. Thanks!"
         }
       ],
-      "triage": null,
-      "draft": null,
+      "triage": {
+        "priority": "P3",
+        "category": "FYI",
+        "summary": "Automatic reply: Out of Office until Monday Oct 5. Issue: I will be out of the office starting Sep 22 returning Oct 5. I will have limited access to email. If your matter is urgent please reach out ...",
+        "suggestedOwner": "Automation / Archive",
+        "dueBy": "2026-09-26T04:10:00.000Z",
+        "sentiment": "neutral",
+        "confidence": 0.96,
+        "reasoning": "Automated out-of-office autoreply with no action needed."
+      },
+      "draft": {
+        "id": "draft-thread-004",
+        "threadId": "thread-004",
+        "recipient": "postmaster@external-partner.com",
+        "subject": "Re: Fwd: Automatic reply: Out of Office until Monday Oct 5",
+        "body": "[Automated Log: FYI message noted. No outgoing email required.]",
+        "tone": "direct",
+        "suggestedActions": [
+          {
+            "id": "act-1",
+            "title": "Archive notification thread",
+            "type": "archive",
+            "completed": false,
+            "systemTarget": "Inbox"
+          },
+          {
+            "id": "act-2",
+            "title": "Mark sender domain in automated filter",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "FilterEngine"
+          }
+        ],
+        "version": 1,
+        "lastModifiedAt": "2026-09-23T15:24:36.405Z",
+        "lastModifiedBy": "ai"
+      },
       "approvalStatus": "pending",
       "snoozedUntil": null,
       "status": "open",
@@ -164,6 +376,23 @@
           "actor": "System",
           "action": "thread_imported",
           "note": "Ingested from inbox feed"
+        },
+        {
+          "id": "audit-triage-1790177076405-jrkq",
+          "threadId": "thread-004",
+          "timestamp": "2026-09-23T15:24:36.405Z",
+          "actor": "AI Butler",
+          "action": "triage_performed",
+          "note": "Assigned P3 (FYI) to Automation / Archive. Confidence: 96%"
+        },
+        {
+          "id": "audit-draft-1790177076405-4rht",
+          "threadId": "thread-004",
+          "timestamp": "2026-09-23T15:24:36.405Z",
+          "actor": "AI Butler",
+          "action": "draft_generated",
+          "note": "Generated reply draft (direct tone) with 2 suggested actions. Awaiting human approval.",
+          "draftSnapshot": "[Automated Log: FYI message noted. No outgoing email required.]"
         }
       ]
     },
@@ -193,8 +422,50 @@
           "body": "Hello Security Team,\n\nDuring independent vulnerability assessment under your responsible disclosure program, we identified a Server-Side Request Forgery (SSRF) flaw in /api/v1/webhooks/test-delivery.\n\nThe endpoint fails to validate private RFC 1918 IPv4 ranges, allowing an authenticated user to pivot to internal AWS metadata services (169.254.169.254) and retrieve IAM credentials.\n\nFull proof of concept script and curl logs attached. Awaiting your PGP key or encrypted acknowledgment.\n\nPriya Sharma, CISSP\nLead Security Researcher"
         }
       ],
-      "triage": null,
-      "draft": null,
+      "triage": {
+        "priority": "P0",
+        "category": "bug",
+        "summary": "Security Disclosure: Potential SSRF in webhook validation endpoint. Issue: Hello Security Team,...",
+        "suggestedOwner": "Security & Compliance",
+        "dueBy": "2026-09-23T05:45:00.000Z",
+        "sentiment": "urgent",
+        "confidence": 0.96,
+        "reasoning": "High-severity server-side vulnerability with cloud credential exposure risk."
+      },
+      "draft": {
+        "id": "draft-thread-005",
+        "threadId": "thread-005",
+        "recipient": "psharma@securesight-labs.org",
+        "subject": "Re: Security Disclosure: Potential SSRF in webhook validation endpoint",
+        "body": "Hi Priya,\n\nThank you for reaching out with highest urgency. Our on-call incident team has been paged and is actively investigating the incident. A priority bridge has been opened.\n\nWe will provide an update within 30 minutes with our mitigation progress and root cause analysis.\n\nSincerely,\nIncident Response Team",
+        "tone": "apologetic",
+        "suggestedActions": [
+          {
+            "id": "act-1",
+            "title": "Escalate to P0 On-Call SRE Bridge",
+            "type": "escalation",
+            "completed": false,
+            "systemTarget": "PagerDuty"
+          },
+          {
+            "id": "act-2",
+            "title": "Post incident update to public status page",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "StatusPage"
+          },
+          {
+            "id": "act-3",
+            "title": "Collect worker / cluster diagnostics logs",
+            "type": "investigation",
+            "completed": false,
+            "systemTarget": "CloudWatch"
+          }
+        ],
+        "version": 1,
+        "lastModifiedAt": "2026-09-23T15:24:36.406Z",
+        "lastModifiedBy": "ai"
+      },
       "approvalStatus": "pending",
       "snoozedUntil": null,
       "status": "open",
@@ -206,6 +477,23 @@
           "actor": "System",
           "action": "thread_imported",
           "note": "Ingested from inbox feed"
+        },
+        {
+          "id": "audit-triage-1790177076406-tcdu",
+          "threadId": "thread-005",
+          "timestamp": "2026-09-23T15:24:36.406Z",
+          "actor": "AI Butler",
+          "action": "triage_performed",
+          "note": "Assigned P0 (bug) to Security & Compliance. Confidence: 96%"
+        },
+        {
+          "id": "audit-draft-1790177076406-c9tu",
+          "threadId": "thread-005",
+          "timestamp": "2026-09-23T15:24:36.406Z",
+          "actor": "AI Butler",
+          "action": "draft_generated",
+          "note": "Generated reply draft (apologetic tone) with 3 suggested actions. Awaiting human approval.",
+          "draftSnapshot": "Hi Priya,\n\nThank you for reaching out with highest urgency. Our on-call incident team has been paged and is actively investigating the incident. A priority bridge has been opened.\n\nWe will provide an update within 30 minutes with our mitigation progress and root cause analysis.\n\nSincerely,\nIncident Response Team"
         }
       ]
     },
@@ -235,8 +523,43 @@
           "body": "Hey team,\n\nWhen we click 'Export CSV' on the revenue dashboard using Safari 17.4 on macOS Sonoma, only the first 50 rows get exported instead of the full selected range of 1,200 rows. In Chrome it seems to download all of them.\n\nCould your frontend engineers look into the Safari Blob stream handler? It is slowing down our Monday reporting.\n\nThanks,\nThomas"
         }
       ],
-      "triage": null,
-      "draft": null,
+      "triage": {
+        "priority": "P2",
+        "category": "bug",
+        "summary": "CSV export button not downloading full date range on Safari 17. Issue: When we click 'Export CSV' on the revenue dashboard using Safari 17.4 on macOS Sonoma, only the first 50 rows get exported instead of the fu...",
+        "suggestedOwner": "Frontend Engineering",
+        "dueBy": "2026-09-24T03:10:00.000Z",
+        "sentiment": "frustrated",
+        "confidence": 0.96,
+        "reasoning": "Browser-specific export regression affecting weekly reporting workflows."
+      },
+      "draft": {
+        "id": "draft-thread-006",
+        "threadId": "thread-006",
+        "recipient": "t.reed@analyticspro.co",
+        "subject": "Re: CSV export button not downloading full date range on Safari 17",
+        "body": "Hi Thomas,\n\nThank you for reporting this issue. We have logged ticket reference for our engineering team to investigate the root cause.\n\nWe will follow up as soon as a fix or workaround is available.\n\nBest regards,\nPlatform Support",
+        "tone": "technical",
+        "suggestedActions": [
+          {
+            "id": "act-1",
+            "title": "File defect in engineering backlog (Jira)",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "Jira"
+          },
+          {
+            "id": "act-2",
+            "title": "Verify client reproduction steps",
+            "type": "investigation",
+            "completed": false,
+            "systemTarget": "DevConsole"
+          }
+        ],
+        "version": 1,
+        "lastModifiedAt": "2026-09-23T15:24:36.407Z",
+        "lastModifiedBy": "ai"
+      },
       "approvalStatus": "pending",
       "snoozedUntil": null,
       "status": "open",
@@ -248,6 +571,23 @@
           "actor": "System",
           "action": "thread_imported",
           "note": "Ingested from inbox feed"
+        },
+        {
+          "id": "audit-triage-1790177076407-tq2c",
+          "threadId": "thread-006",
+          "timestamp": "2026-09-23T15:24:36.407Z",
+          "actor": "AI Butler",
+          "action": "triage_performed",
+          "note": "Assigned P2 (bug) to Frontend Engineering. Confidence: 96%"
+        },
+        {
+          "id": "audit-draft-1790177076407-gxie",
+          "threadId": "thread-006",
+          "timestamp": "2026-09-23T15:24:36.407Z",
+          "actor": "AI Butler",
+          "action": "draft_generated",
+          "note": "Generated reply draft (technical tone) with 2 suggested actions. Awaiting human approval.",
+          "draftSnapshot": "Hi Thomas,\n\nThank you for reporting this issue. We have logged ticket reference for our engineering team to investigate the root cause.\n\nWe will follow up as soon as a fix or workaround is available.\n\nBest regards,\nPlatform Support"
         }
       ]
     },
@@ -292,7 +632,7 @@
         "threadId": "thread-007",
         "recipient": "bmeyer@bavaria-engineering.de",
         "subject": "Re: Can we pay via annual bank wire transfer instead of credit card?",
-        "body": "Updated custom response text with corrected invoice terms.",
+        "body": "Hi Brigitte,\n\nThank you for bringing this to our attention. Our billing operations team has reviewed your account details.\n\nWe are processing the requested adjustment and will provide the transaction confirmation receipt once finalized.\n\nWarm regards,\nBilling & Accounts Team",
         "tone": "professional",
         "suggestedActions": [
           {
@@ -317,9 +657,9 @@
             "systemTarget": "Salesforce"
           }
         ],
-        "version": 2,
-        "lastModifiedAt": "2026-09-23T15:21:07.240Z",
-        "lastModifiedBy": "operator"
+        "version": 1,
+        "lastModifiedAt": "2026-09-23T15:24:36.408Z",
+        "lastModifiedBy": "ai"
       },
       "approvalStatus": "pending",
       "snoozedUntil": null,
@@ -334,53 +674,21 @@
           "note": "Ingested from inbox feed"
         },
         {
-          "id": "audit-triage-1790176867239-wgsy",
+          "id": "audit-triage-1790177076408-2iyz",
           "threadId": "thread-007",
-          "timestamp": "2026-09-23T15:21:07.239Z",
+          "timestamp": "2026-09-23T15:24:36.408Z",
           "actor": "AI Butler",
           "action": "triage_performed",
           "note": "Assigned P2 (billing) to Billing Ops. Confidence: 96%"
         },
         {
-          "id": "audit-draft-1790176867239-vvr3",
+          "id": "audit-draft-1790177076408-98cz",
           "threadId": "thread-007",
-          "timestamp": "2026-09-23T15:21:07.239Z",
+          "timestamp": "2026-09-23T15:24:36.408Z",
           "actor": "AI Butler",
           "action": "draft_generated",
           "note": "Generated reply draft (professional tone) with 3 suggested actions. Awaiting human approval.",
           "draftSnapshot": "Hi Brigitte,\n\nThank you for bringing this to our attention. Our billing operations team has reviewed your account details.\n\nWe are processing the requested adjustment and will provide the transaction confirmation receipt once finalized.\n\nWarm regards,\nBilling & Accounts Team"
-        },
-        {
-          "id": "audit-appr-1790176867239-itzo",
-          "threadId": "thread-007",
-          "timestamp": "2026-09-23T15:21:07.239Z",
-          "actor": "Operator",
-          "action": "draft_approved",
-          "previousStatus": "pending",
-          "newStatus": "approved",
-          "note": "Draft reviewed and approved by operator. Ready for authorized dispatch.",
-          "draftSnapshot": "Hi Brigitte,\n\nThank you for bringing this to our attention. Our billing operations team has reviewed your account details.\n\nWe are processing the requested adjustment and will provide the transaction confirmation receipt once finalized.\n\nWarm regards,\nBilling & Accounts Team"
-        },
-        {
-          "id": "audit-edit-1790176867240-7i53",
-          "threadId": "thread-007",
-          "timestamp": "2026-09-23T15:21:07.240Z",
-          "actor": "Operator",
-          "action": "draft_edited",
-          "previousStatus": "approved",
-          "newStatus": "pending",
-          "note": "Draft modified (v2). Previous length: 275 chars, new length: 58 chars.",
-          "draftSnapshot": "Updated custom response text with corrected invoice terms."
-        },
-        {
-          "id": "audit-block-1790176867241-ldcg",
-          "threadId": "thread-007",
-          "timestamp": "2026-09-23T15:21:07.241Z",
-          "actor": "System",
-          "action": "send_blocked",
-          "previousStatus": "pending",
-          "newStatus": "pending",
-          "note": "CRITICAL INVARIANT PREVENTED SEND: Attempted to send thread thread-007 without operator approval (status: pending, hasApprovalRecord: true)."
         }
       ]
     },
@@ -410,8 +718,43 @@
           "body": "Hey product team!\n\nLoving the platform so far. One quick quality-of-life suggestion: could you add 'j' and 'k' keyboard shortcuts (similar to Gmail or Superhuman) to navigate through items without reaching for the mouse? Also 'a' to approve and 'e' to edit would be incredible.\n\nKeep up the great work!\nSarah"
         }
       ],
-      "triage": null,
-      "draft": null,
+      "triage": {
+        "priority": "P3",
+        "category": "other",
+        "summary": "Feature Request: Keyboard shortcuts for cycling through pending approvals. Issue: Hey product team!...",
+        "suggestedOwner": "Product Team",
+        "dueBy": "2026-09-25T01:50:00.000Z",
+        "sentiment": "positive",
+        "confidence": 0.96,
+        "reasoning": "Product enhancement feedback for navigation shortcuts."
+      },
+      "draft": {
+        "id": "draft-thread-008",
+        "threadId": "thread-008",
+        "recipient": "sarah.chen@fastops.dev",
+        "subject": "Re: Feature Request: Keyboard shortcuts for cycling through pending approvals",
+        "body": "Hi Sarah,\n\nThank you for reaching out to the ApproveGate team. We have received your request and forwarded it to the relevant specialist for review.\n\nWe will be in touch with a detailed response shortly.\n\nKind regards,\nSupport Operations",
+        "tone": "professional",
+        "suggestedActions": [
+          {
+            "id": "act-1",
+            "title": "Assign ticket to specialist team",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "Zendesk"
+          },
+          {
+            "id": "act-2",
+            "title": "Flag for 24-hour follow-up review",
+            "type": "investigation",
+            "completed": false,
+            "systemTarget": "ApproveGate"
+          }
+        ],
+        "version": 1,
+        "lastModifiedAt": "2026-09-23T15:24:36.409Z",
+        "lastModifiedBy": "ai"
+      },
       "approvalStatus": "pending",
       "snoozedUntil": null,
       "status": "open",
@@ -423,6 +766,23 @@
           "actor": "System",
           "action": "thread_imported",
           "note": "Ingested from inbox feed"
+        },
+        {
+          "id": "audit-triage-1790177076409-z0n1",
+          "threadId": "thread-008",
+          "timestamp": "2026-09-23T15:24:36.409Z",
+          "actor": "AI Butler",
+          "action": "triage_performed",
+          "note": "Assigned P3 (other) to Product Team. Confidence: 96%"
+        },
+        {
+          "id": "audit-draft-1790177076409-kt7e",
+          "threadId": "thread-008",
+          "timestamp": "2026-09-23T15:24:36.409Z",
+          "actor": "AI Butler",
+          "action": "draft_generated",
+          "note": "Generated reply draft (professional tone) with 2 suggested actions. Awaiting human approval.",
+          "draftSnapshot": "Hi Sarah,\n\nThank you for reaching out to the ApproveGate team. We have received your request and forwarded it to the relevant specialist for review.\n\nWe will be in touch with a detailed response shortly.\n\nKind regards,\nSupport Operations"
         }
       ]
     },
@@ -452,8 +812,50 @@
           "body": "Hi there,\n\nFollowing up on our email last Tuesday regarding the AI Developer Summit 2026 in San Francisco. We have 2 platinum sponsor booths remaining for leading AI tooling companies.\n\nPackages include a 20-minute keynote speaking slot and direct attendee lead scans. Attached is the media kit and pricing sheet ($25,000). Let me know if you'd like to schedule a 15-minute sync this week.\n\nArthur Pendelton\nPartnership Director"
         }
       ],
-      "triage": null,
-      "draft": null,
+      "triage": {
+        "priority": "P3",
+        "category": "sales",
+        "summary": "Partnership opportunity - AI Developer Summit 2026 Keynote Sponsor. Issue: Following up on our email last Tuesday regarding the AI Developer Summit 2026 in San Francisco. We have 2 platinum sponsor booths remaining ...",
+        "suggestedOwner": "Marketing Partnerships",
+        "dueBy": "2026-09-25T01:12:00.000Z",
+        "sentiment": "neutral",
+        "confidence": 0.96,
+        "reasoning": "Inbound conference sponsorship solicitation."
+      },
+      "draft": {
+        "id": "draft-thread-009",
+        "threadId": "thread-009",
+        "recipient": "arthur@events-summitgroup.com",
+        "subject": "Re: Partnership opportunity - AI Developer Summit 2026 Keynote Sponsor",
+        "body": "Hi Arthur,\n\nThank you for considering ApproveGate for your team. We would be delighted to arrange a dedicated technical walk-through tailored to your organization's workflow and compliance requirements.\n\nPlease let us know what time slots work best for your team this week, or book directly via our team calendar link.\n\nBest regards,\nEnterprise Solutions Team",
+        "tone": "professional",
+        "suggestedActions": [
+          {
+            "id": "act-1",
+            "title": "Route contact to Enterprise Account Executive",
+            "type": "escalation",
+            "completed": false,
+            "systemTarget": "Salesforce"
+          },
+          {
+            "id": "act-2",
+            "title": "Send executive demo scheduling link",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "Hubspot"
+          },
+          {
+            "id": "act-3",
+            "title": "Prepare custom SOC2 / Security packet",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "CompliancePortal"
+          }
+        ],
+        "version": 1,
+        "lastModifiedAt": "2026-09-23T15:24:36.410Z",
+        "lastModifiedBy": "ai"
+      },
       "approvalStatus": "pending",
       "snoozedUntil": null,
       "status": "open",
@@ -465,6 +867,23 @@
           "actor": "System",
           "action": "thread_imported",
           "note": "Ingested from inbox feed"
+        },
+        {
+          "id": "audit-triage-1790177076410-5k3j",
+          "threadId": "thread-009",
+          "timestamp": "2026-09-23T15:24:36.411Z",
+          "actor": "AI Butler",
+          "action": "triage_performed",
+          "note": "Assigned P3 (sales) to Marketing Partnerships. Confidence: 96%"
+        },
+        {
+          "id": "audit-draft-1790177076411-lo21",
+          "threadId": "thread-009",
+          "timestamp": "2026-09-23T15:24:36.411Z",
+          "actor": "AI Butler",
+          "action": "draft_generated",
+          "note": "Generated reply draft (professional tone) with 3 suggested actions. Awaiting human approval.",
+          "draftSnapshot": "Hi Arthur,\n\nThank you for considering ApproveGate for your team. We would be delighted to arrange a dedicated technical walk-through tailored to your organization's workflow and compliance requirements.\n\nPlease let us know what time slots work best for your team this week, or book directly via our team calendar link.\n\nBest regards,\nEnterprise Solutions Team"
         }
       ]
     },
@@ -493,8 +912,43 @@
           "body": "Welcome to Issue #142 of DevOps Weekly. Top stories this week:\n- Kubernetes 1.32 release highlights\n- Continuous deployment strategies in serverless\n- Monitoring distributed traces with OpenTelemetry\nClick here to unsubscribe or change your email preferences."
         }
       ],
-      "triage": null,
-      "draft": null,
+      "triage": {
+        "priority": "P3",
+        "category": "FYI",
+        "summary": "Newsletter: Weekly DevOps Digest Issue #142. Issue: Welcome to Issue #142 of DevOps Weekly. Top stories this week:...",
+        "suggestedOwner": "Automation / Archive",
+        "dueBy": "2026-09-26T00:30:00.000Z",
+        "sentiment": "neutral",
+        "confidence": 0.96,
+        "reasoning": "External newsletter subscription digest."
+      },
+      "draft": {
+        "id": "draft-thread-010",
+        "threadId": "thread-010",
+        "recipient": "curator@devopsweekly.newsletter.io",
+        "subject": "Re: Newsletter: Weekly DevOps Digest Issue #142",
+        "body": "[Automated Log: FYI message noted. No outgoing email required.]",
+        "tone": "direct",
+        "suggestedActions": [
+          {
+            "id": "act-1",
+            "title": "Archive notification thread",
+            "type": "archive",
+            "completed": false,
+            "systemTarget": "Inbox"
+          },
+          {
+            "id": "act-2",
+            "title": "Mark sender domain in automated filter",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "FilterEngine"
+          }
+        ],
+        "version": 1,
+        "lastModifiedAt": "2026-09-23T15:24:36.411Z",
+        "lastModifiedBy": "ai"
+      },
       "approvalStatus": "pending",
       "snoozedUntil": null,
       "status": "open",
@@ -506,6 +960,23 @@
           "actor": "System",
           "action": "thread_imported",
           "note": "Ingested from inbox feed"
+        },
+        {
+          "id": "audit-triage-1790177076411-z0tt",
+          "threadId": "thread-010",
+          "timestamp": "2026-09-23T15:24:36.411Z",
+          "actor": "AI Butler",
+          "action": "triage_performed",
+          "note": "Assigned P3 (FYI) to Automation / Archive. Confidence: 96%"
+        },
+        {
+          "id": "audit-draft-1790177076411-wgso",
+          "threadId": "thread-010",
+          "timestamp": "2026-09-23T15:24:36.411Z",
+          "actor": "AI Butler",
+          "action": "draft_generated",
+          "note": "Generated reply draft (direct tone) with 2 suggested actions. Awaiting human approval.",
+          "draftSnapshot": "[Automated Log: FYI message noted. No outgoing email required.]"
         }
       ]
     },
@@ -535,8 +1006,50 @@
           "body": "[CRITICAL ALERT] Host group: worker-east-pool\nSymptom: Memory usage 98.4%, Pod restarts > 15 in last 10 minutes.\nError log extract: FATAL: remaining connection slots are reserved for non-replication superuser connections.\nTriggered by: Webhook ingest volume spike.\nRunbook link: https://internal.corp/wiki/db-pool-recovery"
         }
       ],
-      "triage": null,
-      "draft": null,
+      "triage": {
+        "priority": "P0",
+        "category": "bug",
+        "summary": "CRITICAL: Database connection leak causing webhook worker crash loop. Issue: [CRITICAL ALERT] Host group: worker-east-pool...",
+        "suggestedOwner": "Site Reliability Engineering",
+        "dueBy": "2026-09-23T00:55:00.000Z",
+        "sentiment": "urgent",
+        "confidence": 0.96,
+        "reasoning": "Infrastructure crash loop affecting backend webhook processing cluster."
+      },
+      "draft": {
+        "id": "draft-thread-011",
+        "threadId": "thread-011",
+        "recipient": "pagerduty@internal-monitoring.corp",
+        "subject": "Re: CRITICAL: Database connection leak causing webhook worker crash loop",
+        "body": "Hi DevOps,\n\nThank you for reaching out with highest urgency. Our on-call incident team has been paged and is actively investigating the incident. A priority bridge has been opened.\n\nWe will provide an update within 30 minutes with our mitigation progress and root cause analysis.\n\nSincerely,\nIncident Response Team",
+        "tone": "apologetic",
+        "suggestedActions": [
+          {
+            "id": "act-1",
+            "title": "Escalate to P0 On-Call SRE Bridge",
+            "type": "escalation",
+            "completed": false,
+            "systemTarget": "PagerDuty"
+          },
+          {
+            "id": "act-2",
+            "title": "Post incident update to public status page",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "StatusPage"
+          },
+          {
+            "id": "act-3",
+            "title": "Collect worker / cluster diagnostics logs",
+            "type": "investigation",
+            "completed": false,
+            "systemTarget": "CloudWatch"
+          }
+        ],
+        "version": 1,
+        "lastModifiedAt": "2026-09-23T15:24:36.412Z",
+        "lastModifiedBy": "ai"
+      },
       "approvalStatus": "pending",
       "snoozedUntil": null,
       "status": "open",
@@ -548,6 +1061,23 @@
           "actor": "System",
           "action": "thread_imported",
           "note": "Ingested from inbox feed"
+        },
+        {
+          "id": "audit-triage-1790177076412-for4",
+          "threadId": "thread-011",
+          "timestamp": "2026-09-23T15:24:36.412Z",
+          "actor": "AI Butler",
+          "action": "triage_performed",
+          "note": "Assigned P0 (bug) to Site Reliability Engineering. Confidence: 96%"
+        },
+        {
+          "id": "audit-draft-1790177076412-9ssg",
+          "threadId": "thread-011",
+          "timestamp": "2026-09-23T15:24:36.412Z",
+          "actor": "AI Butler",
+          "action": "draft_generated",
+          "note": "Generated reply draft (apologetic tone) with 3 suggested actions. Awaiting human approval.",
+          "draftSnapshot": "Hi DevOps,\n\nThank you for reaching out with highest urgency. Our on-call incident team has been paged and is actively investigating the incident. A priority bridge has been opened.\n\nWe will provide an update within 30 minutes with our mitigation progress and root cause analysis.\n\nSincerely,\nIncident Response Team"
         }
       ]
     },
@@ -576,8 +1106,50 @@
           "body": "Hi Support,\n\nI was charged twice for our annual plan yesterday ($790 x 2). Both charges appear on our Visa ending in 4110 with description 'APPROVEGATE SAAS'.\n\nCould you please cancel one of the charges and refund the duplicate payment back to the original card?\n\nThank you,\nCarlos Gomez"
         }
       ],
-      "triage": null,
-      "draft": null,
+      "triage": {
+        "priority": "P1",
+        "category": "billing",
+        "summary": "Double charged for renewal on Sep 21 - Invoice #INV-88392. Issue: Hi Support,...",
+        "suggestedOwner": "Billing Ops",
+        "dueBy": "2026-09-23T02:15:00.000Z",
+        "sentiment": "frustrated",
+        "confidence": 0.96,
+        "reasoning": "Direct duplicate billing transaction requiring payment refund verification."
+      },
+      "draft": {
+        "id": "draft-thread-012",
+        "threadId": "thread-012",
+        "recipient": "carlos@cloudmatrix.co",
+        "subject": "Re: Double charged for renewal on Sep 21 - Invoice #INV-88392",
+        "body": "Hi Carlos,\n\nThank you for bringing this to our attention. Our billing operations team has reviewed your account details.\n\nWe are processing the requested adjustment and will provide the transaction confirmation receipt once finalized.\n\nWarm regards,\nBilling & Accounts Team",
+        "tone": "professional",
+        "suggestedActions": [
+          {
+            "id": "act-1",
+            "title": "Review Stripe transaction history",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "Stripe"
+          },
+          {
+            "id": "act-2",
+            "title": "Initiate payment refund / credit memo",
+            "type": "refund",
+            "completed": false,
+            "systemTarget": "Stripe"
+          },
+          {
+            "id": "act-3",
+            "title": "Update invoice record in CRM",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "Salesforce"
+          }
+        ],
+        "version": 1,
+        "lastModifiedAt": "2026-09-23T15:24:36.413Z",
+        "lastModifiedBy": "ai"
+      },
       "approvalStatus": "pending",
       "snoozedUntil": null,
       "status": "open",
@@ -589,6 +1161,23 @@
           "actor": "System",
           "action": "thread_imported",
           "note": "Ingested from inbox feed"
+        },
+        {
+          "id": "audit-triage-1790177076413-1jnt",
+          "threadId": "thread-012",
+          "timestamp": "2026-09-23T15:24:36.413Z",
+          "actor": "AI Butler",
+          "action": "triage_performed",
+          "note": "Assigned P1 (billing) to Billing Ops. Confidence: 96%"
+        },
+        {
+          "id": "audit-draft-1790177076413-9yjw",
+          "threadId": "thread-012",
+          "timestamp": "2026-09-23T15:24:36.413Z",
+          "actor": "AI Butler",
+          "action": "draft_generated",
+          "note": "Generated reply draft (professional tone) with 3 suggested actions. Awaiting human approval.",
+          "draftSnapshot": "Hi Carlos,\n\nThank you for bringing this to our attention. Our billing operations team has reviewed your account details.\n\nWe are processing the requested adjustment and will provide the transaction confirmation receipt once finalized.\n\nWarm regards,\nBilling & Accounts Team"
         }
       ]
     },
@@ -618,8 +1207,43 @@
           "body": "Hello support,\n\nOur team configured Okta SAML integration this morning following your documentation. However, when users click 'Sign in with SSO', they authenticate in Okta successfully but get redirected back to /auth/callback with an infinite spinner and error message 'Invalid Audience Restriction URI'.\n\nNone of our 120 employees can log in right now. We need someone to review our Entity ID and ACS URL settings.\n\nJennifer Wu\nIT Systems Administrator"
         }
       ],
-      "triage": null,
-      "draft": null,
+      "triage": {
+        "priority": "P1",
+        "category": "bug",
+        "summary": "SSO Login Loop with Okta SAML 2.0 integration. Issue: Hello support,...",
+        "suggestedOwner": "IAM & Integration Team",
+        "dueBy": "2026-09-23T01:40:00.000Z",
+        "sentiment": "urgent",
+        "confidence": 0.96,
+        "reasoning": "Enterprise workforce blocked from logging into the workspace due to SSO failure."
+      },
+      "draft": {
+        "id": "draft-thread-013",
+        "threadId": "thread-013",
+        "recipient": "jwu@summitcloud.net",
+        "subject": "Re: SSO Login Loop with Okta SAML 2.0 integration",
+        "body": "Hi Jennifer,\n\nThank you for reporting this issue. We have logged ticket reference for our engineering team to investigate the root cause.\n\nWe will follow up as soon as a fix or workaround is available.\n\nBest regards,\nPlatform Support",
+        "tone": "technical",
+        "suggestedActions": [
+          {
+            "id": "act-1",
+            "title": "File defect in engineering backlog (Jira)",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "Jira"
+          },
+          {
+            "id": "act-2",
+            "title": "Verify client reproduction steps",
+            "type": "investigation",
+            "completed": false,
+            "systemTarget": "DevConsole"
+          }
+        ],
+        "version": 1,
+        "lastModifiedAt": "2026-09-23T15:24:36.414Z",
+        "lastModifiedBy": "ai"
+      },
       "approvalStatus": "pending",
       "snoozedUntil": null,
       "status": "open",
@@ -631,6 +1255,23 @@
           "actor": "System",
           "action": "thread_imported",
           "note": "Ingested from inbox feed"
+        },
+        {
+          "id": "audit-triage-1790177076414-guq7",
+          "threadId": "thread-013",
+          "timestamp": "2026-09-23T15:24:36.414Z",
+          "actor": "AI Butler",
+          "action": "triage_performed",
+          "note": "Assigned P1 (bug) to IAM & Integration Team. Confidence: 96%"
+        },
+        {
+          "id": "audit-draft-1790177076414-fs55",
+          "threadId": "thread-013",
+          "timestamp": "2026-09-23T15:24:36.414Z",
+          "actor": "AI Butler",
+          "action": "draft_generated",
+          "note": "Generated reply draft (technical tone) with 2 suggested actions. Awaiting human approval.",
+          "draftSnapshot": "Hi Jennifer,\n\nThank you for reporting this issue. We have logged ticket reference for our engineering team to investigate the root cause.\n\nWe will follow up as soon as a fix or workaround is available.\n\nBest regards,\nPlatform Support"
         }
       ]
     },
@@ -660,8 +1301,50 @@
           "body": "Hi sales team,\n\nWe anticipate processing approximately 250,000 support triage events per month starting next quarter. Your standard pricing calculator tops out at 50k events.\n\nDo you offer committed-use volume tiering or an enterprise SLA agreement? We would love to discuss custom contract terms with your sales director.\n\nRachel Adams\nDirector of Operations"
         }
       ],
-      "triage": null,
-      "draft": null,
+      "triage": {
+        "priority": "P1",
+        "category": "sales",
+        "summary": "Pricing inquiry for custom volume discount - 250k events/month. Issue: Hi sales team,...",
+        "suggestedOwner": "Enterprise Sales",
+        "dueBy": "2026-09-23T04:20:00.000Z",
+        "sentiment": "neutral",
+        "confidence": 0.96,
+        "reasoning": "High-volume contract tier inquiry exceeding standard automated plans."
+      },
+      "draft": {
+        "id": "draft-thread-014",
+        "threadId": "thread-014",
+        "recipient": "radams@hypergrowth.tech",
+        "subject": "Re: Pricing inquiry for custom volume discount - 250k events/month",
+        "body": "Hi Rachel,\n\nThank you for considering ApproveGate for your team. We would be delighted to arrange a dedicated technical walk-through tailored to your organization's workflow and compliance requirements.\n\nPlease let us know what time slots work best for your team this week, or book directly via our team calendar link.\n\nBest regards,\nEnterprise Solutions Team",
+        "tone": "professional",
+        "suggestedActions": [
+          {
+            "id": "act-1",
+            "title": "Route contact to Enterprise Account Executive",
+            "type": "escalation",
+            "completed": false,
+            "systemTarget": "Salesforce"
+          },
+          {
+            "id": "act-2",
+            "title": "Send executive demo scheduling link",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "Hubspot"
+          },
+          {
+            "id": "act-3",
+            "title": "Prepare custom SOC2 / Security packet",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "CompliancePortal"
+          }
+        ],
+        "version": 1,
+        "lastModifiedAt": "2026-09-23T15:24:36.415Z",
+        "lastModifiedBy": "ai"
+      },
       "approvalStatus": "pending",
       "snoozedUntil": null,
       "status": "open",
@@ -673,6 +1356,23 @@
           "actor": "System",
           "action": "thread_imported",
           "note": "Ingested from inbox feed"
+        },
+        {
+          "id": "audit-triage-1790177076415-oovo",
+          "threadId": "thread-014",
+          "timestamp": "2026-09-23T15:24:36.415Z",
+          "actor": "AI Butler",
+          "action": "triage_performed",
+          "note": "Assigned P1 (sales) to Enterprise Sales. Confidence: 96%"
+        },
+        {
+          "id": "audit-draft-1790177076415-qk88",
+          "threadId": "thread-014",
+          "timestamp": "2026-09-23T15:24:36.415Z",
+          "actor": "AI Butler",
+          "action": "draft_generated",
+          "note": "Generated reply draft (professional tone) with 3 suggested actions. Awaiting human approval.",
+          "draftSnapshot": "Hi Rachel,\n\nThank you for considering ApproveGate for your team. We would be delighted to arrange a dedicated technical walk-through tailored to your organization's workflow and compliance requirements.\n\nPlease let us know what time slots work best for your team this week, or book directly via our team calendar link.\n\nBest regards,\nEnterprise Solutions Team"
         }
       ]
     },
@@ -702,8 +1402,50 @@
           "body": "Hello,\n\nCould you please email me the official PDF invoice for our last monthly payment of $49? Our finance department needs it with our company tax registration number ES-B9812491 included.\n\nThank you,\nLucia"
         }
       ],
-      "triage": null,
-      "draft": null,
+      "triage": {
+        "priority": "P3",
+        "category": "billing",
+        "summary": "Receipt request: Need PDF tax invoice for company bookkeeping. Issue: Could you please email me the official PDF invoice for our last monthly payment of $49? Our finance department needs it with our company tax...",
+        "suggestedOwner": "Billing Ops",
+        "dueBy": "2026-09-24T19:05:00.000Z",
+        "sentiment": "neutral",
+        "confidence": 0.96,
+        "reasoning": "Routine bookkeeping invoice copy request."
+      },
+      "draft": {
+        "id": "draft-thread-015",
+        "threadId": "thread-015",
+        "recipient": "lucia@studioverde.es",
+        "subject": "Re: Receipt request: Need PDF tax invoice for company bookkeeping",
+        "body": "Hi Lucia,\n\nThank you for bringing this to our attention. Our billing operations team has reviewed your account details.\n\nWe are processing the requested adjustment and will provide the transaction confirmation receipt once finalized.\n\nWarm regards,\nBilling & Accounts Team",
+        "tone": "professional",
+        "suggestedActions": [
+          {
+            "id": "act-1",
+            "title": "Review Stripe transaction history",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "Stripe"
+          },
+          {
+            "id": "act-2",
+            "title": "Initiate payment refund / credit memo",
+            "type": "refund",
+            "completed": false,
+            "systemTarget": "Stripe"
+          },
+          {
+            "id": "act-3",
+            "title": "Update invoice record in CRM",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "Salesforce"
+          }
+        ],
+        "version": 1,
+        "lastModifiedAt": "2026-09-23T15:24:36.416Z",
+        "lastModifiedBy": "ai"
+      },
       "approvalStatus": "pending",
       "snoozedUntil": null,
       "status": "open",
@@ -715,6 +1457,23 @@
           "actor": "System",
           "action": "thread_imported",
           "note": "Ingested from inbox feed"
+        },
+        {
+          "id": "audit-triage-1790177076416-spjd",
+          "threadId": "thread-015",
+          "timestamp": "2026-09-23T15:24:36.416Z",
+          "actor": "AI Butler",
+          "action": "triage_performed",
+          "note": "Assigned P3 (billing) to Billing Ops. Confidence: 96%"
+        },
+        {
+          "id": "audit-draft-1790177076416-sh1p",
+          "threadId": "thread-015",
+          "timestamp": "2026-09-23T15:24:36.416Z",
+          "actor": "AI Butler",
+          "action": "draft_generated",
+          "note": "Generated reply draft (professional tone) with 3 suggested actions. Awaiting human approval.",
+          "draftSnapshot": "Hi Lucia,\n\nThank you for bringing this to our attention. Our billing operations team has reviewed your account details.\n\nWe are processing the requested adjustment and will provide the transaction confirmation receipt once finalized.\n\nWarm regards,\nBilling & Accounts Team"
         }
       ]
     },
@@ -744,8 +1503,43 @@
           "body": "Automated notification: Certificate for *.approvegate.internal has been renewed successfully. Expiration: 2026-12-21 00:00:00 UTC. No human action required."
         }
       ],
-      "triage": null,
-      "draft": null,
+      "triage": {
+        "priority": "P3",
+        "category": "FYI",
+        "summary": "Notification: SSL Certificate Auto-Renewed for domain *.approvegate.internal. Issue: Automated notification: Certificate for *.approvegate.internal has been renewed successfully. Expiration: 2026-12-21 00:00:00 UTC. No human ...",
+        "suggestedOwner": "Automation / Archive",
+        "dueBy": "2026-09-25T18:00:00.000Z",
+        "sentiment": "neutral",
+        "confidence": 0.96,
+        "reasoning": "Automated infrastructure notification confirming routine certificate renewal."
+      },
+      "draft": {
+        "id": "draft-thread-016",
+        "threadId": "thread-016",
+        "recipient": "certs@internal-infra.corp",
+        "subject": "Re: Notification: SSL Certificate Auto-Renewed for domain *.approvegate.internal",
+        "body": "[Automated Log: FYI message noted. No outgoing email required.]",
+        "tone": "direct",
+        "suggestedActions": [
+          {
+            "id": "act-1",
+            "title": "Archive notification thread",
+            "type": "archive",
+            "completed": false,
+            "systemTarget": "Inbox"
+          },
+          {
+            "id": "act-2",
+            "title": "Mark sender domain in automated filter",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "FilterEngine"
+          }
+        ],
+        "version": 1,
+        "lastModifiedAt": "2026-09-23T15:24:36.417Z",
+        "lastModifiedBy": "ai"
+      },
       "approvalStatus": "pending",
       "snoozedUntil": null,
       "status": "open",
@@ -757,6 +1551,23 @@
           "actor": "System",
           "action": "thread_imported",
           "note": "Ingested from inbox feed"
+        },
+        {
+          "id": "audit-triage-1790177076417-yre4",
+          "threadId": "thread-016",
+          "timestamp": "2026-09-23T15:24:36.417Z",
+          "actor": "AI Butler",
+          "action": "triage_performed",
+          "note": "Assigned P3 (FYI) to Automation / Archive. Confidence: 96%"
+        },
+        {
+          "id": "audit-draft-1790177076417-ou5l",
+          "threadId": "thread-016",
+          "timestamp": "2026-09-23T15:24:36.417Z",
+          "actor": "AI Butler",
+          "action": "draft_generated",
+          "note": "Generated reply draft (direct tone) with 2 suggested actions. Awaiting human approval.",
+          "draftSnapshot": "[Automated Log: FYI message noted. No outgoing email required.]"
         }
       ]
     },
@@ -786,8 +1597,43 @@
           "body": "Forwarding email from Apex Global CTO:\n'We have experienced three consecutive downtime incidents this month. If our dedicated technical account manager does not provide a root cause analysis and SLA credit proposal by 5 PM today, we are migrating to your competitor.'\n\nNeed urgent executive intervention and customer success team contact immediately."
         }
       ],
-      "triage": null,
-      "draft": null,
+      "triage": {
+        "priority": "P0",
+        "category": "other",
+        "summary": "Customer churn escalation - Account #8812 cancel request. Issue: Forwarding email from Apex Global CTO:...",
+        "suggestedOwner": "Customer Success Leadership",
+        "dueBy": "2026-09-22T19:15:00.000Z",
+        "sentiment": "frustrated",
+        "confidence": 0.96,
+        "reasoning": "Executive VIP churn risk requiring high-touch leadership escalation and SLA resolution."
+      },
+      "draft": {
+        "id": "draft-thread-017",
+        "threadId": "thread-017",
+        "recipient": "m.thorne@enterprise-accounts.com",
+        "subject": "Re: Fwd: Customer churn escalation - Account #8812 cancel request",
+        "body": "Hi Michael,\n\nThank you for reaching out to the ApproveGate team. We have received your request and forwarded it to the relevant specialist for review.\n\nWe will be in touch with a detailed response shortly.\n\nKind regards,\nSupport Operations",
+        "tone": "professional",
+        "suggestedActions": [
+          {
+            "id": "act-1",
+            "title": "Assign ticket to specialist team",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "Zendesk"
+          },
+          {
+            "id": "act-2",
+            "title": "Flag for 24-hour follow-up review",
+            "type": "investigation",
+            "completed": false,
+            "systemTarget": "ApproveGate"
+          }
+        ],
+        "version": 1,
+        "lastModifiedAt": "2026-09-23T15:24:36.418Z",
+        "lastModifiedBy": "ai"
+      },
       "approvalStatus": "pending",
       "snoozedUntil": null,
       "status": "open",
@@ -799,6 +1645,23 @@
           "actor": "System",
           "action": "thread_imported",
           "note": "Ingested from inbox feed"
+        },
+        {
+          "id": "audit-triage-1790177076418-7288",
+          "threadId": "thread-017",
+          "timestamp": "2026-09-23T15:24:36.418Z",
+          "actor": "AI Butler",
+          "action": "triage_performed",
+          "note": "Assigned P0 (other) to Customer Success Leadership. Confidence: 96%"
+        },
+        {
+          "id": "audit-draft-1790177076418-im9s",
+          "threadId": "thread-017",
+          "timestamp": "2026-09-23T15:24:36.418Z",
+          "actor": "AI Butler",
+          "action": "draft_generated",
+          "note": "Generated reply draft (professional tone) with 2 suggested actions. Awaiting human approval.",
+          "draftSnapshot": "Hi Michael,\n\nThank you for reaching out to the ApproveGate team. We have received your request and forwarded it to the relevant specialist for review.\n\nWe will be in touch with a detailed response shortly.\n\nKind regards,\nSupport Operations"
         }
       ]
     },
@@ -828,8 +1691,43 @@
           "body": "Hi! On page https://docs.approvegate.io/api/triage in the response schema example, 'confidence' is spelled 'confidance'. Just wanted to give a quick heads up.\n\nCheers,\nAlex"
         }
       ],
-      "triage": null,
-      "draft": null,
+      "triage": {
+        "priority": "P3",
+        "category": "other",
+        "summary": "Typo in API documentation page for /v1/triage endpoint. Issue: Hi! On page https://docs.approvegate.io/api/triage in the response schema example, 'confidence' is spelled 'confidance'. Just wanted to give...",
+        "suggestedOwner": "Technical Documentation",
+        "dueBy": "2026-09-24T16:30:00.000Z",
+        "sentiment": "positive",
+        "confidence": 0.96,
+        "reasoning": "Helpful user submission for documentation typo correction."
+      },
+      "draft": {
+        "id": "draft-thread-018",
+        "threadId": "thread-018",
+        "recipient": "anovak@developer.io",
+        "subject": "Re: Typo in API documentation page for /v1/triage endpoint",
+        "body": "Hi Alex,\n\nThank you for reaching out to the ApproveGate team. We have received your request and forwarded it to the relevant specialist for review.\n\nWe will be in touch with a detailed response shortly.\n\nKind regards,\nSupport Operations",
+        "tone": "professional",
+        "suggestedActions": [
+          {
+            "id": "act-1",
+            "title": "Assign ticket to specialist team",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "Zendesk"
+          },
+          {
+            "id": "act-2",
+            "title": "Flag for 24-hour follow-up review",
+            "type": "investigation",
+            "completed": false,
+            "systemTarget": "ApproveGate"
+          }
+        ],
+        "version": 1,
+        "lastModifiedAt": "2026-09-23T15:24:36.419Z",
+        "lastModifiedBy": "ai"
+      },
       "approvalStatus": "pending",
       "snoozedUntil": null,
       "status": "open",
@@ -841,6 +1739,23 @@
           "actor": "System",
           "action": "thread_imported",
           "note": "Ingested from inbox feed"
+        },
+        {
+          "id": "audit-triage-1790177076419-x1mu",
+          "threadId": "thread-018",
+          "timestamp": "2026-09-23T15:24:36.419Z",
+          "actor": "AI Butler",
+          "action": "triage_performed",
+          "note": "Assigned P3 (other) to Technical Documentation. Confidence: 96%"
+        },
+        {
+          "id": "audit-draft-1790177076419-5lrw",
+          "threadId": "thread-018",
+          "timestamp": "2026-09-23T15:24:36.419Z",
+          "actor": "AI Butler",
+          "action": "draft_generated",
+          "note": "Generated reply draft (professional tone) with 2 suggested actions. Awaiting human approval.",
+          "draftSnapshot": "Hi Alex,\n\nThank you for reaching out to the ApproveGate team. We have received your request and forwarded it to the relevant specialist for review.\n\nWe will be in touch with a detailed response shortly.\n\nKind regards,\nSupport Operations"
         }
       ]
     },
@@ -870,8 +1785,43 @@
           "body": "Team,\n\nWe noticed that when our triage payload has long audit histories (>500KB), the outgoing webhook gets dropped without any entry in the delivery logs or retry queue. It returns 413 Payload Too Large from the intermediate load balancer.\n\nCan you increase the client body max limit or compress payloads via gzip?\n\nSiddharth Nair"
         }
       ],
-      "triage": null,
-      "draft": null,
+      "triage": {
+        "priority": "P2",
+        "category": "bug",
+        "summary": "Webhook deliveries failing silently when payload exceeds 500KB. Issue: We noticed that when our triage payload has long audit histories (>500KB), the outgoing webhook gets dropped without any entry in the delive...",
+        "suggestedOwner": "Platform Engineering",
+        "dueBy": "2026-09-23T15:40:00.000Z",
+        "sentiment": "neutral",
+        "confidence": 0.96,
+        "reasoning": "Payload size threshold issue on high-volume webhook dispatches."
+      },
+      "draft": {
+        "id": "draft-thread-019",
+        "threadId": "thread-019",
+        "recipient": "snair@cloudscale.net",
+        "subject": "Re: Webhook deliveries failing silently when payload exceeds 500KB",
+        "body": "Hi Siddharth,\n\nThank you for reporting this issue. We have logged ticket reference for our engineering team to investigate the root cause.\n\nWe will follow up as soon as a fix or workaround is available.\n\nBest regards,\nPlatform Support",
+        "tone": "technical",
+        "suggestedActions": [
+          {
+            "id": "act-1",
+            "title": "File defect in engineering backlog (Jira)",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "Jira"
+          },
+          {
+            "id": "act-2",
+            "title": "Verify client reproduction steps",
+            "type": "investigation",
+            "completed": false,
+            "systemTarget": "DevConsole"
+          }
+        ],
+        "version": 1,
+        "lastModifiedAt": "2026-09-23T15:24:36.420Z",
+        "lastModifiedBy": "ai"
+      },
       "approvalStatus": "pending",
       "snoozedUntil": null,
       "status": "open",
@@ -883,6 +1833,23 @@
           "actor": "System",
           "action": "thread_imported",
           "note": "Ingested from inbox feed"
+        },
+        {
+          "id": "audit-triage-1790177076420-3ywv",
+          "threadId": "thread-019",
+          "timestamp": "2026-09-23T15:24:36.420Z",
+          "actor": "AI Butler",
+          "action": "triage_performed",
+          "note": "Assigned P2 (bug) to Platform Engineering. Confidence: 96%"
+        },
+        {
+          "id": "audit-draft-1790177076420-au6l",
+          "threadId": "thread-019",
+          "timestamp": "2026-09-23T15:24:36.420Z",
+          "actor": "AI Butler",
+          "action": "draft_generated",
+          "note": "Generated reply draft (technical tone) with 2 suggested actions. Awaiting human approval.",
+          "draftSnapshot": "Hi Siddharth,\n\nThank you for reporting this issue. We have logged ticket reference for our engineering team to investigate the root cause.\n\nWe will follow up as soon as a fix or workaround is available.\n\nBest regards,\nPlatform Support"
         }
       ]
     },
@@ -912,8 +1879,43 @@
           "body": "Hello support team,\n\nWe would like to add two new managers as workspace administrators so they can approve draft responses when I am out. In Settings > Team, the role dropdown only shows 'Member'.\n\nIs admin seat allocation managed under a different tab?\n\nThanks,\nChloe Dupont"
         }
       ],
-      "triage": null,
-      "draft": null,
+      "triage": {
+        "priority": "P2",
+        "category": "other",
+        "summary": "How do I invite secondary admins to our team workspace?. Issue: Hello support team,...",
+        "suggestedOwner": "Customer Support",
+        "dueBy": "2026-09-23T14:20:00.000Z",
+        "sentiment": "neutral",
+        "confidence": 0.96,
+        "reasoning": "General administrative permission configuration guidance requested."
+      },
+      "draft": {
+        "id": "draft-thread-020",
+        "threadId": "thread-020",
+        "recipient": "c.dupont@atelierdesign.fr",
+        "subject": "Re: How do I invite secondary admins to our team workspace?",
+        "body": "Hi Chloe,\n\nThank you for reaching out to the ApproveGate team. We have received your request and forwarded it to the relevant specialist for review.\n\nWe will be in touch with a detailed response shortly.\n\nKind regards,\nSupport Operations",
+        "tone": "professional",
+        "suggestedActions": [
+          {
+            "id": "act-1",
+            "title": "Assign ticket to specialist team",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "Zendesk"
+          },
+          {
+            "id": "act-2",
+            "title": "Flag for 24-hour follow-up review",
+            "type": "investigation",
+            "completed": false,
+            "systemTarget": "ApproveGate"
+          }
+        ],
+        "version": 1,
+        "lastModifiedAt": "2026-09-23T15:24:36.420Z",
+        "lastModifiedBy": "ai"
+      },
       "approvalStatus": "pending",
       "snoozedUntil": null,
       "status": "open",
@@ -925,6 +1927,23 @@
           "actor": "System",
           "action": "thread_imported",
           "note": "Ingested from inbox feed"
+        },
+        {
+          "id": "audit-triage-1790177076420-7n4s",
+          "threadId": "thread-020",
+          "timestamp": "2026-09-23T15:24:36.420Z",
+          "actor": "AI Butler",
+          "action": "triage_performed",
+          "note": "Assigned P2 (other) to Customer Support. Confidence: 96%"
+        },
+        {
+          "id": "audit-draft-1790177076420-7t5r",
+          "threadId": "thread-020",
+          "timestamp": "2026-09-23T15:24:36.420Z",
+          "actor": "AI Butler",
+          "action": "draft_generated",
+          "note": "Generated reply draft (professional tone) with 2 suggested actions. Awaiting human approval.",
+          "draftSnapshot": "Hi Chloe,\n\nThank you for reaching out to the ApproveGate team. We have received your request and forwarded it to the relevant specialist for review.\n\nWe will be in touch with a detailed response shortly.\n\nKind regards,\nSupport Operations"
         }
       ]
     },
@@ -954,8 +1973,43 @@
           "body": "Dear Legal & Compliance Team,\n\nPrior to signing our enterprise expansion order, our legal counsel requires your standard Data Processing Addendum (DPA) incorporating the EU 2021 Standard Contractual Clauses for transfer of personal data outside the EEA.\n\nPlease provide a counter-signed copy of our agreement or your standard pre-approved DPA template.\n\nBest regards,\nKlaus Richter\nChief Compliance Officer"
         }
       ],
-      "triage": null,
-      "draft": null,
+      "triage": {
+        "priority": "P1",
+        "category": "other",
+        "summary": "Data Processing Agreement (DPA) and GDPR Standard Contractual Clauses. Issue: Dear Legal & Compliance Team,...",
+        "suggestedOwner": "Legal & Compliance",
+        "dueBy": "2026-09-23T01:10:00.000Z",
+        "sentiment": "neutral",
+        "confidence": 0.96,
+        "reasoning": "Regulatory compliance agreement requested prior to enterprise contract execution."
+      },
+      "draft": {
+        "id": "draft-thread-021",
+        "threadId": "thread-021",
+        "recipient": "klaus.richter@nordic-fin.se",
+        "subject": "Re: Data Processing Agreement (DPA) and GDPR Standard Contractual Clauses",
+        "body": "Hi Klaus,\n\nThank you for reaching out to the ApproveGate team. We have received your request and forwarded it to the relevant specialist for review.\n\nWe will be in touch with a detailed response shortly.\n\nKind regards,\nSupport Operations",
+        "tone": "professional",
+        "suggestedActions": [
+          {
+            "id": "act-1",
+            "title": "Assign ticket to specialist team",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "Zendesk"
+          },
+          {
+            "id": "act-2",
+            "title": "Flag for 24-hour follow-up review",
+            "type": "investigation",
+            "completed": false,
+            "systemTarget": "ApproveGate"
+          }
+        ],
+        "version": 1,
+        "lastModifiedAt": "2026-09-23T15:24:36.421Z",
+        "lastModifiedBy": "ai"
+      },
       "approvalStatus": "pending",
       "snoozedUntil": null,
       "status": "open",
@@ -967,6 +2021,23 @@
           "actor": "System",
           "action": "thread_imported",
           "note": "Ingested from inbox feed"
+        },
+        {
+          "id": "audit-triage-1790177076421-veqt",
+          "threadId": "thread-021",
+          "timestamp": "2026-09-23T15:24:36.421Z",
+          "actor": "AI Butler",
+          "action": "triage_performed",
+          "note": "Assigned P1 (other) to Legal & Compliance. Confidence: 96%"
+        },
+        {
+          "id": "audit-draft-1790177076421-e1dk",
+          "threadId": "thread-021",
+          "timestamp": "2026-09-23T15:24:36.421Z",
+          "actor": "AI Butler",
+          "action": "draft_generated",
+          "note": "Generated reply draft (professional tone) with 2 suggested actions. Awaiting human approval.",
+          "draftSnapshot": "Hi Klaus,\n\nThank you for reaching out to the ApproveGate team. We have received your request and forwarded it to the relevant specialist for review.\n\nWe will be in touch with a detailed response shortly.\n\nKind regards,\nSupport Operations"
         }
       ]
     },
@@ -996,8 +2067,43 @@
           "body": "Hello,\n\nEvery 60 minutes our GitHub sync disconnects with 'Bad credentials - token expired'. It looks like your backend is not calling GitHub's installation access token refresh endpoint before dispatching issue creation calls.\n\nWe have to manually click 'Reconnect GitHub' every hour.\n\nDaniel Kim"
         }
       ],
-      "triage": null,
-      "draft": null,
+      "triage": {
+        "priority": "P2",
+        "category": "bug",
+        "summary": "GitHub Integration: App installation token expiration error. Issue: Every 60 minutes our GitHub sync disconnects with 'Bad credentials - token expired'. It looks like your backend is not calling GitHub's inst...",
+        "suggestedOwner": "Integrations Team",
+        "dueBy": "2026-09-23T12:00:00.000Z",
+        "sentiment": "frustrated",
+        "confidence": 0.96,
+        "reasoning": "OAuth / GitHub token lifecycle issue causing recurring disconnects."
+      },
+      "draft": {
+        "id": "draft-thread-022",
+        "threadId": "thread-022",
+        "recipient": "dkim@quantumops.io",
+        "subject": "Re: GitHub Integration: App installation token expiration error",
+        "body": "Hi Daniel,\n\nThank you for reporting this issue. We have logged ticket reference for our engineering team to investigate the root cause.\n\nWe will follow up as soon as a fix or workaround is available.\n\nBest regards,\nPlatform Support",
+        "tone": "technical",
+        "suggestedActions": [
+          {
+            "id": "act-1",
+            "title": "File defect in engineering backlog (Jira)",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "Jira"
+          },
+          {
+            "id": "act-2",
+            "title": "Verify client reproduction steps",
+            "type": "investigation",
+            "completed": false,
+            "systemTarget": "DevConsole"
+          }
+        ],
+        "version": 1,
+        "lastModifiedAt": "2026-09-23T15:24:36.422Z",
+        "lastModifiedBy": "ai"
+      },
       "approvalStatus": "pending",
       "snoozedUntil": null,
       "status": "open",
@@ -1009,6 +2115,23 @@
           "actor": "System",
           "action": "thread_imported",
           "note": "Ingested from inbox feed"
+        },
+        {
+          "id": "audit-triage-1790177076423-ygps",
+          "threadId": "thread-022",
+          "timestamp": "2026-09-23T15:24:36.423Z",
+          "actor": "AI Butler",
+          "action": "triage_performed",
+          "note": "Assigned P2 (bug) to Integrations Team. Confidence: 96%"
+        },
+        {
+          "id": "audit-draft-1790177076423-9y1a",
+          "threadId": "thread-022",
+          "timestamp": "2026-09-23T15:24:36.423Z",
+          "actor": "AI Butler",
+          "action": "draft_generated",
+          "note": "Generated reply draft (technical tone) with 2 suggested actions. Awaiting human approval.",
+          "draftSnapshot": "Hi Daniel,\n\nThank you for reporting this issue. We have logged ticket reference for our engineering team to investigate the root cause.\n\nWe will follow up as soon as a fix or workaround is available.\n\nBest regards,\nPlatform Support"
         }
       ]
     },
@@ -1038,8 +2161,50 @@
           "body": "Hi,\n\nOur VP of Customer Experience and I would like to schedule a 30-minute tailored product demo. We currently handle 40,000 inbound tickets monthly using Zendesk and are looking to add an AI triage and draft approval layer.\n\nDo you have availability this Thursday or Friday afternoon EST?\n\nBest,\nEmily Watson\nHead of CX Operations"
         }
       ],
-      "triage": null,
-      "draft": null,
+      "triage": {
+        "priority": "P1",
+        "category": "sales",
+        "summary": "Inquiry: Can we schedule a product demo for our executive team?. Issue: Our VP of Customer Experience and I would like to schedule a 30-minute tailored product demo. We currently handle 40,000 inbound tickets mon...",
+        "suggestedOwner": "Enterprise Sales",
+        "dueBy": "2026-09-22T19:15:00.000Z",
+        "sentiment": "positive",
+        "confidence": 0.96,
+        "reasoning": "Inbound enterprise demo inquiry from high-volume CX leadership."
+      },
+      "draft": {
+        "id": "draft-thread-023",
+        "threadId": "thread-023",
+        "recipient": "emily.watson@horizontech.com",
+        "subject": "Re: Inquiry: Can we schedule a product demo for our executive team?",
+        "body": "Hi Emily,\n\nThank you for considering ApproveGate for your team. We would be delighted to arrange a dedicated technical walk-through tailored to your organization's workflow and compliance requirements.\n\nPlease let us know what time slots work best for your team this week, or book directly via our team calendar link.\n\nBest regards,\nEnterprise Solutions Team",
+        "tone": "professional",
+        "suggestedActions": [
+          {
+            "id": "act-1",
+            "title": "Route contact to Enterprise Account Executive",
+            "type": "escalation",
+            "completed": false,
+            "systemTarget": "Salesforce"
+          },
+          {
+            "id": "act-2",
+            "title": "Send executive demo scheduling link",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "Hubspot"
+          },
+          {
+            "id": "act-3",
+            "title": "Prepare custom SOC2 / Security packet",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "CompliancePortal"
+          }
+        ],
+        "version": 1,
+        "lastModifiedAt": "2026-09-23T15:24:36.423Z",
+        "lastModifiedBy": "ai"
+      },
       "approvalStatus": "pending",
       "snoozedUntil": null,
       "status": "open",
@@ -1051,6 +2216,23 @@
           "actor": "System",
           "action": "thread_imported",
           "note": "Ingested from inbox feed"
+        },
+        {
+          "id": "audit-triage-1790177076423-r0v1",
+          "threadId": "thread-023",
+          "timestamp": "2026-09-23T15:24:36.423Z",
+          "actor": "AI Butler",
+          "action": "triage_performed",
+          "note": "Assigned P1 (sales) to Enterprise Sales. Confidence: 96%"
+        },
+        {
+          "id": "audit-draft-1790177076423-2q4y",
+          "threadId": "thread-023",
+          "timestamp": "2026-09-23T15:24:36.423Z",
+          "actor": "AI Butler",
+          "action": "draft_generated",
+          "note": "Generated reply draft (professional tone) with 3 suggested actions. Awaiting human approval.",
+          "draftSnapshot": "Hi Emily,\n\nThank you for considering ApproveGate for your team. We would be delighted to arrange a dedicated technical walk-through tailored to your organization's workflow and compliance requirements.\n\nPlease let us know what time slots work best for your team this week, or book directly via our team calendar link.\n\nBest regards,\nEnterprise Solutions Team"
         }
       ]
     },
@@ -1079,8 +2261,43 @@
           "body": "Dear Business Owner,\n\nDo you want your website on Page 1 of Google? We offer 500 high DA do-follow backlinks and monthly guest posts for only $199. Reply YES to get a free site audit today.\n\nUnsubscribe from future pitches."
         }
       ],
-      "triage": null,
-      "draft": null,
+      "triage": {
+        "priority": "P3",
+        "category": "FYI",
+        "summary": "Spam: SEO and Backlink services for high search engine ranking. Issue: Dear Business Owner,...",
+        "suggestedOwner": "Spam Filter",
+        "dueBy": "2026-09-25T10:00:00.000Z",
+        "sentiment": "neutral",
+        "confidence": 0.96,
+        "reasoning": "Unsolicited cold promotional spam."
+      },
+      "draft": {
+        "id": "draft-thread-024",
+        "threadId": "thread-024",
+        "recipient": "leads@rankboost-marketing-solutions.xyz",
+        "subject": "Re: Spam: SEO and Backlink services for high search engine ranking",
+        "body": "[Automated Log: FYI message noted. No outgoing email required.]",
+        "tone": "direct",
+        "suggestedActions": [
+          {
+            "id": "act-1",
+            "title": "Archive notification thread",
+            "type": "archive",
+            "completed": false,
+            "systemTarget": "Inbox"
+          },
+          {
+            "id": "act-2",
+            "title": "Mark sender domain in automated filter",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "FilterEngine"
+          }
+        ],
+        "version": 1,
+        "lastModifiedAt": "2026-09-23T15:24:36.424Z",
+        "lastModifiedBy": "ai"
+      },
       "approvalStatus": "pending",
       "snoozedUntil": null,
       "status": "open",
@@ -1092,6 +2309,23 @@
           "actor": "System",
           "action": "thread_imported",
           "note": "Ingested from inbox feed"
+        },
+        {
+          "id": "audit-triage-1790177076424-9nbd",
+          "threadId": "thread-024",
+          "timestamp": "2026-09-23T15:24:36.424Z",
+          "actor": "AI Butler",
+          "action": "triage_performed",
+          "note": "Assigned P3 (FYI) to Spam Filter. Confidence: 96%"
+        },
+        {
+          "id": "audit-draft-1790177076424-6czc",
+          "threadId": "thread-024",
+          "timestamp": "2026-09-23T15:24:36.424Z",
+          "actor": "AI Butler",
+          "action": "draft_generated",
+          "note": "Generated reply draft (direct tone) with 2 suggested actions. Awaiting human approval.",
+          "draftSnapshot": "[Automated Log: FYI message noted. No outgoing email required.]"
         }
       ]
     },
@@ -1121,8 +2355,43 @@
           "body": "[WARNING] S3 bucket approvegate-uswest-attachments has exceeded 91.2% quota (4.5TB / 5.0TB). Automatic cleanup cycle will initiate if threshold reaches 95%. Recommended action: review retention lifecycle policy."
         }
       ],
-      "triage": null,
-      "draft": null,
+      "triage": {
+        "priority": "P1",
+        "category": "bug",
+        "summary": "System Warning: Storage usage exceeded 90% threshold in us-west data bucket. Issue: [WARNING] S3 bucket approvegate-uswest-attachments has exceeded 91.2% quota (4.5TB / 5.0TB). Automatic cleanup cycle will initiate if thresh...",
+        "suggestedOwner": "Site Reliability Engineering",
+        "dueBy": "2026-09-22T13:30:00.000Z",
+        "sentiment": "urgent",
+        "confidence": 0.96,
+        "reasoning": "Critical storage threshold reached that will trigger data deletion or ingestion throttling."
+      },
+      "draft": {
+        "id": "draft-thread-025",
+        "threadId": "thread-025",
+        "recipient": "alerts@s3-monitor.internal",
+        "subject": "Re: System Warning: Storage usage exceeded 90% threshold in us-west data bucket",
+        "body": "Hi Cloud,\n\nThank you for reporting this issue. We have logged ticket reference for our engineering team to investigate the root cause.\n\nWe will follow up as soon as a fix or workaround is available.\n\nBest regards,\nPlatform Support",
+        "tone": "technical",
+        "suggestedActions": [
+          {
+            "id": "act-1",
+            "title": "File defect in engineering backlog (Jira)",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "Jira"
+          },
+          {
+            "id": "act-2",
+            "title": "Verify client reproduction steps",
+            "type": "investigation",
+            "completed": false,
+            "systemTarget": "DevConsole"
+          }
+        ],
+        "version": 1,
+        "lastModifiedAt": "2026-09-23T15:24:36.425Z",
+        "lastModifiedBy": "ai"
+      },
       "approvalStatus": "pending",
       "snoozedUntil": null,
       "status": "open",
@@ -1134,6 +2403,23 @@
           "actor": "System",
           "action": "thread_imported",
           "note": "Ingested from inbox feed"
+        },
+        {
+          "id": "audit-triage-1790177076425-wc2n",
+          "threadId": "thread-025",
+          "timestamp": "2026-09-23T15:24:36.425Z",
+          "actor": "AI Butler",
+          "action": "triage_performed",
+          "note": "Assigned P1 (bug) to Site Reliability Engineering. Confidence: 96%"
+        },
+        {
+          "id": "audit-draft-1790177076425-xthb",
+          "threadId": "thread-025",
+          "timestamp": "2026-09-23T15:24:36.425Z",
+          "actor": "AI Butler",
+          "action": "draft_generated",
+          "note": "Generated reply draft (technical tone) with 2 suggested actions. Awaiting human approval.",
+          "draftSnapshot": "Hi Cloud,\n\nThank you for reporting this issue. We have logged ticket reference for our engineering team to investigate the root cause.\n\nWe will follow up as soon as a fix or workaround is available.\n\nBest regards,\nPlatform Support"
         }
       ]
     },
@@ -1163,8 +2449,50 @@
           "body": "Buongiorno,\n\nWe entered our Italian VAT number IT09876543210 during the checkout process for the Team Plan, but the system displays 'VIES validation error: unable to verify VAT'.\n\nOur VAT number is active in the European VIES database. Can you manually verify and apply the reverse-charge VAT exemption so we can finalize payment without the 22% surcharge?\n\nCordiali saluti,\nMarco Rossi"
         }
       ],
-      "triage": null,
-      "draft": null,
+      "triage": {
+        "priority": "P1",
+        "category": "billing",
+        "summary": "VAT exempt status validation failed during checkout. Issue: Buongiorno,...",
+        "suggestedOwner": "Billing Ops",
+        "dueBy": "2026-09-22T14:45:00.000Z",
+        "sentiment": "frustrated",
+        "confidence": 0.96,
+        "reasoning": "Checkout failure due to international VAT tax calculation error."
+      },
+      "draft": {
+        "id": "draft-thread-026",
+        "threadId": "thread-026",
+        "recipient": "m.rossi@milano-solutions.it",
+        "subject": "Re: VAT exempt status validation failed during checkout",
+        "body": "Hi Marco,\n\nThank you for bringing this to our attention. Our billing operations team has reviewed your account details.\n\nWe are processing the requested adjustment and will provide the transaction confirmation receipt once finalized.\n\nWarm regards,\nBilling & Accounts Team",
+        "tone": "professional",
+        "suggestedActions": [
+          {
+            "id": "act-1",
+            "title": "Review Stripe transaction history",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "Stripe"
+          },
+          {
+            "id": "act-2",
+            "title": "Initiate payment refund / credit memo",
+            "type": "refund",
+            "completed": false,
+            "systemTarget": "Stripe"
+          },
+          {
+            "id": "act-3",
+            "title": "Update invoice record in CRM",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "Salesforce"
+          }
+        ],
+        "version": 1,
+        "lastModifiedAt": "2026-09-23T15:24:36.426Z",
+        "lastModifiedBy": "ai"
+      },
       "approvalStatus": "pending",
       "snoozedUntil": null,
       "status": "open",
@@ -1176,6 +2504,23 @@
           "actor": "System",
           "action": "thread_imported",
           "note": "Ingested from inbox feed"
+        },
+        {
+          "id": "audit-triage-1790177076426-3597",
+          "threadId": "thread-026",
+          "timestamp": "2026-09-23T15:24:36.426Z",
+          "actor": "AI Butler",
+          "action": "triage_performed",
+          "note": "Assigned P1 (billing) to Billing Ops. Confidence: 96%"
+        },
+        {
+          "id": "audit-draft-1790177076426-yqiw",
+          "threadId": "thread-026",
+          "timestamp": "2026-09-23T15:24:36.426Z",
+          "actor": "AI Butler",
+          "action": "draft_generated",
+          "note": "Generated reply draft (professional tone) with 3 suggested actions. Awaiting human approval.",
+          "draftSnapshot": "Hi Marco,\n\nThank you for bringing this to our attention. Our billing operations team has reviewed your account details.\n\nWe are processing the requested adjustment and will provide the transaction confirmation receipt once finalized.\n\nWarm regards,\nBilling & Accounts Team"
         }
       ]
     },
@@ -1205,8 +2550,43 @@
           "body": "Hey team,\n\nWe are building a unified internal ops console for our compliance agents. Does ApproveGate provide an iframe SDK, Web Component, or React NPM package that lets us embed the approve/reject review interface directly inside our portal?\n\nIf not, what is the best recommended API pattern for headless approval state transitions?\n\nThanks,\nBrian"
         }
       ],
-      "triage": null,
-      "draft": null,
+      "triage": {
+        "priority": "P2",
+        "category": "other",
+        "summary": "Can the ApproveGate UI be embedded within our internal React portal?. Issue: We are building a unified internal ops console for our compliance agents. Does ApproveGate provide an iframe SDK, Web Component, or React NP...",
+        "suggestedOwner": "Developer Relations",
+        "dueBy": "2026-09-23T07:50:00.000Z",
+        "sentiment": "positive",
+        "confidence": 0.96,
+        "reasoning": "Developer architecture question on embedding ApproveGate components."
+      },
+      "draft": {
+        "id": "draft-thread-027",
+        "threadId": "thread-027",
+        "recipient": "brian@finserve-app.com",
+        "subject": "Re: Can the ApproveGate UI be embedded within our internal React portal?",
+        "body": "Hi Brian,\n\nThank you for reaching out to the ApproveGate team. We have received your request and forwarded it to the relevant specialist for review.\n\nWe will be in touch with a detailed response shortly.\n\nKind regards,\nSupport Operations",
+        "tone": "professional",
+        "suggestedActions": [
+          {
+            "id": "act-1",
+            "title": "Assign ticket to specialist team",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "Zendesk"
+          },
+          {
+            "id": "act-2",
+            "title": "Flag for 24-hour follow-up review",
+            "type": "investigation",
+            "completed": false,
+            "systemTarget": "ApproveGate"
+          }
+        ],
+        "version": 1,
+        "lastModifiedAt": "2026-09-23T15:24:36.427Z",
+        "lastModifiedBy": "ai"
+      },
       "approvalStatus": "pending",
       "snoozedUntil": null,
       "status": "open",
@@ -1218,6 +2598,23 @@
           "actor": "System",
           "action": "thread_imported",
           "note": "Ingested from inbox feed"
+        },
+        {
+          "id": "audit-triage-1790177076427-9zpi",
+          "threadId": "thread-027",
+          "timestamp": "2026-09-23T15:24:36.427Z",
+          "actor": "AI Butler",
+          "action": "triage_performed",
+          "note": "Assigned P2 (other) to Developer Relations. Confidence: 96%"
+        },
+        {
+          "id": "audit-draft-1790177076427-3ftf",
+          "threadId": "thread-027",
+          "timestamp": "2026-09-23T15:24:36.427Z",
+          "actor": "AI Butler",
+          "action": "draft_generated",
+          "note": "Generated reply draft (professional tone) with 2 suggested actions. Awaiting human approval.",
+          "draftSnapshot": "Hi Brian,\n\nThank you for reaching out to the ApproveGate team. We have received your request and forwarded it to the relevant specialist for review.\n\nWe will be in touch with a detailed response shortly.\n\nKind regards,\nSupport Operations"
         }
       ]
     },
@@ -1247,8 +2644,43 @@
           "body": "[P0 SECURITY ESCALATION] User 'amanda.wright@megacorp.com' triggered anomalous behavior alert: 45 bulk export downloads requested in 3 minutes from IP 102.89.23.11 (Lagos, Nigeria). User's historical location is Seattle, US.\nSession has been temporarily quarantined. Immediate verification with account owner required."
         }
       ],
-      "triage": null,
-      "draft": null,
+      "triage": {
+        "priority": "P0",
+        "category": "other",
+        "summary": "SECURITY INCIDENT: Suspicious mass export attempt from IP in Nigeria. Issue: [P0 SECURITY ESCALATION] User 'amanda.wright@megacorp.com' triggered anomalous behavior alert: 45 bulk export downloads requested in 3 minut...",
+        "suggestedOwner": "Security Operations",
+        "dueBy": "2026-09-22T07:30:00.000Z",
+        "sentiment": "urgent",
+        "confidence": 0.96,
+        "reasoning": "Critical security alert indicating potential account takeover and bulk data exfiltration."
+      },
+      "draft": {
+        "id": "draft-thread-028",
+        "threadId": "thread-028",
+        "recipient": "soc-alerts@internal-security.corp",
+        "subject": "Re: SECURITY INCIDENT: Suspicious mass export attempt from IP in Nigeria",
+        "body": "Hi Security,\n\nThank you for reaching out to the ApproveGate team. We have received your request and forwarded it to the relevant specialist for review.\n\nWe will be in touch with a detailed response shortly.\n\nKind regards,\nSupport Operations",
+        "tone": "professional",
+        "suggestedActions": [
+          {
+            "id": "act-1",
+            "title": "Assign ticket to specialist team",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "Zendesk"
+          },
+          {
+            "id": "act-2",
+            "title": "Flag for 24-hour follow-up review",
+            "type": "investigation",
+            "completed": false,
+            "systemTarget": "ApproveGate"
+          }
+        ],
+        "version": 1,
+        "lastModifiedAt": "2026-09-23T15:24:36.429Z",
+        "lastModifiedBy": "ai"
+      },
       "approvalStatus": "pending",
       "snoozedUntil": null,
       "status": "open",
@@ -1260,6 +2692,23 @@
           "actor": "System",
           "action": "thread_imported",
           "note": "Ingested from inbox feed"
+        },
+        {
+          "id": "audit-triage-1790177076429-ya2r",
+          "threadId": "thread-028",
+          "timestamp": "2026-09-23T15:24:36.429Z",
+          "actor": "AI Butler",
+          "action": "triage_performed",
+          "note": "Assigned P0 (other) to Security Operations. Confidence: 96%"
+        },
+        {
+          "id": "audit-draft-1790177076429-p4k4",
+          "threadId": "thread-028",
+          "timestamp": "2026-09-23T15:24:36.429Z",
+          "actor": "AI Butler",
+          "action": "draft_generated",
+          "note": "Generated reply draft (professional tone) with 2 suggested actions. Awaiting human approval.",
+          "draftSnapshot": "Hi Security,\n\nThank you for reaching out to the ApproveGate team. We have received your request and forwarded it to the relevant specialist for review.\n\nWe will be in touch with a detailed response shortly.\n\nKind regards,\nSupport Operations"
         }
       ]
     },
@@ -1289,8 +2738,43 @@
           "body": "Hi team, quick question:\n\nWhen I snooze items for 24 hours, is there a quick filter pill to see only items that unsnoozed today? Right now I have to scroll through the full pending list to find them.\n\nWould love to see this in the next release!\nJessica"
         }
       ],
-      "triage": null,
-      "draft": null,
+      "triage": {
+        "priority": "P3",
+        "category": "other",
+        "summary": "Missing filter option for 'Snoozed until today' in ticket list. Issue: Hi team, quick question:...",
+        "suggestedOwner": "Product Team",
+        "dueBy": "2026-09-24T05:15:00.000Z",
+        "sentiment": "neutral",
+        "confidence": 0.96,
+        "reasoning": "Minor UI usability recommendation for snooze filtering."
+      },
+      "draft": {
+        "id": "draft-thread-029",
+        "threadId": "thread-029",
+        "recipient": "jtaylor@frontlineops.co",
+        "subject": "Re: Missing filter option for 'Snoozed until today' in ticket list",
+        "body": "Hi Jessica,\n\nThank you for reaching out to the ApproveGate team. We have received your request and forwarded it to the relevant specialist for review.\n\nWe will be in touch with a detailed response shortly.\n\nKind regards,\nSupport Operations",
+        "tone": "professional",
+        "suggestedActions": [
+          {
+            "id": "act-1",
+            "title": "Assign ticket to specialist team",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "Zendesk"
+          },
+          {
+            "id": "act-2",
+            "title": "Flag for 24-hour follow-up review",
+            "type": "investigation",
+            "completed": false,
+            "systemTarget": "ApproveGate"
+          }
+        ],
+        "version": 1,
+        "lastModifiedAt": "2026-09-23T15:24:36.430Z",
+        "lastModifiedBy": "ai"
+      },
       "approvalStatus": "pending",
       "snoozedUntil": null,
       "status": "open",
@@ -1302,6 +2786,23 @@
           "actor": "System",
           "action": "thread_imported",
           "note": "Ingested from inbox feed"
+        },
+        {
+          "id": "audit-triage-1790177076430-x7qf",
+          "threadId": "thread-029",
+          "timestamp": "2026-09-23T15:24:36.430Z",
+          "actor": "AI Butler",
+          "action": "triage_performed",
+          "note": "Assigned P3 (other) to Product Team. Confidence: 96%"
+        },
+        {
+          "id": "audit-draft-1790177076430-ey7y",
+          "threadId": "thread-029",
+          "timestamp": "2026-09-23T15:24:36.430Z",
+          "actor": "AI Butler",
+          "action": "draft_generated",
+          "note": "Generated reply draft (professional tone) with 2 suggested actions. Awaiting human approval.",
+          "draftSnapshot": "Hi Jessica,\n\nThank you for reaching out to the ApproveGate team. We have received your request and forwarded it to the relevant specialist for review.\n\nWe will be in touch with a detailed response shortly.\n\nKind regards,\nSupport Operations"
         }
       ]
     },
@@ -1331,8 +2832,50 @@
           "body": "Hello,\n\nWe are currently evaluating replacements for our Intercom suite across 80 agents handling e-commerce customer support. Our primary challenge is preventing AI hallucinations from reaching customers—your hard approval gate architecture is exactly what our compliance team mandates.\n\nCould we schedule an intro call with your head of enterprise partnerships to review data migration and implementation timelines?\n\nNathaniel Ward\nVP Customer Success"
         }
       ],
-      "triage": null,
-      "draft": null,
+      "triage": {
+        "priority": "P1",
+        "category": "sales",
+        "summary": "Request for proposal: Migration from Intercom to ApproveGate for 80 support reps. Issue: We are currently evaluating replacements for our Intercom suite across 80 agents handling e-commerce customer support. Our primary challenge...",
+        "suggestedOwner": "Enterprise Sales",
+        "dueBy": "2026-09-22T10:20:00.000Z",
+        "sentiment": "neutral",
+        "confidence": 0.96,
+        "reasoning": "High-value displacement sales opportunity for an 80-seat support team."
+      },
+      "draft": {
+        "id": "draft-thread-030",
+        "threadId": "thread-030",
+        "recipient": "nward@apexcommerce.net",
+        "subject": "Re: Request for proposal: Migration from Intercom to ApproveGate for 80 support reps",
+        "body": "Hi Nathaniel,\n\nThank you for considering ApproveGate for your team. We would be delighted to arrange a dedicated technical walk-through tailored to your organization's workflow and compliance requirements.\n\nPlease let us know what time slots work best for your team this week, or book directly via our team calendar link.\n\nBest regards,\nEnterprise Solutions Team",
+        "tone": "professional",
+        "suggestedActions": [
+          {
+            "id": "act-1",
+            "title": "Route contact to Enterprise Account Executive",
+            "type": "escalation",
+            "completed": false,
+            "systemTarget": "Salesforce"
+          },
+          {
+            "id": "act-2",
+            "title": "Send executive demo scheduling link",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "Hubspot"
+          },
+          {
+            "id": "act-3",
+            "title": "Prepare custom SOC2 / Security packet",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "CompliancePortal"
+          }
+        ],
+        "version": 1,
+        "lastModifiedAt": "2026-09-23T15:24:36.432Z",
+        "lastModifiedBy": "ai"
+      },
       "approvalStatus": "pending",
       "snoozedUntil": null,
       "status": "open",
@@ -1344,6 +2887,23 @@
           "actor": "System",
           "action": "thread_imported",
           "note": "Ingested from inbox feed"
+        },
+        {
+          "id": "audit-triage-1790177076432-eh5f",
+          "threadId": "thread-030",
+          "timestamp": "2026-09-23T15:24:36.432Z",
+          "actor": "AI Butler",
+          "action": "triage_performed",
+          "note": "Assigned P1 (sales) to Enterprise Sales. Confidence: 96%"
+        },
+        {
+          "id": "audit-draft-1790177076432-jj5n",
+          "threadId": "thread-030",
+          "timestamp": "2026-09-23T15:24:36.432Z",
+          "actor": "AI Butler",
+          "action": "draft_generated",
+          "note": "Generated reply draft (professional tone) with 3 suggested actions. Awaiting human approval.",
+          "draftSnapshot": "Hi Nathaniel,\n\nThank you for considering ApproveGate for your team. We would be delighted to arrange a dedicated technical walk-through tailored to your organization's workflow and compliance requirements.\n\nPlease let us know what time slots work best for your team this week, or book directly via our team calendar link.\n\nBest regards,\nEnterprise Solutions Team"
         }
       ]
     },
@@ -1373,8 +2933,43 @@
           "body": "Thank you for your order! Your 50mm f/1.8 prime lens has shipped via FedEx tracking #982103810291. Estimated arrival: Thursday Sep 25. If you did not place this order, contact support immediately."
         }
       ],
-      "triage": null,
-      "draft": null,
+      "triage": {
+        "priority": "P3",
+        "category": "other",
+        "summary": "Order Confirmation #ORD-991204 - Digital Camera Lens. Issue: Thank you for your order! Your 50mm f/1.8 prime lens has shipped via FedEx tracking #982103810291. Estimated arrival: Thursday Sep 25. If yo...",
+        "suggestedOwner": "Tier 1 Support",
+        "dueBy": "2026-09-25T03:00:00.000Z",
+        "sentiment": "neutral",
+        "confidence": 0.96,
+        "reasoning": "Misdirected personal retail shipping notification."
+      },
+      "draft": {
+        "id": "draft-thread-031",
+        "threadId": "thread-031",
+        "recipient": "service@electronics-store-order.com",
+        "subject": "Re: Fwd: Order Confirmation #ORD-991204 - Digital Camera Lens",
+        "body": "Hi Personal,\n\nThank you for reaching out to the ApproveGate team. We have received your request and forwarded it to the relevant specialist for review.\n\nWe will be in touch with a detailed response shortly.\n\nKind regards,\nSupport Operations",
+        "tone": "professional",
+        "suggestedActions": [
+          {
+            "id": "act-1",
+            "title": "Assign ticket to specialist team",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "Zendesk"
+          },
+          {
+            "id": "act-2",
+            "title": "Flag for 24-hour follow-up review",
+            "type": "investigation",
+            "completed": false,
+            "systemTarget": "ApproveGate"
+          }
+        ],
+        "version": 1,
+        "lastModifiedAt": "2026-09-23T15:24:36.433Z",
+        "lastModifiedBy": "ai"
+      },
       "approvalStatus": "pending",
       "snoozedUntil": null,
       "status": "open",
@@ -1386,6 +2981,23 @@
           "actor": "System",
           "action": "thread_imported",
           "note": "Ingested from inbox feed"
+        },
+        {
+          "id": "audit-triage-1790177076433-gdwg",
+          "threadId": "thread-031",
+          "timestamp": "2026-09-23T15:24:36.433Z",
+          "actor": "AI Butler",
+          "action": "triage_performed",
+          "note": "Assigned P3 (other) to Tier 1 Support. Confidence: 96%"
+        },
+        {
+          "id": "audit-draft-1790177076433-m1bx",
+          "threadId": "thread-031",
+          "timestamp": "2026-09-23T15:24:36.433Z",
+          "actor": "AI Butler",
+          "action": "draft_generated",
+          "note": "Generated reply draft (professional tone) with 2 suggested actions. Awaiting human approval.",
+          "draftSnapshot": "Hi Personal,\n\nThank you for reaching out to the ApproveGate team. We have received your request and forwarded it to the relevant specialist for review.\n\nWe will be in touch with a detailed response shortly.\n\nKind regards,\nSupport Operations"
         }
       ]
     },
@@ -1415,8 +3027,43 @@
           "body": "Hi Support,\n\nOur internal auditors need all draft state change records for Q2 2026 (approx 18,000 events). When we click 'Export Audit Log (JSON)' with a 90-day date filter, the request hangs for 60 seconds and returns Cloudflare HTTP 504 Gateway Timeout.\n\nCan this query be executed asynchronously with a download link sent via email?\n\nHannah Abbott\nCompliance Auditor"
         }
       ],
-      "triage": null,
-      "draft": null,
+      "triage": {
+        "priority": "P1",
+        "category": "bug",
+        "summary": "Audit log export failing with HTTP 504 Gateway Timeout on 90-day queries. Issue: Hi Support,...",
+        "suggestedOwner": "Platform Engineering",
+        "dueBy": "2026-09-22T08:15:00.000Z",
+        "sentiment": "frustrated",
+        "confidence": 0.96,
+        "reasoning": "Enterprise audit reporting timeout preventing regulatory audit export."
+      },
+      "draft": {
+        "id": "draft-thread-032",
+        "threadId": "thread-032",
+        "recipient": "hannah@fintech-security.co.uk",
+        "subject": "Re: Audit log export failing with HTTP 504 Gateway Timeout on 90-day queries",
+        "body": "Hi Hannah,\n\nThank you for reporting this issue. We have logged ticket reference for our engineering team to investigate the root cause.\n\nWe will follow up as soon as a fix or workaround is available.\n\nBest regards,\nPlatform Support",
+        "tone": "technical",
+        "suggestedActions": [
+          {
+            "id": "act-1",
+            "title": "File defect in engineering backlog (Jira)",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "Jira"
+          },
+          {
+            "id": "act-2",
+            "title": "Verify client reproduction steps",
+            "type": "investigation",
+            "completed": false,
+            "systemTarget": "DevConsole"
+          }
+        ],
+        "version": 1,
+        "lastModifiedAt": "2026-09-23T15:24:36.434Z",
+        "lastModifiedBy": "ai"
+      },
       "approvalStatus": "pending",
       "snoozedUntil": null,
       "status": "open",
@@ -1428,6 +3075,23 @@
           "actor": "System",
           "action": "thread_imported",
           "note": "Ingested from inbox feed"
+        },
+        {
+          "id": "audit-triage-1790177076434-mui4",
+          "threadId": "thread-032",
+          "timestamp": "2026-09-23T15:24:36.434Z",
+          "actor": "AI Butler",
+          "action": "triage_performed",
+          "note": "Assigned P1 (bug) to Platform Engineering. Confidence: 96%"
+        },
+        {
+          "id": "audit-draft-1790177076434-d6ue",
+          "threadId": "thread-032",
+          "timestamp": "2026-09-23T15:24:36.434Z",
+          "actor": "AI Butler",
+          "action": "draft_generated",
+          "note": "Generated reply draft (technical tone) with 2 suggested actions. Awaiting human approval.",
+          "draftSnapshot": "Hi Hannah,\n\nThank you for reporting this issue. We have logged ticket reference for our engineering team to investigate the root cause.\n\nWe will follow up as soon as a fix or workaround is available.\n\nBest regards,\nPlatform Support"
         }
       ]
     },
@@ -1457,8 +3121,50 @@
           "body": "Hello,\n\nPlease process the cancellation of our subscription for Cork Analytics (Account ID: CA-4402). We will not be renewing for the upcoming fiscal year. Please confirm in writing that no charges will occur on October 1st.\n\nLiam Murphy"
         }
       ],
-      "triage": null,
-      "draft": null,
+      "triage": {
+        "priority": "P1",
+        "category": "billing",
+        "summary": "Cancellation Request: Please cancel our subscription before auto-renew on Oct 1. Issue: Please process the cancellation of our subscription for Cork Analytics (Account ID: CA-4402). We will not be renewing for the upcoming fisca...",
+        "suggestedOwner": "Retention & Billing",
+        "dueBy": "2026-09-22T07:30:00.000Z",
+        "sentiment": "neutral",
+        "confidence": 0.96,
+        "reasoning": "Time-critical subscription cancellation request before renewal billing date."
+      },
+      "draft": {
+        "id": "draft-thread-033",
+        "threadId": "thread-033",
+        "recipient": "liam@corkanalytics.ie",
+        "subject": "Re: Cancellation Request: Please cancel our subscription before auto-renew on Oct 1",
+        "body": "Hi Liam,\n\nThank you for bringing this to our attention. Our billing operations team has reviewed your account details.\n\nWe are processing the requested adjustment and will provide the transaction confirmation receipt once finalized.\n\nWarm regards,\nBilling & Accounts Team",
+        "tone": "professional",
+        "suggestedActions": [
+          {
+            "id": "act-1",
+            "title": "Review Stripe transaction history",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "Stripe"
+          },
+          {
+            "id": "act-2",
+            "title": "Initiate payment refund / credit memo",
+            "type": "refund",
+            "completed": false,
+            "systemTarget": "Stripe"
+          },
+          {
+            "id": "act-3",
+            "title": "Update invoice record in CRM",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "Salesforce"
+          }
+        ],
+        "version": 1,
+        "lastModifiedAt": "2026-09-23T15:24:36.435Z",
+        "lastModifiedBy": "ai"
+      },
       "approvalStatus": "pending",
       "snoozedUntil": null,
       "status": "open",
@@ -1470,6 +3176,23 @@
           "actor": "System",
           "action": "thread_imported",
           "note": "Ingested from inbox feed"
+        },
+        {
+          "id": "audit-triage-1790177076435-8ugz",
+          "threadId": "thread-033",
+          "timestamp": "2026-09-23T15:24:36.435Z",
+          "actor": "AI Butler",
+          "action": "triage_performed",
+          "note": "Assigned P1 (billing) to Retention & Billing. Confidence: 96%"
+        },
+        {
+          "id": "audit-draft-1790177076435-fpg2",
+          "threadId": "thread-033",
+          "timestamp": "2026-09-23T15:24:36.435Z",
+          "actor": "AI Butler",
+          "action": "draft_generated",
+          "note": "Generated reply draft (professional tone) with 3 suggested actions. Awaiting human approval.",
+          "draftSnapshot": "Hi Liam,\n\nThank you for bringing this to our attention. Our billing operations team has reviewed your account details.\n\nWe are processing the requested adjustment and will provide the transaction confirmation receipt once finalized.\n\nWarm regards,\nBilling & Accounts Team"
         }
       ]
     },
@@ -1498,8 +3221,43 @@
           "body": "Notice: Database patch upgrade scheduled for Sunday between 02:00 and 02:30 UTC. Read-only replica failover expected with up to 45 seconds of transient latency. Customer traffic should remain uninterrupted."
         }
       ],
-      "triage": null,
-      "draft": null,
+      "triage": {
+        "priority": "P3",
+        "category": "FYI",
+        "summary": "Weekly System Maintenance scheduled for Sunday 02:00 UTC. Issue: Notice: Database patch upgrade scheduled for Sunday between 02:00 and 02:30 UTC. Read-only replica failover expected with up to 45 seconds o...",
+        "suggestedOwner": "Automation / Archive",
+        "dueBy": "2026-09-25T00:45:00.000Z",
+        "sentiment": "neutral",
+        "confidence": 0.96,
+        "reasoning": "Scheduled routine infrastructure maintenance advisory."
+      },
+      "draft": {
+        "id": "draft-thread-034",
+        "threadId": "thread-034",
+        "recipient": "ops-noreply@internal-infra.corp",
+        "subject": "Re: Weekly System Maintenance scheduled for Sunday 02:00 UTC",
+        "body": "[Automated Log: FYI message noted. No outgoing email required.]",
+        "tone": "direct",
+        "suggestedActions": [
+          {
+            "id": "act-1",
+            "title": "Archive notification thread",
+            "type": "archive",
+            "completed": false,
+            "systemTarget": "Inbox"
+          },
+          {
+            "id": "act-2",
+            "title": "Mark sender domain in automated filter",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "FilterEngine"
+          }
+        ],
+        "version": 1,
+        "lastModifiedAt": "2026-09-23T15:24:36.436Z",
+        "lastModifiedBy": "ai"
+      },
       "approvalStatus": "pending",
       "snoozedUntil": null,
       "status": "open",
@@ -1511,6 +3269,23 @@
           "actor": "System",
           "action": "thread_imported",
           "note": "Ingested from inbox feed"
+        },
+        {
+          "id": "audit-triage-1790177076436-4rcg",
+          "threadId": "thread-034",
+          "timestamp": "2026-09-23T15:24:36.436Z",
+          "actor": "AI Butler",
+          "action": "triage_performed",
+          "note": "Assigned P3 (FYI) to Automation / Archive. Confidence: 96%"
+        },
+        {
+          "id": "audit-draft-1790177076436-vf20",
+          "threadId": "thread-034",
+          "timestamp": "2026-09-23T15:24:36.436Z",
+          "actor": "AI Butler",
+          "action": "draft_generated",
+          "note": "Generated reply draft (direct tone) with 2 suggested actions. Awaiting human approval.",
+          "draftSnapshot": "[Automated Log: FYI message noted. No outgoing email required.]"
         }
       ]
     },
@@ -1540,8 +3315,43 @@
           "body": "VIA ELECTRONIC MAIL\n\nRE: Notice of Trademark Infringement and Cease and Desist Demand\n\nWe represent Apex Automated Systems, owner of US Trademark Reg. #5,892,104 for the mark 'APPROVEGATEWAY'. It has come to our attention that your organization is bidding on our registered trademark in Google AdWords and using confusingly similar copy.\n\nYou are formally demanded to remove these advertisements within forty-eight (48) hours of receipt of this notice. Respond with confirmation of compliance to prevent formal injunctive proceedings.\n\nSarah Jenkins\nSenior Partner"
         }
       ],
-      "triage": null,
-      "draft": null,
+      "triage": {
+        "priority": "P1",
+        "category": "other",
+        "summary": "Urgent legal demand: Trademark violation notice for brand keyword in search ads. Issue: VIA ELECTRONIC MAIL...",
+        "suggestedOwner": "Legal & Compliance",
+        "dueBy": "2026-09-22T07:10:00.000Z",
+        "sentiment": "urgent",
+        "confidence": 0.96,
+        "reasoning": "Formal trademark legal notice demanding ad takedown within 48 hours."
+      },
+      "draft": {
+        "id": "draft-thread-035",
+        "threadId": "thread-035",
+        "recipient": "sjenkins@legal-partners-llp.com",
+        "subject": "Re: Urgent legal demand: Trademark violation notice for brand keyword in search ads",
+        "body": "Hi Sarah,\n\nThank you for reaching out to the ApproveGate team. We have received your request and forwarded it to the relevant specialist for review.\n\nWe will be in touch with a detailed response shortly.\n\nKind regards,\nSupport Operations",
+        "tone": "professional",
+        "suggestedActions": [
+          {
+            "id": "act-1",
+            "title": "Assign ticket to specialist team",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "Zendesk"
+          },
+          {
+            "id": "act-2",
+            "title": "Flag for 24-hour follow-up review",
+            "type": "investigation",
+            "completed": false,
+            "systemTarget": "ApproveGate"
+          }
+        ],
+        "version": 1,
+        "lastModifiedAt": "2026-09-23T15:24:36.437Z",
+        "lastModifiedBy": "ai"
+      },
       "approvalStatus": "pending",
       "snoozedUntil": null,
       "status": "open",
@@ -1553,6 +3363,23 @@
           "actor": "System",
           "action": "thread_imported",
           "note": "Ingested from inbox feed"
+        },
+        {
+          "id": "audit-triage-1790177076437-rndc",
+          "threadId": "thread-035",
+          "timestamp": "2026-09-23T15:24:36.437Z",
+          "actor": "AI Butler",
+          "action": "triage_performed",
+          "note": "Assigned P1 (other) to Legal & Compliance. Confidence: 96%"
+        },
+        {
+          "id": "audit-draft-1790177076437-x245",
+          "threadId": "thread-035",
+          "timestamp": "2026-09-23T15:24:36.437Z",
+          "actor": "AI Butler",
+          "action": "draft_generated",
+          "note": "Generated reply draft (professional tone) with 2 suggested actions. Awaiting human approval.",
+          "draftSnapshot": "Hi Sarah,\n\nThank you for reaching out to the ApproveGate team. We have received your request and forwarded it to the relevant specialist for review.\n\nWe will be in touch with a detailed response shortly.\n\nKind regards,\nSupport Operations"
         }
       ]
     },
@@ -1582,8 +3409,43 @@
           "body": "Hello,\n\nWe are integrating ApproveGate with our event broker and need to verify message authenticity via sha256 HMAC in the 'X-Signature-SHA256' header. Does your webhook dispatch engine support configuring custom signing secrets and headers?\n\nIf yes, where in the admin console can we find the signing secret?\n\nThanks,\nTobias"
         }
       ],
-      "triage": null,
-      "draft": null,
+      "triage": {
+        "priority": "P2",
+        "category": "other",
+        "summary": "Can we configure custom webhook headers for HMAC signature verification?. Issue: We are integrating ApproveGate with our event broker and need to verify message authenticity via sha256 HMAC in the 'X-Signature-SHA256' hea...",
+        "suggestedOwner": "Developer Support",
+        "dueBy": "2026-09-22T22:00:00.000Z",
+        "sentiment": "neutral",
+        "confidence": 0.96,
+        "reasoning": "Webhook security verification header integration support."
+      },
+      "draft": {
+        "id": "draft-thread-036",
+        "threadId": "thread-036",
+        "recipient": "tlindqvist@nordicscale.se",
+        "subject": "Re: Can we configure custom webhook headers for HMAC signature verification?",
+        "body": "Hi Tobias,\n\nThank you for reaching out to the ApproveGate team. We have received your request and forwarded it to the relevant specialist for review.\n\nWe will be in touch with a detailed response shortly.\n\nKind regards,\nSupport Operations",
+        "tone": "professional",
+        "suggestedActions": [
+          {
+            "id": "act-1",
+            "title": "Assign ticket to specialist team",
+            "type": "action",
+            "completed": false,
+            "systemTarget": "Zendesk"
+          },
+          {
+            "id": "act-2",
+            "title": "Flag for 24-hour follow-up review",
+            "type": "investigation",
+            "completed": false,
+            "systemTarget": "ApproveGate"
+          }
+        ],
+        "version": 1,
+        "lastModifiedAt": "2026-09-23T15:24:36.438Z",
+        "lastModifiedBy": "ai"
+      },
       "approvalStatus": "pending",
       "snoozedUntil": null,
       "status": "open",
@@ -1595,6 +3457,23 @@
           "actor": "System",
           "action": "thread_imported",
           "note": "Ingested from inbox feed"
+        },
+        {
+          "id": "audit-triage-1790177076438-qfaz",
+          "threadId": "thread-036",
+          "timestamp": "2026-09-23T15:24:36.438Z",
+          "actor": "AI Butler",
+          "action": "triage_performed",
+          "note": "Assigned P2 (other) to Developer Support. Confidence: 96%"
+        },
+        {
+          "id": "audit-draft-1790177076438-fjri",
+          "threadId": "thread-036",
+          "timestamp": "2026-09-23T15:24:36.438Z",
+          "actor": "AI Butler",
+          "action": "draft_generated",
+          "note": "Generated reply draft (professional tone) with 2 suggested actions. Awaiting human approval.",
+          "draftSnapshot": "Hi Tobias,\n\nThank you for reaching out to the ApproveGate team. We have received your request and forwarded it to the relevant specialist for review.\n\nWe will be in touch with a detailed response shortly.\n\nKind regards,\nSupport Operations"
         }
       ]
     }
@@ -1889,53 +3768,616 @@
       "note": "Ingested from inbox feed"
     },
     {
-      "id": "audit-triage-1790176867239-wgsy",
+      "id": "audit-triage-1790177076401-bl2e",
+      "threadId": "thread-001",
+      "timestamp": "2026-09-23T15:24:36.401Z",
+      "actor": "AI Butler",
+      "action": "triage_performed",
+      "note": "Assigned P0 (bug) to Core Platform Engineering. Confidence: 96%"
+    },
+    {
+      "id": "audit-draft-1790177076401-k5f5",
+      "threadId": "thread-001",
+      "timestamp": "2026-09-23T15:24:36.401Z",
+      "actor": "AI Butler",
+      "action": "draft_generated",
+      "note": "Generated reply draft (apologetic tone) with 3 suggested actions. Awaiting human approval.",
+      "draftSnapshot": "Hi Marcus,\n\nThank you for reaching out with highest urgency. Our on-call incident team has been paged and is actively investigating the incident. A priority bridge has been opened.\n\nWe will provide an update within 30 minutes with our mitigation progress and root cause analysis.\n\nSincerely,\nIncident Response Team"
+    },
+    {
+      "id": "audit-triage-1790177076403-9eid",
+      "threadId": "thread-002",
+      "timestamp": "2026-09-23T15:24:36.403Z",
+      "actor": "AI Butler",
+      "action": "triage_performed",
+      "note": "Assigned P0 (billing) to Billing Ops. Confidence: 96%"
+    },
+    {
+      "id": "audit-draft-1790177076403-l6xt",
+      "threadId": "thread-002",
+      "timestamp": "2026-09-23T15:24:36.403Z",
+      "actor": "AI Butler",
+      "action": "draft_generated",
+      "note": "Generated reply draft (apologetic tone) with 3 suggested actions. Awaiting human approval.",
+      "draftSnapshot": "Hi Elena,\n\nThank you for bringing this to our attention. Our billing operations team has reviewed your account details.\n\nWe are processing the requested adjustment and will provide the transaction confirmation receipt once finalized.\n\nWarm regards,\nBilling & Accounts Team"
+    },
+    {
+      "id": "audit-triage-1790177076404-xnr0",
+      "threadId": "thread-003",
+      "timestamp": "2026-09-23T15:24:36.404Z",
+      "actor": "AI Butler",
+      "action": "triage_performed",
+      "note": "Assigned P1 (sales) to Enterprise Sales. Confidence: 96%"
+    },
+    {
+      "id": "audit-draft-1790177076404-rf9y",
+      "threadId": "thread-003",
+      "timestamp": "2026-09-23T15:24:36.404Z",
+      "actor": "AI Butler",
+      "action": "draft_generated",
+      "note": "Generated reply draft (professional tone) with 3 suggested actions. Awaiting human approval.",
+      "draftSnapshot": "Hi David,\n\nThank you for considering ApproveGate for your team. We would be delighted to arrange a dedicated technical walk-through tailored to your organization's workflow and compliance requirements.\n\nPlease let us know what time slots work best for your team this week, or book directly via our team calendar link.\n\nBest regards,\nEnterprise Solutions Team"
+    },
+    {
+      "id": "audit-triage-1790177076405-jrkq",
+      "threadId": "thread-004",
+      "timestamp": "2026-09-23T15:24:36.405Z",
+      "actor": "AI Butler",
+      "action": "triage_performed",
+      "note": "Assigned P3 (FYI) to Automation / Archive. Confidence: 96%"
+    },
+    {
+      "id": "audit-draft-1790177076405-4rht",
+      "threadId": "thread-004",
+      "timestamp": "2026-09-23T15:24:36.405Z",
+      "actor": "AI Butler",
+      "action": "draft_generated",
+      "note": "Generated reply draft (direct tone) with 2 suggested actions. Awaiting human approval.",
+      "draftSnapshot": "[Automated Log: FYI message noted. No outgoing email required.]"
+    },
+    {
+      "id": "audit-triage-1790177076406-tcdu",
+      "threadId": "thread-005",
+      "timestamp": "2026-09-23T15:24:36.406Z",
+      "actor": "AI Butler",
+      "action": "triage_performed",
+      "note": "Assigned P0 (bug) to Security & Compliance. Confidence: 96%"
+    },
+    {
+      "id": "audit-draft-1790177076406-c9tu",
+      "threadId": "thread-005",
+      "timestamp": "2026-09-23T15:24:36.406Z",
+      "actor": "AI Butler",
+      "action": "draft_generated",
+      "note": "Generated reply draft (apologetic tone) with 3 suggested actions. Awaiting human approval.",
+      "draftSnapshot": "Hi Priya,\n\nThank you for reaching out with highest urgency. Our on-call incident team has been paged and is actively investigating the incident. A priority bridge has been opened.\n\nWe will provide an update within 30 minutes with our mitigation progress and root cause analysis.\n\nSincerely,\nIncident Response Team"
+    },
+    {
+      "id": "audit-triage-1790177076407-tq2c",
+      "threadId": "thread-006",
+      "timestamp": "2026-09-23T15:24:36.407Z",
+      "actor": "AI Butler",
+      "action": "triage_performed",
+      "note": "Assigned P2 (bug) to Frontend Engineering. Confidence: 96%"
+    },
+    {
+      "id": "audit-draft-1790177076407-gxie",
+      "threadId": "thread-006",
+      "timestamp": "2026-09-23T15:24:36.407Z",
+      "actor": "AI Butler",
+      "action": "draft_generated",
+      "note": "Generated reply draft (technical tone) with 2 suggested actions. Awaiting human approval.",
+      "draftSnapshot": "Hi Thomas,\n\nThank you for reporting this issue. We have logged ticket reference for our engineering team to investigate the root cause.\n\nWe will follow up as soon as a fix or workaround is available.\n\nBest regards,\nPlatform Support"
+    },
+    {
+      "id": "audit-triage-1790177076408-2iyz",
       "threadId": "thread-007",
-      "timestamp": "2026-09-23T15:21:07.239Z",
+      "timestamp": "2026-09-23T15:24:36.408Z",
       "actor": "AI Butler",
       "action": "triage_performed",
       "note": "Assigned P2 (billing) to Billing Ops. Confidence: 96%"
     },
     {
-      "id": "audit-draft-1790176867239-vvr3",
+      "id": "audit-draft-1790177076408-98cz",
       "threadId": "thread-007",
-      "timestamp": "2026-09-23T15:21:07.239Z",
+      "timestamp": "2026-09-23T15:24:36.408Z",
       "actor": "AI Butler",
       "action": "draft_generated",
       "note": "Generated reply draft (professional tone) with 3 suggested actions. Awaiting human approval.",
       "draftSnapshot": "Hi Brigitte,\n\nThank you for bringing this to our attention. Our billing operations team has reviewed your account details.\n\nWe are processing the requested adjustment and will provide the transaction confirmation receipt once finalized.\n\nWarm regards,\nBilling & Accounts Team"
     },
     {
-      "id": "audit-appr-1790176867239-itzo",
-      "threadId": "thread-007",
-      "timestamp": "2026-09-23T15:21:07.239Z",
-      "actor": "Operator",
-      "action": "draft_approved",
-      "previousStatus": "pending",
-      "newStatus": "approved",
-      "note": "Draft reviewed and approved by operator. Ready for authorized dispatch.",
-      "draftSnapshot": "Hi Brigitte,\n\nThank you for bringing this to our attention. Our billing operations team has reviewed your account details.\n\nWe are processing the requested adjustment and will provide the transaction confirmation receipt once finalized.\n\nWarm regards,\nBilling & Accounts Team"
+      "id": "audit-triage-1790177076409-z0n1",
+      "threadId": "thread-008",
+      "timestamp": "2026-09-23T15:24:36.409Z",
+      "actor": "AI Butler",
+      "action": "triage_performed",
+      "note": "Assigned P3 (other) to Product Team. Confidence: 96%"
     },
     {
-      "id": "audit-edit-1790176867240-7i53",
-      "threadId": "thread-007",
-      "timestamp": "2026-09-23T15:21:07.240Z",
-      "actor": "Operator",
-      "action": "draft_edited",
-      "previousStatus": "approved",
-      "newStatus": "pending",
-      "note": "Draft modified (v2). Previous length: 275 chars, new length: 58 chars.",
-      "draftSnapshot": "Updated custom response text with corrected invoice terms."
+      "id": "audit-draft-1790177076409-kt7e",
+      "threadId": "thread-008",
+      "timestamp": "2026-09-23T15:24:36.409Z",
+      "actor": "AI Butler",
+      "action": "draft_generated",
+      "note": "Generated reply draft (professional tone) with 2 suggested actions. Awaiting human approval.",
+      "draftSnapshot": "Hi Sarah,\n\nThank you for reaching out to the ApproveGate team. We have received your request and forwarded it to the relevant specialist for review.\n\nWe will be in touch with a detailed response shortly.\n\nKind regards,\nSupport Operations"
     },
     {
-      "id": "audit-block-1790176867241-ldcg",
-      "threadId": "thread-007",
-      "timestamp": "2026-09-23T15:21:07.241Z",
-      "actor": "System",
-      "action": "send_blocked",
-      "previousStatus": "pending",
-      "newStatus": "pending",
-      "note": "CRITICAL INVARIANT PREVENTED SEND: Attempted to send thread thread-007 without operator approval (status: pending, hasApprovalRecord: true)."
+      "id": "audit-triage-1790177076410-5k3j",
+      "threadId": "thread-009",
+      "timestamp": "2026-09-23T15:24:36.411Z",
+      "actor": "AI Butler",
+      "action": "triage_performed",
+      "note": "Assigned P3 (sales) to Marketing Partnerships. Confidence: 96%"
+    },
+    {
+      "id": "audit-draft-1790177076411-lo21",
+      "threadId": "thread-009",
+      "timestamp": "2026-09-23T15:24:36.411Z",
+      "actor": "AI Butler",
+      "action": "draft_generated",
+      "note": "Generated reply draft (professional tone) with 3 suggested actions. Awaiting human approval.",
+      "draftSnapshot": "Hi Arthur,\n\nThank you for considering ApproveGate for your team. We would be delighted to arrange a dedicated technical walk-through tailored to your organization's workflow and compliance requirements.\n\nPlease let us know what time slots work best for your team this week, or book directly via our team calendar link.\n\nBest regards,\nEnterprise Solutions Team"
+    },
+    {
+      "id": "audit-triage-1790177076411-z0tt",
+      "threadId": "thread-010",
+      "timestamp": "2026-09-23T15:24:36.411Z",
+      "actor": "AI Butler",
+      "action": "triage_performed",
+      "note": "Assigned P3 (FYI) to Automation / Archive. Confidence: 96%"
+    },
+    {
+      "id": "audit-draft-1790177076411-wgso",
+      "threadId": "thread-010",
+      "timestamp": "2026-09-23T15:24:36.411Z",
+      "actor": "AI Butler",
+      "action": "draft_generated",
+      "note": "Generated reply draft (direct tone) with 2 suggested actions. Awaiting human approval.",
+      "draftSnapshot": "[Automated Log: FYI message noted. No outgoing email required.]"
+    },
+    {
+      "id": "audit-triage-1790177076412-for4",
+      "threadId": "thread-011",
+      "timestamp": "2026-09-23T15:24:36.412Z",
+      "actor": "AI Butler",
+      "action": "triage_performed",
+      "note": "Assigned P0 (bug) to Site Reliability Engineering. Confidence: 96%"
+    },
+    {
+      "id": "audit-draft-1790177076412-9ssg",
+      "threadId": "thread-011",
+      "timestamp": "2026-09-23T15:24:36.412Z",
+      "actor": "AI Butler",
+      "action": "draft_generated",
+      "note": "Generated reply draft (apologetic tone) with 3 suggested actions. Awaiting human approval.",
+      "draftSnapshot": "Hi DevOps,\n\nThank you for reaching out with highest urgency. Our on-call incident team has been paged and is actively investigating the incident. A priority bridge has been opened.\n\nWe will provide an update within 30 minutes with our mitigation progress and root cause analysis.\n\nSincerely,\nIncident Response Team"
+    },
+    {
+      "id": "audit-triage-1790177076413-1jnt",
+      "threadId": "thread-012",
+      "timestamp": "2026-09-23T15:24:36.413Z",
+      "actor": "AI Butler",
+      "action": "triage_performed",
+      "note": "Assigned P1 (billing) to Billing Ops. Confidence: 96%"
+    },
+    {
+      "id": "audit-draft-1790177076413-9yjw",
+      "threadId": "thread-012",
+      "timestamp": "2026-09-23T15:24:36.413Z",
+      "actor": "AI Butler",
+      "action": "draft_generated",
+      "note": "Generated reply draft (professional tone) with 3 suggested actions. Awaiting human approval.",
+      "draftSnapshot": "Hi Carlos,\n\nThank you for bringing this to our attention. Our billing operations team has reviewed your account details.\n\nWe are processing the requested adjustment and will provide the transaction confirmation receipt once finalized.\n\nWarm regards,\nBilling & Accounts Team"
+    },
+    {
+      "id": "audit-triage-1790177076414-guq7",
+      "threadId": "thread-013",
+      "timestamp": "2026-09-23T15:24:36.414Z",
+      "actor": "AI Butler",
+      "action": "triage_performed",
+      "note": "Assigned P1 (bug) to IAM & Integration Team. Confidence: 96%"
+    },
+    {
+      "id": "audit-draft-1790177076414-fs55",
+      "threadId": "thread-013",
+      "timestamp": "2026-09-23T15:24:36.414Z",
+      "actor": "AI Butler",
+      "action": "draft_generated",
+      "note": "Generated reply draft (technical tone) with 2 suggested actions. Awaiting human approval.",
+      "draftSnapshot": "Hi Jennifer,\n\nThank you for reporting this issue. We have logged ticket reference for our engineering team to investigate the root cause.\n\nWe will follow up as soon as a fix or workaround is available.\n\nBest regards,\nPlatform Support"
+    },
+    {
+      "id": "audit-triage-1790177076415-oovo",
+      "threadId": "thread-014",
+      "timestamp": "2026-09-23T15:24:36.415Z",
+      "actor": "AI Butler",
+      "action": "triage_performed",
+      "note": "Assigned P1 (sales) to Enterprise Sales. Confidence: 96%"
+    },
+    {
+      "id": "audit-draft-1790177076415-qk88",
+      "threadId": "thread-014",
+      "timestamp": "2026-09-23T15:24:36.415Z",
+      "actor": "AI Butler",
+      "action": "draft_generated",
+      "note": "Generated reply draft (professional tone) with 3 suggested actions. Awaiting human approval.",
+      "draftSnapshot": "Hi Rachel,\n\nThank you for considering ApproveGate for your team. We would be delighted to arrange a dedicated technical walk-through tailored to your organization's workflow and compliance requirements.\n\nPlease let us know what time slots work best for your team this week, or book directly via our team calendar link.\n\nBest regards,\nEnterprise Solutions Team"
+    },
+    {
+      "id": "audit-triage-1790177076416-spjd",
+      "threadId": "thread-015",
+      "timestamp": "2026-09-23T15:24:36.416Z",
+      "actor": "AI Butler",
+      "action": "triage_performed",
+      "note": "Assigned P3 (billing) to Billing Ops. Confidence: 96%"
+    },
+    {
+      "id": "audit-draft-1790177076416-sh1p",
+      "threadId": "thread-015",
+      "timestamp": "2026-09-23T15:24:36.416Z",
+      "actor": "AI Butler",
+      "action": "draft_generated",
+      "note": "Generated reply draft (professional tone) with 3 suggested actions. Awaiting human approval.",
+      "draftSnapshot": "Hi Lucia,\n\nThank you for bringing this to our attention. Our billing operations team has reviewed your account details.\n\nWe are processing the requested adjustment and will provide the transaction confirmation receipt once finalized.\n\nWarm regards,\nBilling & Accounts Team"
+    },
+    {
+      "id": "audit-triage-1790177076417-yre4",
+      "threadId": "thread-016",
+      "timestamp": "2026-09-23T15:24:36.417Z",
+      "actor": "AI Butler",
+      "action": "triage_performed",
+      "note": "Assigned P3 (FYI) to Automation / Archive. Confidence: 96%"
+    },
+    {
+      "id": "audit-draft-1790177076417-ou5l",
+      "threadId": "thread-016",
+      "timestamp": "2026-09-23T15:24:36.417Z",
+      "actor": "AI Butler",
+      "action": "draft_generated",
+      "note": "Generated reply draft (direct tone) with 2 suggested actions. Awaiting human approval.",
+      "draftSnapshot": "[Automated Log: FYI message noted. No outgoing email required.]"
+    },
+    {
+      "id": "audit-triage-1790177076418-7288",
+      "threadId": "thread-017",
+      "timestamp": "2026-09-23T15:24:36.418Z",
+      "actor": "AI Butler",
+      "action": "triage_performed",
+      "note": "Assigned P0 (other) to Customer Success Leadership. Confidence: 96%"
+    },
+    {
+      "id": "audit-draft-1790177076418-im9s",
+      "threadId": "thread-017",
+      "timestamp": "2026-09-23T15:24:36.418Z",
+      "actor": "AI Butler",
+      "action": "draft_generated",
+      "note": "Generated reply draft (professional tone) with 2 suggested actions. Awaiting human approval.",
+      "draftSnapshot": "Hi Michael,\n\nThank you for reaching out to the ApproveGate team. We have received your request and forwarded it to the relevant specialist for review.\n\nWe will be in touch with a detailed response shortly.\n\nKind regards,\nSupport Operations"
+    },
+    {
+      "id": "audit-triage-1790177076419-x1mu",
+      "threadId": "thread-018",
+      "timestamp": "2026-09-23T15:24:36.419Z",
+      "actor": "AI Butler",
+      "action": "triage_performed",
+      "note": "Assigned P3 (other) to Technical Documentation. Confidence: 96%"
+    },
+    {
+      "id": "audit-draft-1790177076419-5lrw",
+      "threadId": "thread-018",
+      "timestamp": "2026-09-23T15:24:36.419Z",
+      "actor": "AI Butler",
+      "action": "draft_generated",
+      "note": "Generated reply draft (professional tone) with 2 suggested actions. Awaiting human approval.",
+      "draftSnapshot": "Hi Alex,\n\nThank you for reaching out to the ApproveGate team. We have received your request and forwarded it to the relevant specialist for review.\n\nWe will be in touch with a detailed response shortly.\n\nKind regards,\nSupport Operations"
+    },
+    {
+      "id": "audit-triage-1790177076420-3ywv",
+      "threadId": "thread-019",
+      "timestamp": "2026-09-23T15:24:36.420Z",
+      "actor": "AI Butler",
+      "action": "triage_performed",
+      "note": "Assigned P2 (bug) to Platform Engineering. Confidence: 96%"
+    },
+    {
+      "id": "audit-draft-1790177076420-au6l",
+      "threadId": "thread-019",
+      "timestamp": "2026-09-23T15:24:36.420Z",
+      "actor": "AI Butler",
+      "action": "draft_generated",
+      "note": "Generated reply draft (technical tone) with 2 suggested actions. Awaiting human approval.",
+      "draftSnapshot": "Hi Siddharth,\n\nThank you for reporting this issue. We have logged ticket reference for our engineering team to investigate the root cause.\n\nWe will follow up as soon as a fix or workaround is available.\n\nBest regards,\nPlatform Support"
+    },
+    {
+      "id": "audit-triage-1790177076420-7n4s",
+      "threadId": "thread-020",
+      "timestamp": "2026-09-23T15:24:36.420Z",
+      "actor": "AI Butler",
+      "action": "triage_performed",
+      "note": "Assigned P2 (other) to Customer Support. Confidence: 96%"
+    },
+    {
+      "id": "audit-draft-1790177076420-7t5r",
+      "threadId": "thread-020",
+      "timestamp": "2026-09-23T15:24:36.420Z",
+      "actor": "AI Butler",
+      "action": "draft_generated",
+      "note": "Generated reply draft (professional tone) with 2 suggested actions. Awaiting human approval.",
+      "draftSnapshot": "Hi Chloe,\n\nThank you for reaching out to the ApproveGate team. We have received your request and forwarded it to the relevant specialist for review.\n\nWe will be in touch with a detailed response shortly.\n\nKind regards,\nSupport Operations"
+    },
+    {
+      "id": "audit-triage-1790177076421-veqt",
+      "threadId": "thread-021",
+      "timestamp": "2026-09-23T15:24:36.421Z",
+      "actor": "AI Butler",
+      "action": "triage_performed",
+      "note": "Assigned P1 (other) to Legal & Compliance. Confidence: 96%"
+    },
+    {
+      "id": "audit-draft-1790177076421-e1dk",
+      "threadId": "thread-021",
+      "timestamp": "2026-09-23T15:24:36.421Z",
+      "actor": "AI Butler",
+      "action": "draft_generated",
+      "note": "Generated reply draft (professional tone) with 2 suggested actions. Awaiting human approval.",
+      "draftSnapshot": "Hi Klaus,\n\nThank you for reaching out to the ApproveGate team. We have received your request and forwarded it to the relevant specialist for review.\n\nWe will be in touch with a detailed response shortly.\n\nKind regards,\nSupport Operations"
+    },
+    {
+      "id": "audit-triage-1790177076423-ygps",
+      "threadId": "thread-022",
+      "timestamp": "2026-09-23T15:24:36.423Z",
+      "actor": "AI Butler",
+      "action": "triage_performed",
+      "note": "Assigned P2 (bug) to Integrations Team. Confidence: 96%"
+    },
+    {
+      "id": "audit-draft-1790177076423-9y1a",
+      "threadId": "thread-022",
+      "timestamp": "2026-09-23T15:24:36.423Z",
+      "actor": "AI Butler",
+      "action": "draft_generated",
+      "note": "Generated reply draft (technical tone) with 2 suggested actions. Awaiting human approval.",
+      "draftSnapshot": "Hi Daniel,\n\nThank you for reporting this issue. We have logged ticket reference for our engineering team to investigate the root cause.\n\nWe will follow up as soon as a fix or workaround is available.\n\nBest regards,\nPlatform Support"
+    },
+    {
+      "id": "audit-triage-1790177076423-r0v1",
+      "threadId": "thread-023",
+      "timestamp": "2026-09-23T15:24:36.423Z",
+      "actor": "AI Butler",
+      "action": "triage_performed",
+      "note": "Assigned P1 (sales) to Enterprise Sales. Confidence: 96%"
+    },
+    {
+      "id": "audit-draft-1790177076423-2q4y",
+      "threadId": "thread-023",
+      "timestamp": "2026-09-23T15:24:36.423Z",
+      "actor": "AI Butler",
+      "action": "draft_generated",
+      "note": "Generated reply draft (professional tone) with 3 suggested actions. Awaiting human approval.",
+      "draftSnapshot": "Hi Emily,\n\nThank you for considering ApproveGate for your team. We would be delighted to arrange a dedicated technical walk-through tailored to your organization's workflow and compliance requirements.\n\nPlease let us know what time slots work best for your team this week, or book directly via our team calendar link.\n\nBest regards,\nEnterprise Solutions Team"
+    },
+    {
+      "id": "audit-triage-1790177076424-9nbd",
+      "threadId": "thread-024",
+      "timestamp": "2026-09-23T15:24:36.424Z",
+      "actor": "AI Butler",
+      "action": "triage_performed",
+      "note": "Assigned P3 (FYI) to Spam Filter. Confidence: 96%"
+    },
+    {
+      "id": "audit-draft-1790177076424-6czc",
+      "threadId": "thread-024",
+      "timestamp": "2026-09-23T15:24:36.424Z",
+      "actor": "AI Butler",
+      "action": "draft_generated",
+      "note": "Generated reply draft (direct tone) with 2 suggested actions. Awaiting human approval.",
+      "draftSnapshot": "[Automated Log: FYI message noted. No outgoing email required.]"
+    },
+    {
+      "id": "audit-triage-1790177076425-wc2n",
+      "threadId": "thread-025",
+      "timestamp": "2026-09-23T15:24:36.425Z",
+      "actor": "AI Butler",
+      "action": "triage_performed",
+      "note": "Assigned P1 (bug) to Site Reliability Engineering. Confidence: 96%"
+    },
+    {
+      "id": "audit-draft-1790177076425-xthb",
+      "threadId": "thread-025",
+      "timestamp": "2026-09-23T15:24:36.425Z",
+      "actor": "AI Butler",
+      "action": "draft_generated",
+      "note": "Generated reply draft (technical tone) with 2 suggested actions. Awaiting human approval.",
+      "draftSnapshot": "Hi Cloud,\n\nThank you for reporting this issue. We have logged ticket reference for our engineering team to investigate the root cause.\n\nWe will follow up as soon as a fix or workaround is available.\n\nBest regards,\nPlatform Support"
+    },
+    {
+      "id": "audit-triage-1790177076426-3597",
+      "threadId": "thread-026",
+      "timestamp": "2026-09-23T15:24:36.426Z",
+      "actor": "AI Butler",
+      "action": "triage_performed",
+      "note": "Assigned P1 (billing) to Billing Ops. Confidence: 96%"
+    },
+    {
+      "id": "audit-draft-1790177076426-yqiw",
+      "threadId": "thread-026",
+      "timestamp": "2026-09-23T15:24:36.426Z",
+      "actor": "AI Butler",
+      "action": "draft_generated",
+      "note": "Generated reply draft (professional tone) with 3 suggested actions. Awaiting human approval.",
+      "draftSnapshot": "Hi Marco,\n\nThank you for bringing this to our attention. Our billing operations team has reviewed your account details.\n\nWe are processing the requested adjustment and will provide the transaction confirmation receipt once finalized.\n\nWarm regards,\nBilling & Accounts Team"
+    },
+    {
+      "id": "audit-triage-1790177076427-9zpi",
+      "threadId": "thread-027",
+      "timestamp": "2026-09-23T15:24:36.427Z",
+      "actor": "AI Butler",
+      "action": "triage_performed",
+      "note": "Assigned P2 (other) to Developer Relations. Confidence: 96%"
+    },
+    {
+      "id": "audit-draft-1790177076427-3ftf",
+      "threadId": "thread-027",
+      "timestamp": "2026-09-23T15:24:36.427Z",
+      "actor": "AI Butler",
+      "action": "draft_generated",
+      "note": "Generated reply draft (professional tone) with 2 suggested actions. Awaiting human approval.",
+      "draftSnapshot": "Hi Brian,\n\nThank you for reaching out to the ApproveGate team. We have received your request and forwarded it to the relevant specialist for review.\n\nWe will be in touch with a detailed response shortly.\n\nKind regards,\nSupport Operations"
+    },
+    {
+      "id": "audit-triage-1790177076429-ya2r",
+      "threadId": "thread-028",
+      "timestamp": "2026-09-23T15:24:36.429Z",
+      "actor": "AI Butler",
+      "action": "triage_performed",
+      "note": "Assigned P0 (other) to Security Operations. Confidence: 96%"
+    },
+    {
+      "id": "audit-draft-1790177076429-p4k4",
+      "threadId": "thread-028",
+      "timestamp": "2026-09-23T15:24:36.429Z",
+      "actor": "AI Butler",
+      "action": "draft_generated",
+      "note": "Generated reply draft (professional tone) with 2 suggested actions. Awaiting human approval.",
+      "draftSnapshot": "Hi Security,\n\nThank you for reaching out to the ApproveGate team. We have received your request and forwarded it to the relevant specialist for review.\n\nWe will be in touch with a detailed response shortly.\n\nKind regards,\nSupport Operations"
+    },
+    {
+      "id": "audit-triage-1790177076430-x7qf",
+      "threadId": "thread-029",
+      "timestamp": "2026-09-23T15:24:36.430Z",
+      "actor": "AI Butler",
+      "action": "triage_performed",
+      "note": "Assigned P3 (other) to Product Team. Confidence: 96%"
+    },
+    {
+      "id": "audit-draft-1790177076430-ey7y",
+      "threadId": "thread-029",
+      "timestamp": "2026-09-23T15:24:36.430Z",
+      "actor": "AI Butler",
+      "action": "draft_generated",
+      "note": "Generated reply draft (professional tone) with 2 suggested actions. Awaiting human approval.",
+      "draftSnapshot": "Hi Jessica,\n\nThank you for reaching out to the ApproveGate team. We have received your request and forwarded it to the relevant specialist for review.\n\nWe will be in touch with a detailed response shortly.\n\nKind regards,\nSupport Operations"
+    },
+    {
+      "id": "audit-triage-1790177076432-eh5f",
+      "threadId": "thread-030",
+      "timestamp": "2026-09-23T15:24:36.432Z",
+      "actor": "AI Butler",
+      "action": "triage_performed",
+      "note": "Assigned P1 (sales) to Enterprise Sales. Confidence: 96%"
+    },
+    {
+      "id": "audit-draft-1790177076432-jj5n",
+      "threadId": "thread-030",
+      "timestamp": "2026-09-23T15:24:36.432Z",
+      "actor": "AI Butler",
+      "action": "draft_generated",
+      "note": "Generated reply draft (professional tone) with 3 suggested actions. Awaiting human approval.",
+      "draftSnapshot": "Hi Nathaniel,\n\nThank you for considering ApproveGate for your team. We would be delighted to arrange a dedicated technical walk-through tailored to your organization's workflow and compliance requirements.\n\nPlease let us know what time slots work best for your team this week, or book directly via our team calendar link.\n\nBest regards,\nEnterprise Solutions Team"
+    },
+    {
+      "id": "audit-triage-1790177076433-gdwg",
+      "threadId": "thread-031",
+      "timestamp": "2026-09-23T15:24:36.433Z",
+      "actor": "AI Butler",
+      "action": "triage_performed",
+      "note": "Assigned P3 (other) to Tier 1 Support. Confidence: 96%"
+    },
+    {
+      "id": "audit-draft-1790177076433-m1bx",
+      "threadId": "thread-031",
+      "timestamp": "2026-09-23T15:24:36.433Z",
+      "actor": "AI Butler",
+      "action": "draft_generated",
+      "note": "Generated reply draft (professional tone) with 2 suggested actions. Awaiting human approval.",
+      "draftSnapshot": "Hi Personal,\n\nThank you for reaching out to the ApproveGate team. We have received your request and forwarded it to the relevant specialist for review.\n\nWe will be in touch with a detailed response shortly.\n\nKind regards,\nSupport Operations"
+    },
+    {
+      "id": "audit-triage-1790177076434-mui4",
+      "threadId": "thread-032",
+      "timestamp": "2026-09-23T15:24:36.434Z",
+      "actor": "AI Butler",
+      "action": "triage_performed",
+      "note": "Assigned P1 (bug) to Platform Engineering. Confidence: 96%"
+    },
+    {
+      "id": "audit-draft-1790177076434-d6ue",
+      "threadId": "thread-032",
+      "timestamp": "2026-09-23T15:24:36.434Z",
+      "actor": "AI Butler",
+      "action": "draft_generated",
+      "note": "Generated reply draft (technical tone) with 2 suggested actions. Awaiting human approval.",
+      "draftSnapshot": "Hi Hannah,\n\nThank you for reporting this issue. We have logged ticket reference for our engineering team to investigate the root cause.\n\nWe will follow up as soon as a fix or workaround is available.\n\nBest regards,\nPlatform Support"
+    },
+    {
+      "id": "audit-triage-1790177076435-8ugz",
+      "threadId": "thread-033",
+      "timestamp": "2026-09-23T15:24:36.435Z",
+      "actor": "AI Butler",
+      "action": "triage_performed",
+      "note": "Assigned P1 (billing) to Retention & Billing. Confidence: 96%"
+    },
+    {
+      "id": "audit-draft-1790177076435-fpg2",
+      "threadId": "thread-033",
+      "timestamp": "2026-09-23T15:24:36.435Z",
+      "actor": "AI Butler",
+      "action": "draft_generated",
+      "note": "Generated reply draft (professional tone) with 3 suggested actions. Awaiting human approval.",
+      "draftSnapshot": "Hi Liam,\n\nThank you for bringing this to our attention. Our billing operations team has reviewed your account details.\n\nWe are processing the requested adjustment and will provide the transaction confirmation receipt once finalized.\n\nWarm regards,\nBilling & Accounts Team"
+    },
+    {
+      "id": "audit-triage-1790177076436-4rcg",
+      "threadId": "thread-034",
+      "timestamp": "2026-09-23T15:24:36.436Z",
+      "actor": "AI Butler",
+      "action": "triage_performed",
+      "note": "Assigned P3 (FYI) to Automation / Archive. Confidence: 96%"
+    },
+    {
+      "id": "audit-draft-1790177076436-vf20",
+      "threadId": "thread-034",
+      "timestamp": "2026-09-23T15:24:36.436Z",
+      "actor": "AI Butler",
+      "action": "draft_generated",
+      "note": "Generated reply draft (direct tone) with 2 suggested actions. Awaiting human approval.",
+      "draftSnapshot": "[Automated Log: FYI message noted. No outgoing email required.]"
+    },
+    {
+      "id": "audit-triage-1790177076437-rndc",
+      "threadId": "thread-035",
+      "timestamp": "2026-09-23T15:24:36.437Z",
+      "actor": "AI Butler",
+      "action": "triage_performed",
+      "note": "Assigned P1 (other) to Legal & Compliance. Confidence: 96%"
+    },
+    {
+      "id": "audit-draft-1790177076437-x245",
+      "threadId": "thread-035",
+      "timestamp": "2026-09-23T15:24:36.437Z",
+      "actor": "AI Butler",
+      "action": "draft_generated",
+      "note": "Generated reply draft (professional tone) with 2 suggested actions. Awaiting human approval.",
+      "draftSnapshot": "Hi Sarah,\n\nThank you for reaching out to the ApproveGate team. We have received your request and forwarded it to the relevant specialist for review.\n\nWe will be in touch with a detailed response shortly.\n\nKind regards,\nSupport Operations"
+    },
+    {
+      "id": "audit-triage-1790177076438-qfaz",
+      "threadId": "thread-036",
+      "timestamp": "2026-09-23T15:24:36.438Z",
+      "actor": "AI Butler",
+      "action": "triage_performed",
+      "note": "Assigned P2 (other) to Developer Support. Confidence: 96%"
+    },
+    {
+      "id": "audit-draft-1790177076438-fjri",
+      "threadId": "thread-036",
+      "timestamp": "2026-09-23T15:24:36.438Z",
+      "actor": "AI Butler",
+      "action": "draft_generated",
+      "note": "Generated reply draft (professional tone) with 2 suggested actions. Awaiting human approval.",
+      "draftSnapshot": "Hi Tobias,\n\nThank you for reaching out to the ApproveGate team. We have received your request and forwarded it to the relevant specialist for review.\n\nWe will be in touch with a detailed response shortly.\n\nKind regards,\nSupport Operations"
     }
   ]
 }
