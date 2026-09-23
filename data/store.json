@@ -277,50 +277,8 @@
           "body": "Guten Tag,\n\nWe are upgrading our workspace from Starter to Pro for 25 engineers. German corporate governance requires vendor payments above 5,000 EUR to be settled via SEPA wire transfer against a formal VAT invoice.\n\nCould you send us your IBAN, BIC, and German VAT ID, along with a formal pro-forma quote for 25 annual seats?\n\nMit freundlichen Grüßen,\nBrigitte Meyer\nHead of Procurement"
         }
       ],
-      "triage": {
-        "priority": "P2",
-        "category": "billing",
-        "summary": "Can we pay via annual bank wire transfer instead of credit card?. Issue: We are upgrading our workspace from Starter to Pro for 25 engineers. German corporate governance requires vendor payments above 5,000 EUR to...",
-        "suggestedOwner": "Billing Ops",
-        "dueBy": "2026-09-24T02:30:00.000Z",
-        "sentiment": "neutral",
-        "confidence": 0.96,
-        "reasoning": "Standard payment method accommodation for European corporate procurement."
-      },
-      "draft": {
-        "id": "draft-thread-007",
-        "threadId": "thread-007",
-        "recipient": "bmeyer@bavaria-engineering.de",
-        "subject": "Re: Can we pay via annual bank wire transfer instead of credit card?",
-        "body": "Updated custom response text with corrected invoice terms.",
-        "tone": "professional",
-        "suggestedActions": [
-          {
-            "id": "act-1",
-            "title": "Review Stripe transaction history",
-            "type": "action",
-            "completed": false,
-            "systemTarget": "Stripe"
-          },
-          {
-            "id": "act-2",
-            "title": "Initiate payment refund / credit memo",
-            "type": "refund",
-            "completed": false,
-            "systemTarget": "Stripe"
-          },
-          {
-            "id": "act-3",
-            "title": "Update invoice record in CRM",
-            "type": "action",
-            "completed": false,
-            "systemTarget": "Salesforce"
-          }
-        ],
-        "version": 2,
-        "lastModifiedAt": "2026-09-23T04:02:43.879Z",
-        "lastModifiedBy": "operator"
-      },
+      "triage": null,
+      "draft": null,
       "approvalStatus": "pending",
       "snoozedUntil": null,
       "status": "open",
@@ -332,55 +290,6 @@
           "actor": "System",
           "action": "thread_imported",
           "note": "Ingested from inbox feed"
-        },
-        {
-          "id": "audit-triage-1790136163878-w7d6",
-          "threadId": "thread-007",
-          "timestamp": "2026-09-23T04:02:43.878Z",
-          "actor": "AI Butler",
-          "action": "triage_performed",
-          "note": "Assigned P2 (billing) to Billing Ops. Confidence: 96%"
-        },
-        {
-          "id": "audit-draft-1790136163878-9ea1",
-          "threadId": "thread-007",
-          "timestamp": "2026-09-23T04:02:43.878Z",
-          "actor": "AI Butler",
-          "action": "draft_generated",
-          "note": "Generated reply draft (professional tone) with 3 suggested actions. Awaiting human approval.",
-          "draftSnapshot": "Hi Brigitte,\n\nThank you for bringing this to our attention. Our billing operations team has reviewed your account details.\n\nWe are processing the requested adjustment and will provide the transaction confirmation receipt once finalized.\n\nWarm regards,\nBilling & Accounts Team"
-        },
-        {
-          "id": "audit-appr-1790136163879-8tlh",
-          "threadId": "thread-007",
-          "timestamp": "2026-09-23T04:02:43.879Z",
-          "actor": "Operator",
-          "action": "draft_approved",
-          "previousStatus": "pending",
-          "newStatus": "approved",
-          "note": "Draft reviewed and approved by operator. Ready for authorized dispatch.",
-          "draftSnapshot": "Hi Brigitte,\n\nThank you for bringing this to our attention. Our billing operations team has reviewed your account details.\n\nWe are processing the requested adjustment and will provide the transaction confirmation receipt once finalized.\n\nWarm regards,\nBilling & Accounts Team"
-        },
-        {
-          "id": "audit-edit-1790136163880-0sid",
-          "threadId": "thread-007",
-          "timestamp": "2026-09-23T04:02:43.880Z",
-          "actor": "Operator",
-          "action": "draft_edited",
-          "previousStatus": "approved",
-          "newStatus": "pending",
-          "note": "Draft modified (v2). Previous length: 275 chars, new length: 58 chars.",
-          "draftSnapshot": "Updated custom response text with corrected invoice terms."
-        },
-        {
-          "id": "audit-block-1790136163880-og08",
-          "threadId": "thread-007",
-          "timestamp": "2026-09-23T04:02:43.880Z",
-          "actor": "System",
-          "action": "send_blocked",
-          "previousStatus": "pending",
-          "newStatus": "pending",
-          "note": "CRITICAL INVARIANT PREVENTED SEND: Attempted to send thread thread-007 without operator approval (status: pending, hasApprovalRecord: true)."
         }
       ]
     },
@@ -1887,55 +1796,6 @@
       "actor": "System",
       "action": "thread_imported",
       "note": "Ingested from inbox feed"
-    },
-    {
-      "id": "audit-triage-1790136163878-w7d6",
-      "threadId": "thread-007",
-      "timestamp": "2026-09-23T04:02:43.878Z",
-      "actor": "AI Butler",
-      "action": "triage_performed",
-      "note": "Assigned P2 (billing) to Billing Ops. Confidence: 96%"
-    },
-    {
-      "id": "audit-draft-1790136163878-9ea1",
-      "threadId": "thread-007",
-      "timestamp": "2026-09-23T04:02:43.878Z",
-      "actor": "AI Butler",
-      "action": "draft_generated",
-      "note": "Generated reply draft (professional tone) with 3 suggested actions. Awaiting human approval.",
-      "draftSnapshot": "Hi Brigitte,\n\nThank you for bringing this to our attention. Our billing operations team has reviewed your account details.\n\nWe are processing the requested adjustment and will provide the transaction confirmation receipt once finalized.\n\nWarm regards,\nBilling & Accounts Team"
-    },
-    {
-      "id": "audit-appr-1790136163879-8tlh",
-      "threadId": "thread-007",
-      "timestamp": "2026-09-23T04:02:43.879Z",
-      "actor": "Operator",
-      "action": "draft_approved",
-      "previousStatus": "pending",
-      "newStatus": "approved",
-      "note": "Draft reviewed and approved by operator. Ready for authorized dispatch.",
-      "draftSnapshot": "Hi Brigitte,\n\nThank you for bringing this to our attention. Our billing operations team has reviewed your account details.\n\nWe are processing the requested adjustment and will provide the transaction confirmation receipt once finalized.\n\nWarm regards,\nBilling & Accounts Team"
-    },
-    {
-      "id": "audit-edit-1790136163880-0sid",
-      "threadId": "thread-007",
-      "timestamp": "2026-09-23T04:02:43.880Z",
-      "actor": "Operator",
-      "action": "draft_edited",
-      "previousStatus": "approved",
-      "newStatus": "pending",
-      "note": "Draft modified (v2). Previous length: 275 chars, new length: 58 chars.",
-      "draftSnapshot": "Updated custom response text with corrected invoice terms."
-    },
-    {
-      "id": "audit-block-1790136163880-og08",
-      "threadId": "thread-007",
-      "timestamp": "2026-09-23T04:02:43.880Z",
-      "actor": "System",
-      "action": "send_blocked",
-      "previousStatus": "pending",
-      "newStatus": "pending",
-      "note": "CRITICAL INVARIANT PREVENTED SEND: Attempted to send thread thread-007 without operator approval (status: pending, hasApprovalRecord: true)."
     }
   ]
 }
