@@ -9,6 +9,7 @@ import {
   SuggestedAction,
 } from './types';
 import { triageThread } from './ai/engine';
+import messyInboxFixture from '../../data/fixtures/messy-inbox.json';
 
 // Invariant error class
 export class ApproveGateInvariantViolationError extends Error {
@@ -28,59 +29,83 @@ const DATA_DIR = path.resolve(process.cwd(), 'data');
 const STORE_PATH = path.resolve(DATA_DIR, 'store.json');
 const FIXTURES_PATH = path.resolve(DATA_DIR, 'fixtures', 'messy-inbox.json');
 
+const IS_SERVERLESS = Boolean(
+  process.env.VERCEL ||
+  process.env.AWS_LAMBDA_FUNCTION_NAME ||
+  process.env.NETLIFY
+);
+
+let isFsReadOnly = IS_SERVERLESS;
+
 function ensureDataDirectory() {
+  if (isFsReadOnly) return;
   try {
     if (!fs.existsSync(DATA_DIR)) {
       fs.mkdirSync(DATA_DIR, { recursive: true });
     }
-  } catch (err) {
-    console.warn('Could not create data directory, using in-memory only:', err);
+  } catch (err: any) {
+    if (err?.code === 'EROFS' || err?.code === 'EACCES') {
+      isFsReadOnly = true;
+    }
+    console.warn('Could not create data directory, maintaining in-memory state only:', err);
   }
 }
 
 function loadInitialFixtures(): TicketThread[] {
+  let rawList: any[] = [];
   try {
     if (fs.existsSync(FIXTURES_PATH)) {
       const raw = fs.readFileSync(FIXTURES_PATH, 'utf-8');
-      const parsed = JSON.parse(raw);
-      return parsed.map((item: any) => ({
-        id: item.id,
-        subject: item.subject,
-        from: item.from,
-        receivedAt: item.receivedAt,
-        channel: item.channel || 'email',
-        customerTier: item.customerTier || 'pro',
-        tags: item.tags || [],
-        rawBody: item.rawBody,
-        threadMessages: item.threadMessages || [],
-        triage: null,
-        draft: null,
-        approvalStatus: 'pending',
-        snoozedUntil: null,
-        status: 'open',
-        auditLog: [
-          {
-            id: `audit-init-${item.id}`,
-            threadId: item.id,
-            timestamp: item.receivedAt,
-            actor: 'System',
-            action: 'thread_imported',
-            note: 'Ingested from inbox feed',
-          },
-        ],
-      }));
+      rawList = JSON.parse(raw);
     }
   } catch (err) {
-    console.warn('Error reading fixture file:', err);
+    console.warn('Error reading fixture file from disk, using bundled fixture fallback:', err);
   }
-  return [];
+
+  if (!rawList || rawList.length === 0) {
+    rawList = messyInboxFixture as any[];
+  }
+
+  return rawList.map((item: any) => ({
+    id: item.id,
+    subject: item.subject,
+    from: item.from,
+    receivedAt: item.receivedAt,
+    channel: item.channel || 'email',
+    customerTier: item.customerTier || 'pro',
+    tags: item.tags || [],
+    rawBody: item.rawBody,
+    threadMessages: item.threadMessages || [],
+    triage: item.triage || null,
+    draft: item.draft || null,
+    approvalStatus: item.approvalStatus || 'pending',
+    snoozedUntil: item.snoozedUntil || null,
+    status: item.status || 'open',
+    auditLog: item.auditLog || [
+      {
+        id: `audit-init-${item.id}`,
+        threadId: item.id,
+        timestamp: item.receivedAt,
+        actor: 'System',
+        action: 'thread_imported',
+        note: 'Ingested from inbox feed',
+      },
+    ],
+  }));
 }
 
 function saveToDisk(state: DatabaseState) {
+  if (isFsReadOnly) {
+    // In serverless / read-only filesystem environments, state remains in-memory
+    return;
+  }
   try {
     ensureDataDirectory();
     fs.writeFileSync(STORE_PATH, JSON.stringify(state, null, 2), 'utf-8');
-  } catch (err) {
+  } catch (err: any) {
+    if (err?.code === 'EROFS' || err?.code === 'EACCES') {
+      isFsReadOnly = true;
+    }
     // Non-fatal if filesystem is read-only (e.g. serverless)
     console.warn('Unable to persist to disk, maintaining in-memory state:', err);
   }
@@ -91,7 +116,7 @@ function getDatabase(): DatabaseState {
     return inMemoryDb;
   }
 
-  // Try loading from store.json
+  // Try loading from store.json if available
   try {
     if (fs.existsSync(STORE_PATH)) {
       const raw = fs.readFileSync(STORE_PATH, 'utf-8');

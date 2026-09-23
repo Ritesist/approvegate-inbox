@@ -100,6 +100,9 @@ Verify production compilation:
 npm run build
 ```
 
+### 5. Deploy to Vercel
+ApproveGate is pre-configured for one-click deployment to Vercel (Next.js preset). For step-by-step Dashboard import and CLI instructions, see **[docs/DEPLOY.md](docs/DEPLOY.md)**. For the final demo and submission items, see **[docs/SUBMISSION_CHECKLIST.md](docs/SUBMISSION_CHECKLIST.md)**.
+
 ---
 
 ## 3-Minute Demo Walkthrough
@@ -188,10 +191,22 @@ approvegate-inbox/
 │       └── golden-labels.json     # Ground truth labels for automated benchmarking
 ├── docs/
 │   ├── PPT_OUTLINE.md             # Executive presentation outline (<= 10 slides)
-│   └── AI_DISCLOSURE.md          # Transparent disclosure of AI assistance and models
+│   ├── AI_DISCLOSURE.md           # Transparent disclosure of AI assistance and models
+│   ├── SUBMISSION_CHECKLIST.md    # Unstop Build Fast submit checklist
+│   └── DEPLOY.md                  # Vercel deploy steps
+├── vercel.json                    # Vercel Next.js project hints
 ├── package.json
 └── README.md
 ```
+
+---
+
+## Deploy
+
+See **[docs/DEPLOY.md](docs/DEPLOY.md)** for Vercel Dashboard and CLI steps.  
+Submission packaging: **[docs/SUBMISSION_CHECKLIST.md](docs/SUBMISSION_CHECKLIST.md)**.
+
+Mock mode needs no environment variables. Optional: `OPENAI_API_KEY`, `GEMINI_API_KEY`.
 
 ---
 

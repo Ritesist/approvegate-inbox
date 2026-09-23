@@ -3,6 +3,8 @@ import path from 'path';
 import { GoldenLabel, EvalMetrics, Priority, Category, TicketThread } from './types';
 import { runMockTriage } from './ai/mock-engine';
 import { getAllThreads, getAllAuditLogs, sendApprovedReply, ApproveGateInvariantViolationError } from './store';
+import defaultGoldenLabels from '../../data/fixtures/golden-labels.json';
+import defaultFixtures from '../../data/fixtures/messy-inbox.json';
 
 const GOLDEN_LABELS_PATH = path.resolve(process.cwd(), 'data', 'fixtures', 'golden-labels.json');
 const FIXTURES_PATH = path.resolve(process.cwd(), 'data', 'fixtures', 'messy-inbox.json');
@@ -14,9 +16,9 @@ export function loadGoldenLabels(): GoldenLabel[] {
       return JSON.parse(raw);
     }
   } catch (err) {
-    console.warn('Error reading golden labels:', err);
+    console.warn('Error reading golden labels from disk, using bundled fallback:', err);
   }
-  return [];
+  return defaultGoldenLabels as GoldenLabel[];
 }
 
 export function computeClassMetrics<T extends string>(
@@ -58,7 +60,16 @@ export function computeClassMetrics<T extends string>(
 
 export async function runEvaluation(): Promise<EvalMetrics> {
   const golden = loadGoldenLabels();
-  const rawFixtures = JSON.parse(fs.readFileSync(FIXTURES_PATH, 'utf-8')) as TicketThread[];
+  let rawFixtures: TicketThread[];
+  try {
+    if (fs.existsSync(FIXTURES_PATH)) {
+      rawFixtures = JSON.parse(fs.readFileSync(FIXTURES_PATH, 'utf-8')) as TicketThread[];
+    } else {
+      rawFixtures = defaultFixtures as unknown as TicketThread[];
+    }
+  } catch {
+    rawFixtures = defaultFixtures as unknown as TicketThread[];
+  }
 
   const priorityPairs: Array<{ actual: Priority; predicted: Priority }> = [];
   const categoryPairs: Array<{ actual: Category; predicted: Category }> = [];

@@ -8,30 +8,30 @@ interface StatusBadgeProps {
 
 export const StatusBadge: React.FC<StatusBadgeProps> = ({ status, size = 'sm' }) => {
   const styles: Record<ApprovalStatus, string> = {
-    pending: 'bg-amber-50 text-amber-800 border-amber-200 ring-1 ring-amber-300 font-medium',
-    approved: 'bg-blue-50 text-blue-800 border-blue-200 ring-1 ring-blue-300 font-semibold',
-    sent: 'bg-emerald-50 text-emerald-800 border-emerald-200 ring-1 ring-emerald-300 font-semibold',
-    rejected: 'bg-rose-50 text-rose-800 border-rose-200 ring-1 ring-rose-300 font-medium',
-    snoozed: 'bg-purple-50 text-purple-800 border-purple-200 ring-1 ring-purple-300 font-medium',
+    pending: 'bg-amber-50 text-amber-800 border-amber-200 font-medium',
+    approved: 'bg-emerald-50 text-emerald-700 border-emerald-200 font-medium',
+    sent: 'bg-slate-100 text-slate-700 border-slate-200 font-medium',
+    rejected: 'bg-rose-50 text-rose-700 border-rose-200 font-medium',
+    snoozed: 'bg-purple-50 text-purple-700 border-purple-200 font-medium',
   };
 
   const labels: Record<ApprovalStatus, string> = {
     pending: 'Pending Approval',
-    approved: 'Approved (Ready to Send)',
+    approved: 'Approved (Ready)',
     sent: 'Sent to Customer',
     rejected: 'Draft Rejected',
     snoozed: 'Snoozed',
   };
 
   const sizeClasses = {
-    sm: 'text-xs px-2 py-0.5 rounded',
-    md: 'text-xs px-2.5 py-1 rounded-md',
-    lg: 'text-sm px-3 py-1.5 rounded-md font-semibold',
+    sm: 'text-[10px] px-2 py-0.5 rounded-full',
+    md: 'text-xs px-2.5 py-1 rounded-full',
+    lg: 'text-xs px-3 py-1.5 rounded-full font-medium',
   };
 
   return (
     <span
-      className={`inline-flex items-center border ${styles[status]} ${sizeClasses[size]}`}
+      className={`inline-flex items-center border tracking-tight ${styles[status]} ${sizeClasses[size]}`}
     >
       <span className="w-1.5 h-1.5 rounded-full mr-1.5 bg-current opacity-70" />
       {labels[status]}

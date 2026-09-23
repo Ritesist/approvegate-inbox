@@ -88,3 +88,22 @@
   - Multi-agent consensus review for P0 incidents.
   - Bi-directional sync plugins for Zendesk, Salesforce Service Cloud, and Linear.
   - Role-based multi-approver hierarchy for financial disbursements.
+
+---
+
+## Slide 9: Live Demo Script (3 Minutes)
+1. Open deployed URL — 36 messy threads already loaded (mock AI, zero keys).
+2. Click **Triage All** if needed — P0 outages and billing emergencies surface first.
+3. Open `thread-001` — show summary, category, draft, suggested actions.
+4. Prove safety: **Test Send Invariant** while pending → blocked (HTTP 403 / UI alert).
+5. **Approve** → **Send** → audit entry appears.
+6. On another thread: Approve → **Edit** → approval auto-revokes.
+7. Jump to `/eval` — precision metrics + **NeverSentWithoutApprove** proof (0 violations).
+
+---
+
+## Slide 10: Ask / Closing
+- **Track:** Inbox-to-Action Butler
+- **Ask:** Pilot with a support team that needs AI speed without unsupervised sends.
+- **Links:** Live demo URL · GitHub · `docs/AI_DISCLOSURE.md`
+- **One line to remember:** Ambient AI for triage and drafts; humans alone unlock the send gate.

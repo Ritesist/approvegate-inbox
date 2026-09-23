@@ -2,8 +2,6 @@ import React from 'react';
 import { TicketThread } from '@/lib/types';
 import { PriorityBadge } from './PriorityBadge';
 import { CategoryBadge } from './CategoryBadge';
-import { StatusBadge } from './StatusBadge';
-import { Clock, User } from 'lucide-react';
 
 interface ThreadCardProps {
   thread: TicketThread;
@@ -17,70 +15,64 @@ export const ThreadCard: React.FC<ThreadCardProps> = ({ thread, isSelected, onSe
     minute: '2-digit',
   });
 
-  // Calculate SLA label
-  let slaLabel = '';
-  if (thread.triage?.dueBy) {
-    const dueTime = new Date(thread.triage.dueBy).getTime();
-    const now = new Date('2026-09-23T08:55:00Z').getTime(); // align with system date
-    const diffHours = Math.round((dueTime - now) / (3600 * 1000));
-    if (diffHours <= 0) {
-      slaLabel = 'SLA Overdue';
-    } else {
-      slaLabel = `SLA: ${diffHours}h left`;
-    }
-  }
+  const initials = thread.from.name
+    ? thread.from.name
+        .split(' ')
+        .map((n) => n[0])
+        .slice(0, 2)
+        .join('')
+        .toUpperCase()
+    : 'U';
+
+  const isPending = thread.approvalStatus === 'pending';
 
   return (
     <div
       onClick={onSelect}
-      className={`p-3.5 border-b cursor-pointer transition-all ${
+      className={`relative px-4 py-3.5 border-b cursor-pointer transition-all ${
         isSelected
-          ? 'bg-blue-50/60 border-l-4 border-l-blue-600 border-slate-200'
-          : 'hover:bg-slate-50/80 border-slate-200 bg-white'
+          ? 'bg-[#F9FAFB] border-l-[3px] border-l-purple-600 border-b-slate-100'
+          : 'bg-white hover:bg-slate-50/70 border-b-slate-100 border-l-[3px] border-l-transparent'
       }`}
     >
       <div className="flex items-center justify-between gap-2 mb-1.5">
-        <div className="flex items-center gap-1.5 flex-wrap">
-          {thread.triage ? (
-            <>
-              <PriorityBadge priority={thread.triage.priority} size="sm" />
-              <CategoryBadge category={thread.triage.category} size="sm" />
-            </>
-          ) : (
-            <span className="text-[11px] px-2 py-0.5 rounded bg-slate-100 text-slate-500 font-medium">
-              Untriaged
-            </span>
+        <div className="flex items-center gap-2 min-w-0">
+          <div className="w-6 h-6 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center text-[10px] font-semibold shrink-0">
+            {initials}
+          </div>
+          <span className="text-xs font-medium text-slate-800 truncate">
+            {thread.from.name}
+          </span>
+          {isPending && (
+            <span
+              className="w-1.5 h-1.5 rounded-full bg-purple-600 shrink-0"
+              title="Pending Gate Review"
+            />
           )}
-          <StatusBadge status={thread.approvalStatus} size="sm" />
         </div>
-        <span className="text-[11px] text-slate-400 shrink-0">{formattedTime}</span>
+        <span className="text-[11px] text-slate-400 shrink-0 font-normal">
+          {formattedTime}
+        </span>
       </div>
 
       <h4 className="text-xs font-semibold text-slate-900 line-clamp-1 mb-1 tracking-tight">
         {thread.subject}
       </h4>
 
-      <p className="text-[11px] text-slate-600 line-clamp-2 leading-relaxed mb-2">
+      <p className="text-[11px] text-slate-500 line-clamp-2 leading-relaxed mb-2.5">
         {thread.triage?.summary || thread.rawBody}
       </p>
 
-      <div className="flex items-center justify-between text-[11px] text-slate-500 pt-1 border-t border-slate-100">
-        <div className="flex items-center gap-1.5 truncate max-w-[65%]">
-          <User className="w-3 h-3 text-slate-400 shrink-0" />
-          <span className="truncate font-medium text-slate-700">{thread.from.name}</span>
-          {thread.from.company && (
-            <span className="text-slate-400 truncate">({thread.from.company})</span>
-          )}
-        </div>
-
-        {slaLabel && (
-          <span
-            className={`inline-flex items-center gap-1 font-medium ${
-              slaLabel.includes('Overdue') ? 'text-red-600' : 'text-slate-500'
-            }`}
-          >
-            <Clock className="w-3 h-3" />
-            {slaLabel}
+      {/* Reduced Badge Noise: 1 priority + 1 category max */}
+      <div className="flex items-center gap-1.5">
+        {thread.triage ? (
+          <>
+            <PriorityBadge priority={thread.triage.priority} size="sm" />
+            <CategoryBadge category={thread.triage.category} size="sm" />
+          </>
+        ) : (
+          <span className="text-[10px] px-2 py-0.5 rounded-full bg-slate-100 text-slate-500 font-medium">
+            Untriaged
           </span>
         )}
       </div>

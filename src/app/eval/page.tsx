@@ -64,7 +64,7 @@ export default function EvalPage() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-200">
         <div>
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center border border-blue-200">
+            <div className="w-8 h-8 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center border border-purple-200/80">
               <BarChart3 className="w-5 h-5" />
             </div>
             <h1 className="text-xl font-bold text-slate-900 tracking-tight">
@@ -80,7 +80,7 @@ export default function EvalPage() {
           <button
             onClick={handleRunEval}
             disabled={running}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold shadow-sm transition-colors disabled:opacity-50"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-700 text-white text-xs font-semibold shadow-sm transition-colors disabled:opacity-50"
           >
             <Play className="w-3.5 h-3.5" />
             {running ? 'Running Benchmark...' : 'Run Full Benchmark'}
@@ -89,8 +89,8 @@ export default function EvalPage() {
       </div>
 
       {testResultMsg && (
-        <div className="p-3 bg-blue-50 border border-blue-200 rounded-lg text-xs text-blue-800 flex items-center gap-2">
-          <CheckCircle2 className="w-4 h-4 shrink-0 text-blue-600" />
+        <div className="p-3 bg-purple-50 border border-purple-200 rounded-lg text-xs text-purple-800 flex items-center gap-2">
+          <CheckCircle2 className="w-4 h-4 shrink-0 text-purple-600" />
           <span>{testResultMsg}</span>
         </div>
       )}

@@ -70,7 +70,7 @@ export default function SettingsPage() {
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full space-y-8">
       <div className="pb-6 border-b border-slate-200">
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center border border-blue-200">
+          <div className="w-8 h-8 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center border border-purple-200/80">
             <Settings className="w-5 h-5" />
           </div>
           <h1 className="text-xl font-bold text-slate-900 tracking-tight">
@@ -93,7 +93,7 @@ export default function SettingsPage() {
         {/* AI Intelligence Provider Selection */}
         <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm space-y-5">
           <div className="flex items-center gap-2 pb-3 border-b border-slate-100">
-            <Cpu className="w-4 h-4 text-blue-600" />
+            <Cpu className="w-4 h-4 text-purple-600" />
             <h3 className="text-sm font-bold text-slate-900">
               Triage & Draft Intelligence Provider
             </h3>
@@ -104,7 +104,7 @@ export default function SettingsPage() {
             <label
               className={`p-4 rounded-xl border-2 cursor-pointer transition-all ${
                 provider === 'mock'
-                  ? 'border-blue-600 bg-blue-50/40 ring-1 ring-blue-500'
+                  ? 'border-purple-600 bg-purple-50/40 ring-1 ring-purple-500'
                   : 'border-slate-200 hover:border-slate-300 bg-white'
               }`}
             >
@@ -115,7 +115,7 @@ export default function SettingsPage() {
                   value="mock"
                   checked={provider === 'mock'}
                   onChange={() => setProvider('mock')}
-                  className="text-blue-600"
+                  className="text-purple-600"
                 />
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800">
                   Recommended
@@ -131,7 +131,7 @@ export default function SettingsPage() {
             <label
               className={`p-4 rounded-xl border-2 cursor-pointer transition-all ${
                 provider === 'openai'
-                  ? 'border-blue-600 bg-blue-50/40 ring-1 ring-blue-500'
+                  ? 'border-purple-600 bg-purple-50/40 ring-1 ring-purple-500'
                   : 'border-slate-200 hover:border-slate-300 bg-white'
               }`}
             >
@@ -142,7 +142,7 @@ export default function SettingsPage() {
                   value="openai"
                   checked={provider === 'openai'}
                   onChange={() => setProvider('openai')}
-                  className="text-blue-600"
+                  className="text-purple-600"
                 />
                 {hasOpenAIKey && (
                   <span className="text-[10px] font-semibold px-2 py-0.5 rounded bg-slate-100 text-slate-700">
@@ -160,7 +160,7 @@ export default function SettingsPage() {
             <label
               className={`p-4 rounded-xl border-2 cursor-pointer transition-all ${
                 provider === 'gemini'
-                  ? 'border-blue-600 bg-blue-50/40 ring-1 ring-blue-500'
+                  ? 'border-purple-600 bg-purple-50/40 ring-1 ring-purple-500'
                   : 'border-slate-200 hover:border-slate-300 bg-white'
               }`}
             >
@@ -171,7 +171,7 @@ export default function SettingsPage() {
                   value="gemini"
                   checked={provider === 'gemini'}
                   onChange={() => setProvider('gemini')}
-                  className="text-blue-600"
+                  className="text-purple-600"
                 />
                 {hasGeminiKey && (
                   <span className="text-[10px] font-semibold px-2 py-0.5 rounded bg-slate-100 text-slate-700">
@@ -203,7 +203,7 @@ export default function SettingsPage() {
                     value={openaiKey}
                     onChange={(e) => setOpenaiKey(e.target.value)}
                     placeholder={hasOpenAIKey ? '••••••••••••••••' : 'sk-...'}
-                    className="w-full text-xs p-2 rounded-md border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono"
+                    className="w-full text-xs p-2 rounded-md border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-purple-500 font-mono"
                   />
                 </div>
                 <div>
@@ -240,7 +240,7 @@ export default function SettingsPage() {
                     value={geminiKey}
                     onChange={(e) => setGeminiKey(e.target.value)}
                     placeholder={hasGeminiKey ? '••••••••••••••••' : 'AIzaSy...'}
-                    className="w-full text-xs p-2 rounded-md border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono"
+                    className="w-full text-xs p-2 rounded-md border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-purple-500 font-mono"
                   />
                 </div>
                 <div>
@@ -264,7 +264,7 @@ export default function SettingsPage() {
             <button
               type="submit"
               disabled={isSaving}
-              className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs font-semibold shadow-sm transition-colors disabled:opacity-50"
+              className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg text-xs font-semibold shadow-sm transition-colors disabled:opacity-50"
             >
               {isSaving ? 'Saving...' : 'Save Engine Settings'}
             </button>

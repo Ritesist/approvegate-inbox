@@ -58,3 +58,30 @@ Performance metrics reported on the `/eval` dashboard reflect:
 - **Sample Size:** 36 heterogeneous support tickets with corresponding golden ground-truth labels.
 - **Metrics Tracked:** Precision, Recall, F1 Score per priority tier (P0–P3) and category (billing, bug, sales, FYI, other).
 - **Formal Invariant Verification:** Automated verification verifying that zero tickets have ever transitioned to `sent` without an antecedent human approval signature.
+
+---
+
+## 5. Tools, Agents, and Frameworks Used
+
+| Tool / System | Role |
+|---------------|------|
+| **Antigravity (`agy`)** | Primary AI coding agent CLI used for scaffolding, UI restyle, and ship polish with `--dangerously-skip-permissions` where needed for non-interactive runs. |
+| **Cursor / Grok Bot agents** | Multi-agent orchestration for build, test, docs, and submission packaging. |
+| **Next.js 14 (App Router)** | Application framework (React Server Components + API routes). |
+| **TypeScript** | Static typing across domain models, store, and UI. |
+| **Tailwind CSS** | Light-palette UI styling (no dark-mode-first, no emojis). |
+| **Vitest** | Unit/integration tests for triage parsing, eval metrics, and ApproveGate invariant. |
+| **Lucide React** | Icon set (vector icons only; no emoji glyphs). |
+| **Vercel** | Intended production host (Next.js serverless). Deploy pending account auth. |
+| **Mock AI engine (built-in)** | Default runtime intelligence — deterministic, offline, no API keys. |
+| **OpenAI API (optional)** | Live triage/draft when `OPENAI_API_KEY` is set. |
+| **Google Gemini API (optional)** | Live triage/draft when `GEMINI_API_KEY` is set. |
+
+### What AI did vs humans
+- **AI:** Boilerplate, fixture generation, draft copy, test drafts, UI restyle iterations, documentation drafts.
+- **Humans (Ritesh + review):** Product concept (hard ApproveGate), track choice (Inbox-to-Action Butler), design constraints (light palette, no emojis), final acceptance of invariant behavior, submission packaging decisions.
+
+### Honest limitations
+- Mock engine uses pattern/rules + templates; it is not a frontier model.
+- Optional live LLM drafts can still hallucinate — that is exactly why the **hard human gate** exists and is enforced server-side.
+- Serverless deploys may use ephemeral in-memory state; demo reset + triage restores a clean walkthrough.

@@ -128,7 +128,7 @@ export const IngestModal: React.FC<IngestModalProps> = ({ onClose }) => {
             onClick={() => setActiveTab('upload')}
             className={`pb-3 px-3 text-xs font-semibold border-b-2 transition-colors ${
               activeTab === 'upload'
-                ? 'border-blue-600 text-blue-700'
+                ? 'border-purple-600 text-purple-700'
                 : 'border-transparent text-slate-500 hover:text-slate-700'
             }`}
           >
@@ -138,7 +138,7 @@ export const IngestModal: React.FC<IngestModalProps> = ({ onClose }) => {
             onClick={() => setActiveTab('paste')}
             className={`pb-3 px-3 text-xs font-semibold border-b-2 transition-colors ${
               activeTab === 'paste'
-                ? 'border-blue-600 text-blue-700'
+                ? 'border-purple-600 text-purple-700'
                 : 'border-transparent text-slate-500 hover:text-slate-700'
             }`}
           >
@@ -148,7 +148,7 @@ export const IngestModal: React.FC<IngestModalProps> = ({ onClose }) => {
             onClick={() => setActiveTab('sample')}
             className={`pb-3 px-3 text-xs font-semibold border-b-2 transition-colors ${
               activeTab === 'sample'
-                ? 'border-blue-600 text-blue-700'
+                ? 'border-purple-600 text-purple-700'
                 : 'border-transparent text-slate-500 hover:text-slate-700'
             }`}
           >
@@ -174,7 +174,7 @@ export const IngestModal: React.FC<IngestModalProps> = ({ onClose }) => {
 
           {activeTab === 'upload' && (
             <div>
-              <label className="border-2 border-dashed border-slate-300 hover:border-blue-500 rounded-xl p-8 flex flex-col items-center justify-center cursor-pointer bg-slate-50/50 hover:bg-blue-50/30 transition-all text-center">
+              <label className="border-2 border-dashed border-slate-300 hover:border-purple-500 rounded-xl p-8 flex flex-col items-center justify-center cursor-pointer bg-slate-50/50 hover:bg-purple-50/30 transition-all text-center">
                 <UploadCloud className="w-10 h-10 text-slate-400 mb-2" />
                 <span className="text-sm font-medium text-slate-700">
                   {fileName || 'Click to select CSV or JSON ticket export'}
@@ -199,7 +199,7 @@ export const IngestModal: React.FC<IngestModalProps> = ({ onClose }) => {
                 onChange={(e) => setPastedContent(e.target.value)}
                 placeholder="Paste CSV text with headers (Subject, Body, Email...) or JSON array of tickets..."
                 rows={7}
-                className="w-full text-xs font-mono p-3 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full text-xs font-mono p-3 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
               />
               <button
                 onClick={handleParsePasted}
@@ -223,7 +223,7 @@ export const IngestModal: React.FC<IngestModalProps> = ({ onClose }) => {
                   setPastedContent(sampleCSV);
                   setActiveTab('paste');
                 }}
-                className="px-3 py-1.5 bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 rounded-md text-xs font-medium transition-colors"
+                className="px-3 py-1.5 bg-purple-50 hover:bg-purple-100 text-purple-700 border border-purple-200 rounded-md text-xs font-medium transition-colors"
               >
                 Load Sample Into Paste Tab
               </button>
@@ -270,7 +270,7 @@ export const IngestModal: React.FC<IngestModalProps> = ({ onClose }) => {
           <button
             onClick={handleCommitImport}
             disabled={parsedThreads.length === 0 || isSubmitting}
-            className="px-4 py-2 text-xs font-semibold rounded-lg bg-blue-600 hover:bg-blue-700 text-white transition-colors disabled:opacity-40 disabled:cursor-not-allowed shadow-sm"
+            className="px-4 py-2 text-xs font-semibold rounded-lg bg-purple-600 hover:bg-purple-700 text-white transition-colors disabled:opacity-40 disabled:cursor-not-allowed shadow-sm"
           >
             {isSubmitting ? 'Importing...' : `Import ${parsedThreads.length} Tickets`}
           </button>
