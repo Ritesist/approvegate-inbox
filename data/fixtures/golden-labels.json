@@ -1,0 +1,326 @@
+[
+  {
+    "threadId": "thread-001",
+    "subjectSnippet": "Production API throwing 500 errors across all US-East clusters",
+    "expectedPriority": "P0",
+    "expectedCategory": "bug",
+    "expectedOwner": "Core Platform Engineering",
+    "difficulty": "straightforward",
+    "notes": "Direct production outage impacting checkout with active revenue loss."
+  },
+  {
+    "threadId": "thread-002",
+    "subjectSnippet": "Unauthorized charge of $4,200 on corporate Amex",
+    "expectedPriority": "P0",
+    "expectedCategory": "billing",
+    "expectedOwner": "Billing Ops",
+    "difficulty": "straightforward",
+    "notes": "Large disputed amount ($4,200) with chargeback and vendor cancellation threat."
+  },
+  {
+    "threadId": "thread-003",
+    "subjectSnippet": "Enterprise Procurement RFP: 500 seat rollout requirement questions",
+    "expectedPriority": "P1",
+    "expectedCategory": "sales",
+    "expectedOwner": "Enterprise Sales",
+    "difficulty": "straightforward",
+    "notes": "High-value 500 seat prospect with procurement questionnaire deadline."
+  },
+  {
+    "threadId": "thread-004",
+    "subjectSnippet": "Automatic reply: Out of Office until Monday Oct 5",
+    "expectedPriority": "P3",
+    "expectedCategory": "FYI",
+    "expectedOwner": "Automation / Archive",
+    "difficulty": "straightforward",
+    "notes": "Automated out-of-office notification requiring no human reply."
+  },
+  {
+    "threadId": "thread-005",
+    "subjectSnippet": "Security Disclosure: Potential SSRF in webhook validation endpoint",
+    "expectedPriority": "P0",
+    "expectedCategory": "bug",
+    "expectedOwner": "Security & Compliance",
+    "difficulty": "straightforward",
+    "notes": "Critical SSRF flaw targeting AWS metadata credentials."
+  },
+  {
+    "threadId": "thread-006",
+    "subjectSnippet": "CSV export button not downloading full date range on Safari 17",
+    "expectedPriority": "P2",
+    "expectedCategory": "bug",
+    "expectedOwner": "Frontend Engineering",
+    "difficulty": "straightforward",
+    "notes": "Browser-specific UI export issue impacting customer reports."
+  },
+  {
+    "threadId": "thread-007",
+    "subjectSnippet": "Can we pay via annual bank wire transfer instead of credit card?",
+    "expectedPriority": "P2",
+    "expectedCategory": "billing",
+    "expectedOwner": "Billing Ops",
+    "difficulty": "straightforward",
+    "notes": "Standard upgrade payment inquiry requesting SEPA/wire details."
+  },
+  {
+    "threadId": "thread-008",
+    "subjectSnippet": "Feature Request: Keyboard shortcuts for cycling through pending approvals",
+    "expectedPriority": "P3",
+    "expectedCategory": "other",
+    "expectedOwner": "Product Team",
+    "difficulty": "straightforward",
+    "notes": "Product suggestion for power-user keyboard navigation."
+  },
+  {
+    "threadId": "thread-009",
+    "subjectSnippet": "Partnership opportunity - AI Developer Summit 2026 Keynote Sponsor",
+    "expectedPriority": "P3",
+    "expectedCategory": "sales",
+    "expectedOwner": "Marketing Partnerships",
+    "difficulty": "ambiguous",
+    "notes": "Inbound sponsorship pitch, non-urgent inbound business development."
+  },
+  {
+    "threadId": "thread-010",
+    "subjectSnippet": "Newsletter: Weekly DevOps Digest Issue #142",
+    "expectedPriority": "P3",
+    "expectedCategory": "FYI",
+    "expectedOwner": "Automation / Archive",
+    "difficulty": "straightforward",
+    "notes": "Informational newsletter mailing list."
+  },
+  {
+    "threadId": "thread-011",
+    "subjectSnippet": "CRITICAL: Database connection leak causing webhook worker crash loop",
+    "expectedPriority": "P0",
+    "expectedCategory": "bug",
+    "expectedOwner": "Site Reliability Engineering",
+    "difficulty": "straightforward",
+    "notes": "Automated PagerDuty crash loop alert on backend workers."
+  },
+  {
+    "threadId": "thread-012",
+    "subjectSnippet": "Double charged for renewal on Sep 21 - Invoice #INV-88392",
+    "expectedPriority": "P1",
+    "expectedCategory": "billing",
+    "expectedOwner": "Billing Ops",
+    "difficulty": "straightforward",
+    "notes": "Duplicate billing error on customer card requiring prompt refund."
+  },
+  {
+    "threadId": "thread-013",
+    "subjectSnippet": "SSO Login Loop with Okta SAML 2.0 integration",
+    "expectedPriority": "P1",
+    "expectedCategory": "bug",
+    "expectedOwner": "IAM & Integration Team",
+    "difficulty": "straightforward",
+    "notes": "All 120 employees locked out due to SAML audience restriction."
+  },
+  {
+    "threadId": "thread-014",
+    "subjectSnippet": "Pricing inquiry for custom volume discount - 250k events/month",
+    "expectedPriority": "P1",
+    "expectedCategory": "sales",
+    "expectedOwner": "Enterprise Sales",
+    "difficulty": "straightforward",
+    "notes": "High volume prospect exceeding standard self-serve tiers."
+  },
+  {
+    "threadId": "thread-015",
+    "subjectSnippet": "Receipt request: Need PDF tax invoice for company bookkeeping",
+    "expectedPriority": "P3",
+    "expectedCategory": "billing",
+    "expectedOwner": "Billing Ops",
+    "difficulty": "straightforward",
+    "notes": "Routine invoice/receipt copy request."
+  },
+  {
+    "threadId": "thread-016",
+    "subjectSnippet": "Notification: SSL Certificate Auto-Renewed for domain *.approvegate.internal",
+    "expectedPriority": "P3",
+    "expectedCategory": "FYI",
+    "expectedOwner": "Automation / Archive",
+    "difficulty": "straightforward",
+    "notes": "Informational system notice requiring zero action."
+  },
+  {
+    "threadId": "thread-017",
+    "subjectSnippet": "Customer churn escalation - Account #8812 cancel request",
+    "expectedPriority": "P0",
+    "expectedCategory": "other",
+    "expectedOwner": "Customer Success Leadership",
+    "difficulty": "ambiguous",
+    "notes": "VIP enterprise customer threatening immediate churn after multiple outages."
+  },
+  {
+    "threadId": "thread-018",
+    "subjectSnippet": "Typo in API documentation page for /v1/triage endpoint",
+    "expectedPriority": "P3",
+    "expectedCategory": "other",
+    "expectedOwner": "Technical Documentation",
+    "difficulty": "straightforward",
+    "notes": "Cosmetic typo report on docs page."
+  },
+  {
+    "threadId": "thread-019",
+    "subjectSnippet": "Webhook deliveries failing silently when payload exceeds 500KB",
+    "expectedPriority": "P2",
+    "expectedCategory": "bug",
+    "expectedOwner": "Platform Engineering",
+    "difficulty": "straightforward",
+    "notes": "Functional edge case bug with payload size limit."
+  },
+  {
+    "threadId": "thread-020",
+    "subjectSnippet": "How do I invite secondary admins to our team workspace?",
+    "expectedPriority": "P2",
+    "expectedCategory": "other",
+    "expectedOwner": "Customer Support",
+    "difficulty": "straightforward",
+    "notes": "Workspace configuration question from active pro user."
+  },
+  {
+    "threadId": "thread-021",
+    "subjectSnippet": "Data Processing Agreement (DPA) and GDPR Standard Contractual Clauses",
+    "expectedPriority": "P1",
+    "expectedCategory": "other",
+    "expectedOwner": "Legal & Compliance",
+    "difficulty": "ambiguous",
+    "notes": "Enterprise compliance requirement blocking contract signature."
+  },
+  {
+    "threadId": "thread-022",
+    "subjectSnippet": "GitHub Integration: App installation token expiration error",
+    "expectedPriority": "P2",
+    "expectedCategory": "bug",
+    "expectedOwner": "Integrations Team",
+    "difficulty": "straightforward",
+    "notes": "Token renewal bug causing hourly disconnects."
+  },
+  {
+    "threadId": "thread-023",
+    "subjectSnippet": "Inquiry: Can we schedule a product demo for our executive team?",
+    "expectedPriority": "P1",
+    "expectedCategory": "sales",
+    "expectedOwner": "Enterprise Sales",
+    "difficulty": "straightforward",
+    "notes": "High intent enterprise inbound demo request."
+  },
+  {
+    "threadId": "thread-024",
+    "subjectSnippet": "Spam: SEO and Backlink services for high search engine ranking",
+    "expectedPriority": "P3",
+    "expectedCategory": "FYI",
+    "expectedOwner": "Spam Filter",
+    "difficulty": "straightforward",
+    "notes": "Unsolicited promotional cold email."
+  },
+  {
+    "threadId": "thread-025",
+    "subjectSnippet": "System Warning: Storage usage exceeded 90% threshold in us-west data bucket",
+    "expectedPriority": "P1",
+    "expectedCategory": "bug",
+    "expectedOwner": "Site Reliability Engineering",
+    "difficulty": "ambiguous",
+    "notes": "Infra quota alarm before automated purging occurs."
+  },
+  {
+    "threadId": "thread-026",
+    "subjectSnippet": "VAT exempt status validation failed during checkout",
+    "expectedPriority": "P1",
+    "expectedCategory": "billing",
+    "expectedOwner": "Billing Ops",
+    "difficulty": "straightforward",
+    "notes": "Payment conversion blocker due to EU VIES tax verification."
+  },
+  {
+    "threadId": "thread-027",
+    "subjectSnippet": "Can the ApproveGate UI be embedded within our internal React portal?",
+    "expectedPriority": "P2",
+    "expectedCategory": "other",
+    "expectedOwner": "Developer Relations",
+    "difficulty": "straightforward",
+    "notes": "Developer integration inquiry regarding iframe or SDK options."
+  },
+  {
+    "threadId": "thread-028",
+    "subjectSnippet": "SECURITY INCIDENT: Suspicious mass export attempt from IP in Nigeria",
+    "expectedPriority": "P0",
+    "expectedCategory": "other",
+    "expectedOwner": "Security Operations",
+    "difficulty": "ambiguous",
+    "notes": "Account takeover indicator with anomalous bulk data export."
+  },
+  {
+    "threadId": "thread-029",
+    "subjectSnippet": "Missing filter option for 'Snoozed until today' in ticket list",
+    "expectedPriority": "P3",
+    "expectedCategory": "other",
+    "expectedOwner": "Product Team",
+    "difficulty": "straightforward",
+    "notes": "Minor UI enhancement suggestion."
+  },
+  {
+    "threadId": "thread-030",
+    "subjectSnippet": "Request for proposal: Migration from Intercom to ApproveGate for 80 support reps",
+    "expectedPriority": "P1",
+    "expectedCategory": "sales",
+    "expectedOwner": "Enterprise Sales",
+    "difficulty": "straightforward",
+    "notes": "Significant 80-seat replacement opportunity."
+  },
+  {
+    "threadId": "thread-031",
+    "subjectSnippet": "Order Confirmation #ORD-991204 - Digital Camera Lens",
+    "expectedPriority": "P3",
+    "expectedCategory": "other",
+    "expectedOwner": "Tier 1 Support",
+    "difficulty": "ambiguous",
+    "notes": "Misdirected personal order confirmation email."
+  },
+  {
+    "threadId": "thread-032",
+    "subjectSnippet": "Audit log export failing with HTTP 504 Gateway Timeout on 90-day queries",
+    "expectedPriority": "P1",
+    "expectedCategory": "bug",
+    "expectedOwner": "Platform Engineering",
+    "difficulty": "straightforward",
+    "notes": "Enterprise auditor blocked on regulatory export."
+  },
+  {
+    "threadId": "thread-033",
+    "subjectSnippet": "Cancellation Request: Please cancel our subscription before auto-renew on Oct 1",
+    "expectedPriority": "P1",
+    "expectedCategory": "billing",
+    "expectedOwner": "Retention & Billing",
+    "difficulty": "straightforward",
+    "notes": "Time-sensitive cancellation request prior to billing renewal."
+  },
+  {
+    "threadId": "thread-034",
+    "subjectSnippet": "Weekly System Maintenance scheduled for Sunday 02:00 UTC",
+    "expectedPriority": "P3",
+    "expectedCategory": "FYI",
+    "expectedOwner": "Automation / Archive",
+    "difficulty": "straightforward",
+    "notes": "Routine scheduled maintenance notice."
+  },
+  {
+    "threadId": "thread-035",
+    "subjectSnippet": "Urgent legal demand: Trademark violation notice for brand keyword in search ads",
+    "expectedPriority": "P1",
+    "expectedCategory": "other",
+    "expectedOwner": "Legal & Compliance",
+    "difficulty": "ambiguous",
+    "notes": "Legal cease-and-desist with 48-hour response demand."
+  },
+  {
+    "threadId": "thread-036",
+    "subjectSnippet": "Can we configure custom webhook headers for HMAC signature verification?",
+    "expectedPriority": "P2",
+    "expectedCategory": "other",
+    "expectedOwner": "Developer Support",
+    "difficulty": "straightforward",
+    "notes": "Technical implementation query regarding webhook cryptographic headers."
+  }
+]

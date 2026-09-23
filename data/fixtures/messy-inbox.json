@@ -1,0 +1,830 @@
+[
+  {
+    "id": "thread-001",
+    "subject": "URGENT: Production API throwing 500 errors across all US-East clusters",
+    "from": {
+      "name": "Marcus Vance",
+      "email": "marcus.vance@acme-enterprise.com",
+      "company": "Acme Corp"
+    },
+    "receivedAt": "2026-09-23T07:15:00Z",
+    "channel": "email",
+    "customerTier": "vip",
+    "tags": ["outage", "api", "us-east"],
+    "rawBody": "Hi Team,\n\nOur entire checkout pipeline is failing right now. Every call to /v2/checkout/process is returning HTTP 500 with error code ERR_DB_POOL_EXHAUSTED.\n\nWe are losing roughly $8,000 per minute in transaction volume. We need an immediate escalation to on-call engineering. Please respond with a bridge link ASAP.\n\nMarcus Vance\nVP Engineering, Acme Corp\nPhone: +1-555-0192",
+    "threadMessages": [
+      {
+        "id": "msg-001-1",
+        "sender": "Marcus Vance",
+        "email": "marcus.vance@acme-enterprise.com",
+        "timestamp": "2026-09-23T07:15:00Z",
+        "body": "Hi Team,\n\nOur entire checkout pipeline is failing right now. Every call to /v2/checkout/process is returning HTTP 500 with error code ERR_DB_POOL_EXHAUSTED.\n\nWe are losing roughly $8,000 per minute in transaction volume. We need an immediate escalation to on-call engineering. Please respond with a bridge link ASAP.\n\nMarcus Vance\nVP Engineering, Acme Corp\nPhone: +1-555-0192"
+      }
+    ]
+  },
+  {
+    "id": "thread-002",
+    "subject": "Unauthorized charge of $4,200 on corporate Amex - please refund immediately",
+    "from": {
+      "name": "Elena Rostova",
+      "email": "elena.r@fintechholdings.io",
+      "company": "Fintech Holdings"
+    },
+    "receivedAt": "2026-09-23T06:40:00Z",
+    "channel": "email",
+    "customerTier": "enterprise",
+    "tags": ["billing", "refund", "dispute"],
+    "rawBody": "Hello Support,\n\nOur accounting department just flagged an automated renewal charge of $4,200 on our card ending in 8831 for invoice INV-2026-9921. We explicitly submitted a downgrade request three weeks ago via ticket #48122.\n\nIf this charge is not reversed by end of business today, our CFO will file an immediate chargeback and initiate vendor termination. Please confirm the refund transaction ID immediately.\n\nRegards,\nElena Rostova\nController",
+    "threadMessages": [
+      {
+        "id": "msg-002-1",
+        "sender": "Elena Rostova",
+        "email": "elena.r@fintechholdings.io",
+        "timestamp": "2026-09-23T06:40:00Z",
+        "body": "Hello Support,\n\nOur accounting department just flagged an automated renewal charge of $4,200 on our card ending in 8831 for invoice INV-2026-9921. We explicitly submitted a downgrade request three weeks ago via ticket #48122.\n\nIf this charge is not reversed by end of business today, our CFO will file an immediate chargeback and initiate vendor termination. Please confirm the refund transaction ID immediately.\n\nRegards,\nElena Rostova\nController"
+      }
+    ]
+  },
+  {
+    "id": "thread-003",
+    "subject": "Enterprise Procurement RFP: 500 seat rollout requirement questions",
+    "from": {
+      "name": "David Sterling",
+      "email": "dsterling@globallogistics.com",
+      "company": "Global Logistics Group"
+    },
+    "receivedAt": "2026-09-23T05:22:00Z",
+    "channel": "web",
+    "customerTier": "enterprise",
+    "tags": ["sales", "rfp", "enterprise"],
+    "rawBody": "Good day,\n\nGlobal Logistics is evaluating workflow automation vendors for our Q4 digital transformation initiative. We have shortlisted your solution for a 500-seat rollout across North America and EMEA.\n\nAttached is our standard vendor questionnaire covering SOC2 Type II compliance, SSO/SAML integration, and custom data residency. Could an enterprise account executive contact me to arrange a technical briefing before Thursday?\n\nBest regards,\nDavid Sterling\nDirector of Global Procurement",
+    "threadMessages": [
+      {
+        "id": "msg-003-1",
+        "sender": "David Sterling",
+        "email": "dsterling@globallogistics.com",
+        "timestamp": "2026-09-23T05:22:00Z",
+        "body": "Good day,\n\nGlobal Logistics is evaluating workflow automation vendors for our Q4 digital transformation initiative. We have shortlisted your solution for a 500-seat rollout across North America and EMEA.\n\nAttached is our standard vendor questionnaire covering SOC2 Type II compliance, SSO/SAML integration, and custom data residency. Could an enterprise account executive contact me to arrange a technical briefing before Thursday?\n\nBest regards,\nDavid Sterling\nDirector of Global Procurement"
+      }
+    ]
+  },
+  {
+    "id": "thread-004",
+    "subject": "Fwd: Automatic reply: Out of Office until Monday Oct 5",
+    "from": {
+      "name": "Mailer Daemon",
+      "email": "postmaster@external-partner.com",
+      "company": "External Partner"
+    },
+    "receivedAt": "2026-09-23T04:10:00Z",
+    "channel": "email",
+    "customerTier": "free",
+    "tags": ["auto-reply", "system"],
+    "rawBody": "I will be out of the office starting Sep 22 returning Oct 5. I will have limited access to email. If your matter is urgent please reach out to operations-team@external-partner.com. Thanks!",
+    "threadMessages": [
+      {
+        "id": "msg-004-1",
+        "sender": "Mailer Daemon",
+        "email": "postmaster@external-partner.com",
+        "timestamp": "2026-09-23T04:10:00Z",
+        "body": "I will be out of the office starting Sep 22 returning Oct 5. I will have limited access to email. If your matter is urgent please reach out to operations-team@external-partner.com. Thanks!"
+      }
+    ]
+  },
+  {
+    "id": "thread-005",
+    "subject": "Security Disclosure: Potential SSRF in webhook validation endpoint",
+    "from": {
+      "name": "Priya Sharma",
+      "email": "psharma@securesight-labs.org",
+      "company": "SecureSight Labs"
+    },
+    "receivedAt": "2026-09-23T03:45:00Z",
+    "channel": "email",
+    "customerTier": "pro",
+    "tags": ["security", "vulnerability", "p0"],
+    "rawBody": "Hello Security Team,\n\nDuring independent vulnerability assessment under your responsible disclosure program, we identified a Server-Side Request Forgery (SSRF) flaw in /api/v1/webhooks/test-delivery.\n\nThe endpoint fails to validate private RFC 1918 IPv4 ranges, allowing an authenticated user to pivot to internal AWS metadata services (169.254.169.254) and retrieve IAM credentials.\n\nFull proof of concept script and curl logs attached. Awaiting your PGP key or encrypted acknowledgment.\n\nPriya Sharma, CISSP\nLead Security Researcher",
+    "threadMessages": [
+      {
+        "id": "msg-005-1",
+        "sender": "Priya Sharma",
+        "email": "psharma@securesight-labs.org",
+        "timestamp": "2026-09-23T03:45:00Z",
+        "body": "Hello Security Team,\n\nDuring independent vulnerability assessment under your responsible disclosure program, we identified a Server-Side Request Forgery (SSRF) flaw in /api/v1/webhooks/test-delivery.\n\nThe endpoint fails to validate private RFC 1918 IPv4 ranges, allowing an authenticated user to pivot to internal AWS metadata services (169.254.169.254) and retrieve IAM credentials.\n\nFull proof of concept script and curl logs attached. Awaiting your PGP key or encrypted acknowledgment.\n\nPriya Sharma, CISSP\nLead Security Researcher"
+      }
+    ]
+  },
+  {
+    "id": "thread-006",
+    "subject": "CSV export button not downloading full date range on Safari 17",
+    "from": {
+      "name": "Thomas Reed",
+      "email": "t.reed@analyticspro.co",
+      "company": "AnalyticsPro"
+    },
+    "receivedAt": "2026-09-23T03:10:00Z",
+    "channel": "web",
+    "customerTier": "pro",
+    "tags": ["bug", "export", "browser-specific"],
+    "rawBody": "Hey team,\n\nWhen we click 'Export CSV' on the revenue dashboard using Safari 17.4 on macOS Sonoma, only the first 50 rows get exported instead of the full selected range of 1,200 rows. In Chrome it seems to download all of them.\n\nCould your frontend engineers look into the Safari Blob stream handler? It is slowing down our Monday reporting.\n\nThanks,\nThomas",
+    "threadMessages": [
+      {
+        "id": "msg-006-1",
+        "sender": "Thomas Reed",
+        "email": "t.reed@analyticspro.co",
+        "timestamp": "2026-09-23T03:10:00Z",
+        "body": "Hey team,\n\nWhen we click 'Export CSV' on the revenue dashboard using Safari 17.4 on macOS Sonoma, only the first 50 rows get exported instead of the full selected range of 1,200 rows. In Chrome it seems to download all of them.\n\nCould your frontend engineers look into the Safari Blob stream handler? It is slowing down our Monday reporting.\n\nThanks,\nThomas"
+      }
+    ]
+  },
+  {
+    "id": "thread-007",
+    "subject": "Can we pay via annual bank wire transfer instead of credit card?",
+    "from": {
+      "name": "Brigitte Meyer",
+      "email": "bmeyer@bavaria-engineering.de",
+      "company": "Bavaria Engineering GmbH"
+    },
+    "receivedAt": "2026-09-23T02:30:00Z",
+    "channel": "email",
+    "customerTier": "pro",
+    "tags": ["billing", "invoice", "wire"],
+    "rawBody": "Guten Tag,\n\nWe are upgrading our workspace from Starter to Pro for 25 engineers. German corporate governance requires vendor payments above 5,000 EUR to be settled via SEPA wire transfer against a formal VAT invoice.\n\nCould you send us your IBAN, BIC, and German VAT ID, along with a formal pro-forma quote for 25 annual seats?\n\nMit freundlichen Grüßen,\nBrigitte Meyer\nHead of Procurement",
+    "threadMessages": [
+      {
+        "id": "msg-007-1",
+        "sender": "Brigitte Meyer",
+        "email": "bmeyer@bavaria-engineering.de",
+        "timestamp": "2026-09-23T02:30:00Z",
+        "body": "Guten Tag,\n\nWe are upgrading our workspace from Starter to Pro for 25 engineers. German corporate governance requires vendor payments above 5,000 EUR to be settled via SEPA wire transfer against a formal VAT invoice.\n\nCould you send us your IBAN, BIC, and German VAT ID, along with a formal pro-forma quote for 25 annual seats?\n\nMit freundlichen Grüßen,\nBrigitte Meyer\nHead of Procurement"
+      }
+    ]
+  },
+  {
+    "id": "thread-008",
+    "subject": "Feature Request: Keyboard shortcuts for cycling through pending approvals",
+    "from": {
+      "name": "Sarah Chen",
+      "email": "sarah.chen@fastops.dev",
+      "company": "FastOps"
+    },
+    "receivedAt": "2026-09-23T01:50:00Z",
+    "channel": "support_portal",
+    "customerTier": "pro",
+    "tags": ["feature-request", "ui", "shortcuts"],
+    "rawBody": "Hey product team!\n\nLoving the platform so far. One quick quality-of-life suggestion: could you add 'j' and 'k' keyboard shortcuts (similar to Gmail or Superhuman) to navigate through items without reaching for the mouse? Also 'a' to approve and 'e' to edit would be incredible.\n\nKeep up the great work!\nSarah",
+    "threadMessages": [
+      {
+        "id": "msg-008-1",
+        "sender": "Sarah Chen",
+        "email": "sarah.chen@fastops.dev",
+        "timestamp": "2026-09-23T01:50:00Z",
+        "body": "Hey product team!\n\nLoving the platform so far. One quick quality-of-life suggestion: could you add 'j' and 'k' keyboard shortcuts (similar to Gmail or Superhuman) to navigate through items without reaching for the mouse? Also 'a' to approve and 'e' to edit would be incredible.\n\nKeep up the great work!\nSarah"
+      }
+    ]
+  },
+  {
+    "id": "thread-009",
+    "subject": "Re: Partnership opportunity - AI Developer Summit 2026 Keynote Sponsor",
+    "from": {
+      "name": "Arthur Pendelton",
+      "email": "arthur@events-summitgroup.com",
+      "company": "Summit Group"
+    },
+    "receivedAt": "2026-09-23T01:12:00Z",
+    "channel": "email",
+    "customerTier": "free",
+    "tags": ["sales", "marketing", "sponsorship"],
+    "rawBody": "Hi there,\n\nFollowing up on our email last Tuesday regarding the AI Developer Summit 2026 in San Francisco. We have 2 platinum sponsor booths remaining for leading AI tooling companies.\n\nPackages include a 20-minute keynote speaking slot and direct attendee lead scans. Attached is the media kit and pricing sheet ($25,000). Let me know if you'd like to schedule a 15-minute sync this week.\n\nArthur Pendelton\nPartnership Director",
+    "threadMessages": [
+      {
+        "id": "msg-009-1",
+        "sender": "Arthur Pendelton",
+        "email": "arthur@events-summitgroup.com",
+        "timestamp": "2026-09-23T01:12:00Z",
+        "body": "Hi there,\n\nFollowing up on our email last Tuesday regarding the AI Developer Summit 2026 in San Francisco. We have 2 platinum sponsor booths remaining for leading AI tooling companies.\n\nPackages include a 20-minute keynote speaking slot and direct attendee lead scans. Attached is the media kit and pricing sheet ($25,000). Let me know if you'd like to schedule a 15-minute sync this week.\n\nArthur Pendelton\nPartnership Director"
+      }
+    ]
+  },
+  {
+    "id": "thread-010",
+    "subject": "Newsletter: Weekly DevOps Digest Issue #142",
+    "from": {
+      "name": "DevOps Weekly",
+      "email": "curator@devopsweekly.newsletter.io",
+      "company": "DevOps Weekly"
+    },
+    "receivedAt": "2026-09-23T00:30:00Z",
+    "channel": "email",
+    "customerTier": "free",
+    "tags": ["newsletter", "fyi"],
+    "rawBody": "Welcome to Issue #142 of DevOps Weekly. Top stories this week:\n- Kubernetes 1.32 release highlights\n- Continuous deployment strategies in serverless\n- Monitoring distributed traces with OpenTelemetry\nClick here to unsubscribe or change your email preferences.",
+    "threadMessages": [
+      {
+        "id": "msg-010-1",
+        "sender": "DevOps Weekly",
+        "email": "curator@devopsweekly.newsletter.io",
+        "timestamp": "2026-09-23T00:30:00Z",
+        "body": "Welcome to Issue #142 of DevOps Weekly. Top stories this week:\n- Kubernetes 1.32 release highlights\n- Continuous deployment strategies in serverless\n- Monitoring distributed traces with OpenTelemetry\nClick here to unsubscribe or change your email preferences."
+      }
+    ]
+  },
+  {
+    "id": "thread-011",
+    "subject": "CRITICAL: Database connection leak causing webhook worker crash loop",
+    "from": {
+      "name": "DevOps Alerting",
+      "email": "pagerduty@internal-monitoring.corp",
+      "company": "Internal Operations"
+    },
+    "receivedAt": "2026-09-22T23:55:00Z",
+    "channel": "api",
+    "customerTier": "enterprise",
+    "tags": ["monitoring", "p0", "alert"],
+    "rawBody": "[CRITICAL ALERT] Host group: worker-east-pool\nSymptom: Memory usage 98.4%, Pod restarts > 15 in last 10 minutes.\nError log extract: FATAL: remaining connection slots are reserved for non-replication superuser connections.\nTriggered by: Webhook ingest volume spike.\nRunbook link: https://internal.corp/wiki/db-pool-recovery",
+    "threadMessages": [
+      {
+        "id": "msg-011-1",
+        "sender": "DevOps Alerting",
+        "email": "pagerduty@internal-monitoring.corp",
+        "timestamp": "2026-09-22T23:55:00Z",
+        "body": "[CRITICAL ALERT] Host group: worker-east-pool\nSymptom: Memory usage 98.4%, Pod restarts > 15 in last 10 minutes.\nError log extract: FATAL: remaining connection slots are reserved for non-replication superuser connections.\nTriggered by: Webhook ingest volume spike.\nRunbook link: https://internal.corp/wiki/db-pool-recovery"
+      }
+    ]
+  },
+  {
+    "id": "thread-012",
+    "subject": "Double charged for renewal on Sep 21 - Invoice #INV-88392",
+    "from": {
+      "name": "Carlos Gomez",
+      "email": "carlos@cloudmatrix.co",
+      "company": "CloudMatrix"
+    },
+    "receivedAt": "2026-09-22T22:15:00Z",
+    "channel": "email",
+    "customerTier": "pro",
+    "tags": ["billing", "duplicate-charge"],
+    "rawBody": "Hi Support,\n\nI was charged twice for our annual plan yesterday ($790 x 2). Both charges appear on our Visa ending in 4110 with description 'APPROVEGATE SAAS'.\n\nCould you please cancel one of the charges and refund the duplicate payment back to the original card?\n\nThank you,\nCarlos Gomez",
+    "threadMessages": [
+      {
+        "id": "msg-012-1",
+        "sender": "Carlos Gomez",
+        "email": "carlos@cloudmatrix.co",
+        "timestamp": "2026-09-22T22:15:00Z",
+        "body": "Hi Support,\n\nI was charged twice for our annual plan yesterday ($790 x 2). Both charges appear on our Visa ending in 4110 with description 'APPROVEGATE SAAS'.\n\nCould you please cancel one of the charges and refund the duplicate payment back to the original card?\n\nThank you,\nCarlos Gomez"
+      }
+    ]
+  },
+  {
+    "id": "thread-013",
+    "subject": "SSO Login Loop with Okta SAML 2.0 integration",
+    "from": {
+      "name": "Jennifer Wu",
+      "email": "jwu@summitcloud.net",
+      "company": "Summit Cloud"
+    },
+    "receivedAt": "2026-09-22T21:40:00Z",
+    "channel": "email",
+    "customerTier": "enterprise",
+    "tags": ["bug", "sso", "okta"],
+    "rawBody": "Hello support,\n\nOur team configured Okta SAML integration this morning following your documentation. However, when users click 'Sign in with SSO', they authenticate in Okta successfully but get redirected back to /auth/callback with an infinite spinner and error message 'Invalid Audience Restriction URI'.\n\nNone of our 120 employees can log in right now. We need someone to review our Entity ID and ACS URL settings.\n\nJennifer Wu\nIT Systems Administrator",
+    "threadMessages": [
+      {
+        "id": "msg-013-1",
+        "sender": "Jennifer Wu",
+        "email": "jwu@summitcloud.net",
+        "timestamp": "2026-09-22T21:40:00Z",
+        "body": "Hello support,\n\nOur team configured Okta SAML integration this morning following your documentation. However, when users click 'Sign in with SSO', they authenticate in Okta successfully but get redirected back to /auth/callback with an infinite spinner and error message 'Invalid Audience Restriction URI'.\n\nNone of our 120 employees can log in right now. We need someone to review our Entity ID and ACS URL settings.\n\nJennifer Wu\nIT Systems Administrator"
+      }
+    ]
+  },
+  {
+    "id": "thread-014",
+    "subject": "Pricing inquiry for custom volume discount - 250k events/month",
+    "from": {
+      "name": "Rachel Adams",
+      "email": "radams@hypergrowth.tech",
+      "company": "HyperGrowth Tech"
+    },
+    "receivedAt": "2026-09-22T20:20:00Z",
+    "channel": "web",
+    "customerTier": "pro",
+    "tags": ["sales", "pricing", "volume"],
+    "rawBody": "Hi sales team,\n\nWe anticipate processing approximately 250,000 support triage events per month starting next quarter. Your standard pricing calculator tops out at 50k events.\n\nDo you offer committed-use volume tiering or an enterprise SLA agreement? We would love to discuss custom contract terms with your sales director.\n\nRachel Adams\nDirector of Operations",
+    "threadMessages": [
+      {
+        "id": "msg-014-1",
+        "sender": "Rachel Adams",
+        "email": "radams@hypergrowth.tech",
+        "timestamp": "2026-09-22T20:20:00Z",
+        "body": "Hi sales team,\n\nWe anticipate processing approximately 250,000 support triage events per month starting next quarter. Your standard pricing calculator tops out at 50k events.\n\nDo you offer committed-use volume tiering or an enterprise SLA agreement? We would love to discuss custom contract terms with your sales director.\n\nRachel Adams\nDirector of Operations"
+      }
+    ]
+  },
+  {
+    "id": "thread-015",
+    "subject": "Receipt request: Need PDF tax invoice for company bookkeeping",
+    "from": {
+      "name": "Lucia Morales",
+      "email": "lucia@studioverde.es",
+      "company": "Studio Verde"
+    },
+    "receivedAt": "2026-09-22T19:05:00Z",
+    "channel": "email",
+    "customerTier": "free",
+    "tags": ["billing", "invoice", "receipt"],
+    "rawBody": "Hello,\n\nCould you please email me the official PDF invoice for our last monthly payment of $49? Our finance department needs it with our company tax registration number ES-B9812491 included.\n\nThank you,\nLucia",
+    "threadMessages": [
+      {
+        "id": "msg-015-1",
+        "sender": "Lucia Morales",
+        "email": "lucia@studioverde.es",
+        "timestamp": "2026-09-22T19:05:00Z",
+        "body": "Hello,\n\nCould you please email me the official PDF invoice for our last monthly payment of $49? Our finance department needs it with our company tax registration number ES-B9812491 included.\n\nThank you,\nLucia"
+      }
+    ]
+  },
+  {
+    "id": "thread-016",
+    "subject": "Notification: SSL Certificate Auto-Renewed for domain *.approvegate.internal",
+    "from": {
+      "name": "Let's Encrypt CA Bot",
+      "email": "certs@internal-infra.corp",
+      "company": "Internal Infra"
+    },
+    "receivedAt": "2026-09-22T18:00:00Z",
+    "channel": "api",
+    "customerTier": "free",
+    "tags": ["infra", "cert", "fyi"],
+    "rawBody": "Automated notification: Certificate for *.approvegate.internal has been renewed successfully. Expiration: 2026-12-21 00:00:00 UTC. No human action required.",
+    "threadMessages": [
+      {
+        "id": "msg-016-1",
+        "sender": "Let's Encrypt CA Bot",
+        "email": "certs@internal-infra.corp",
+        "timestamp": "2026-09-22T18:00:00Z",
+        "body": "Automated notification: Certificate for *.approvegate.internal has been renewed successfully. Expiration: 2026-12-21 00:00:00 UTC. No human action required."
+      }
+    ]
+  },
+  {
+    "id": "thread-017",
+    "subject": "Fwd: Customer churn escalation - Account #8812 cancel request",
+    "from": {
+      "name": "Michael Thorne",
+      "email": "m.thorne@enterprise-accounts.com",
+      "company": "Apex Global"
+    },
+    "receivedAt": "2026-09-22T17:15:00Z",
+    "channel": "email",
+    "customerTier": "vip",
+    "tags": ["churn", "escalation", "retention"],
+    "rawBody": "Forwarding email from Apex Global CTO:\n'We have experienced three consecutive downtime incidents this month. If our dedicated technical account manager does not provide a root cause analysis and SLA credit proposal by 5 PM today, we are migrating to your competitor.'\n\nNeed urgent executive intervention and customer success team contact immediately.",
+    "threadMessages": [
+      {
+        "id": "msg-017-1",
+        "sender": "Michael Thorne",
+        "email": "m.thorne@enterprise-accounts.com",
+        "timestamp": "2026-09-22T17:15:00Z",
+        "body": "Forwarding email from Apex Global CTO:\n'We have experienced three consecutive downtime incidents this month. If our dedicated technical account manager does not provide a root cause analysis and SLA credit proposal by 5 PM today, we are migrating to your competitor.'\n\nNeed urgent executive intervention and customer success team contact immediately."
+      }
+    ]
+  },
+  {
+    "id": "thread-018",
+    "subject": "Typo in API documentation page for /v1/triage endpoint",
+    "from": {
+      "name": "Alex Novak",
+      "email": "anovak@developer.io",
+      "company": "Developer Community"
+    },
+    "receivedAt": "2026-09-22T16:30:00Z",
+    "channel": "web",
+    "customerTier": "free",
+    "tags": ["docs", "typo", "minor"],
+    "rawBody": "Hi! On page https://docs.approvegate.io/api/triage in the response schema example, 'confidence' is spelled 'confidance'. Just wanted to give a quick heads up.\n\nCheers,\nAlex",
+    "threadMessages": [
+      {
+        "id": "msg-018-1",
+        "sender": "Alex Novak",
+        "email": "anovak@developer.io",
+        "timestamp": "2026-09-22T16:30:00Z",
+        "body": "Hi! On page https://docs.approvegate.io/api/triage in the response schema example, 'confidence' is spelled 'confidance'. Just wanted to give a quick heads up.\n\nCheers,\nAlex"
+      }
+    ]
+  },
+  {
+    "id": "thread-019",
+    "subject": "Webhook deliveries failing silently when payload exceeds 500KB",
+    "from": {
+      "name": "Siddharth Nair",
+      "email": "snair@cloudscale.net",
+      "company": "CloudScale Systems"
+    },
+    "receivedAt": "2026-09-22T15:40:00Z",
+    "channel": "support_portal",
+    "customerTier": "pro",
+    "tags": ["bug", "webhooks", "payload-size"],
+    "rawBody": "Team,\n\nWe noticed that when our triage payload has long audit histories (>500KB), the outgoing webhook gets dropped without any entry in the delivery logs or retry queue. It returns 413 Payload Too Large from the intermediate load balancer.\n\nCan you increase the client body max limit or compress payloads via gzip?\n\nSiddharth Nair",
+    "threadMessages": [
+      {
+        "id": "msg-019-1",
+        "sender": "Siddharth Nair",
+        "email": "snair@cloudscale.net",
+        "timestamp": "2026-09-22T15:40:00Z",
+        "body": "Team,\n\nWe noticed that when our triage payload has long audit histories (>500KB), the outgoing webhook gets dropped without any entry in the delivery logs or retry queue. It returns 413 Payload Too Large from the intermediate load balancer.\n\nCan you increase the client body max limit or compress payloads via gzip?\n\nSiddharth Nair"
+      }
+    ]
+  },
+  {
+    "id": "thread-020",
+    "subject": "How do I invite secondary admins to our team workspace?",
+    "from": {
+      "name": "Chloe Dupont",
+      "email": "c.dupont@atelierdesign.fr",
+      "company": "Atelier Design"
+    },
+    "receivedAt": "2026-09-22T14:20:00Z",
+    "channel": "email",
+    "customerTier": "pro",
+    "tags": ["general", "workspace", "admin"],
+    "rawBody": "Hello support team,\n\nWe would like to add two new managers as workspace administrators so they can approve draft responses when I am out. In Settings > Team, the role dropdown only shows 'Member'.\n\nIs admin seat allocation managed under a different tab?\n\nThanks,\nChloe Dupont",
+    "threadMessages": [
+      {
+        "id": "msg-020-1",
+        "sender": "Chloe Dupont",
+        "email": "c.dupont@atelierdesign.fr",
+        "timestamp": "2026-09-22T14:20:00Z",
+        "body": "Hello support team,\n\nWe would like to add two new managers as workspace administrators so they can approve draft responses when I am out. In Settings > Team, the role dropdown only shows 'Member'.\n\nIs admin seat allocation managed under a different tab?\n\nThanks,\nChloe Dupont"
+      }
+    ]
+  },
+  {
+    "id": "thread-021",
+    "subject": "Data Processing Agreement (DPA) and GDPR Standard Contractual Clauses",
+    "from": {
+      "name": "Klaus Richter",
+      "email": "klaus.richter@nordic-fin.se",
+      "company": "Nordic Financial"
+    },
+    "receivedAt": "2026-09-22T13:10:00Z",
+    "channel": "email",
+    "customerTier": "enterprise",
+    "tags": ["legal", "gdpr", "compliance"],
+    "rawBody": "Dear Legal & Compliance Team,\n\nPrior to signing our enterprise expansion order, our legal counsel requires your standard Data Processing Addendum (DPA) incorporating the EU 2021 Standard Contractual Clauses for transfer of personal data outside the EEA.\n\nPlease provide a counter-signed copy of our agreement or your standard pre-approved DPA template.\n\nBest regards,\nKlaus Richter\nChief Compliance Officer",
+    "threadMessages": [
+      {
+        "id": "msg-021-1",
+        "sender": "Klaus Richter",
+        "email": "klaus.richter@nordic-fin.se",
+        "timestamp": "2026-09-22T13:10:00Z",
+        "body": "Dear Legal & Compliance Team,\n\nPrior to signing our enterprise expansion order, our legal counsel requires your standard Data Processing Addendum (DPA) incorporating the EU 2021 Standard Contractual Clauses for transfer of personal data outside the EEA.\n\nPlease provide a counter-signed copy of our agreement or your standard pre-approved DPA template.\n\nBest regards,\nKlaus Richter\nChief Compliance Officer"
+      }
+    ]
+  },
+  {
+    "id": "thread-022",
+    "subject": "GitHub Integration: App installation token expiration error",
+    "from": {
+      "name": "Daniel Kim",
+      "email": "dkim@quantumops.io",
+      "company": "QuantumOps"
+    },
+    "receivedAt": "2026-09-22T12:00:00Z",
+    "channel": "web",
+    "customerTier": "pro",
+    "tags": ["bug", "integration", "github"],
+    "rawBody": "Hello,\n\nEvery 60 minutes our GitHub sync disconnects with 'Bad credentials - token expired'. It looks like your backend is not calling GitHub's installation access token refresh endpoint before dispatching issue creation calls.\n\nWe have to manually click 'Reconnect GitHub' every hour.\n\nDaniel Kim",
+    "threadMessages": [
+      {
+        "id": "msg-022-1",
+        "sender": "Daniel Kim",
+        "email": "dkim@quantumops.io",
+        "timestamp": "2026-09-22T12:00:00Z",
+        "body": "Hello,\n\nEvery 60 minutes our GitHub sync disconnects with 'Bad credentials - token expired'. It looks like your backend is not calling GitHub's installation access token refresh endpoint before dispatching issue creation calls.\n\nWe have to manually click 'Reconnect GitHub' every hour.\n\nDaniel Kim"
+      }
+    ]
+  },
+  {
+    "id": "thread-023",
+    "subject": "Inquiry: Can we schedule a product demo for our executive team?",
+    "from": {
+      "name": "Emily Watson",
+      "email": "emily.watson@horizontech.com",
+      "company": "Horizon Technologies"
+    },
+    "receivedAt": "2026-09-22T11:15:00Z",
+    "channel": "web",
+    "customerTier": "enterprise",
+    "tags": ["sales", "demo", "enterprise"],
+    "rawBody": "Hi,\n\nOur VP of Customer Experience and I would like to schedule a 30-minute tailored product demo. We currently handle 40,000 inbound tickets monthly using Zendesk and are looking to add an AI triage and draft approval layer.\n\nDo you have availability this Thursday or Friday afternoon EST?\n\nBest,\nEmily Watson\nHead of CX Operations",
+    "threadMessages": [
+      {
+        "id": "msg-023-1",
+        "sender": "Emily Watson",
+        "email": "emily.watson@horizontech.com",
+        "timestamp": "2026-09-22T11:15:00Z",
+        "body": "Hi,\n\nOur VP of Customer Experience and I would like to schedule a 30-minute tailored product demo. We currently handle 40,000 inbound tickets monthly using Zendesk and are looking to add an AI triage and draft approval layer.\n\nDo you have availability this Thursday or Friday afternoon EST?\n\nBest,\nEmily Watson\nHead of CX Operations"
+      }
+    ]
+  },
+  {
+    "id": "thread-024",
+    "subject": "Spam: SEO and Backlink services for high search engine ranking",
+    "from": {
+      "name": "RankBoost Agency",
+      "email": "leads@rankboost-marketing-solutions.xyz",
+      "company": "RankBoost"
+    },
+    "receivedAt": "2026-09-22T10:00:00Z",
+    "channel": "email",
+    "customerTier": "free",
+    "tags": ["spam", "fyi"],
+    "rawBody": "Dear Business Owner,\n\nDo you want your website on Page 1 of Google? We offer 500 high DA do-follow backlinks and monthly guest posts for only $199. Reply YES to get a free site audit today.\n\nUnsubscribe from future pitches.",
+    "threadMessages": [
+      {
+        "id": "msg-024-1",
+        "sender": "RankBoost Agency",
+        "email": "leads@rankboost-marketing-solutions.xyz",
+        "timestamp": "2026-09-22T10:00:00Z",
+        "body": "Dear Business Owner,\n\nDo you want your website on Page 1 of Google? We offer 500 high DA do-follow backlinks and monthly guest posts for only $199. Reply YES to get a free site audit today.\n\nUnsubscribe from future pitches."
+      }
+    ]
+  },
+  {
+    "id": "thread-025",
+    "subject": "System Warning: Storage usage exceeded 90% threshold in us-west data bucket",
+    "from": {
+      "name": "Cloud Storage Watcher",
+      "email": "alerts@s3-monitor.internal",
+      "company": "Internal Infra"
+    },
+    "receivedAt": "2026-09-22T09:30:00Z",
+    "channel": "api",
+    "customerTier": "enterprise",
+    "tags": ["infra", "warning", "storage"],
+    "rawBody": "[WARNING] S3 bucket approvegate-uswest-attachments has exceeded 91.2% quota (4.5TB / 5.0TB). Automatic cleanup cycle will initiate if threshold reaches 95%. Recommended action: review retention lifecycle policy.",
+    "threadMessages": [
+      {
+        "id": "msg-025-1",
+        "sender": "Cloud Storage Watcher",
+        "email": "alerts@s3-monitor.internal",
+        "timestamp": "2026-09-22T09:30:00Z",
+        "body": "[WARNING] S3 bucket approvegate-uswest-attachments has exceeded 91.2% quota (4.5TB / 5.0TB). Automatic cleanup cycle will initiate if threshold reaches 95%. Recommended action: review retention lifecycle policy."
+      }
+    ]
+  },
+  {
+    "id": "thread-026",
+    "subject": "VAT exempt status validation failed during checkout",
+    "from": {
+      "name": "Marco Rossi",
+      "email": "m.rossi@milano-solutions.it",
+      "company": "Milano Solutions SRL"
+    },
+    "receivedAt": "2026-09-22T08:45:00Z",
+    "channel": "web",
+    "customerTier": "pro",
+    "tags": ["billing", "vat", "tax"],
+    "rawBody": "Buongiorno,\n\nWe entered our Italian VAT number IT09876543210 during the checkout process for the Team Plan, but the system displays 'VIES validation error: unable to verify VAT'.\n\nOur VAT number is active in the European VIES database. Can you manually verify and apply the reverse-charge VAT exemption so we can finalize payment without the 22% surcharge?\n\nCordiali saluti,\nMarco Rossi",
+    "threadMessages": [
+      {
+        "id": "msg-026-1",
+        "sender": "Marco Rossi",
+        "email": "m.rossi@milano-solutions.it",
+        "timestamp": "2026-09-22T08:45:00Z",
+        "body": "Buongiorno,\n\nWe entered our Italian VAT number IT09876543210 during the checkout process for the Team Plan, but the system displays 'VIES validation error: unable to verify VAT'.\n\nOur VAT number is active in the European VIES database. Can you manually verify and apply the reverse-charge VAT exemption so we can finalize payment without the 22% surcharge?\n\nCordiali saluti,\nMarco Rossi"
+      }
+    ]
+  },
+  {
+    "id": "thread-027",
+    "subject": "Can the ApproveGate UI be embedded within our internal React portal?",
+    "from": {
+      "name": "Brian O'Connor",
+      "email": "brian@finserve-app.com",
+      "company": "FinServe Technologies"
+    },
+    "receivedAt": "2026-09-22T07:50:00Z",
+    "channel": "support_portal",
+    "customerTier": "pro",
+    "tags": ["technical", "embedding", "sdk"],
+    "rawBody": "Hey team,\n\nWe are building a unified internal ops console for our compliance agents. Does ApproveGate provide an iframe SDK, Web Component, or React NPM package that lets us embed the approve/reject review interface directly inside our portal?\n\nIf not, what is the best recommended API pattern for headless approval state transitions?\n\nThanks,\nBrian",
+    "threadMessages": [
+      {
+        "id": "msg-027-1",
+        "sender": "Brian O'Connor",
+        "email": "brian@finserve-app.com",
+        "timestamp": "2026-09-22T07:50:00Z",
+        "body": "Hey team,\n\nWe are building a unified internal ops console for our compliance agents. Does ApproveGate provide an iframe SDK, Web Component, or React NPM package that lets us embed the approve/reject review interface directly inside our portal?\n\nIf not, what is the best recommended API pattern for headless approval state transitions?\n\nThanks,\nBrian"
+      }
+    ]
+  },
+  {
+    "id": "thread-028",
+    "subject": "SECURITY INCIDENT: Suspicious mass export attempt from IP in Nigeria",
+    "from": {
+      "name": "Security Threat Detection",
+      "email": "soc-alerts@internal-security.corp",
+      "company": "Internal Security"
+    },
+    "receivedAt": "2026-09-22T06:30:00Z",
+    "channel": "api",
+    "customerTier": "enterprise",
+    "tags": ["security", "p0", "soc"],
+    "rawBody": "[P0 SECURITY ESCALATION] User 'amanda.wright@megacorp.com' triggered anomalous behavior alert: 45 bulk export downloads requested in 3 minutes from IP 102.89.23.11 (Lagos, Nigeria). User's historical location is Seattle, US.\nSession has been temporarily quarantined. Immediate verification with account owner required.",
+    "threadMessages": [
+      {
+        "id": "msg-028-1",
+        "sender": "Security Threat Detection",
+        "email": "soc-alerts@internal-security.corp",
+        "timestamp": "2026-09-22T06:30:00Z",
+        "body": "[P0 SECURITY ESCALATION] User 'amanda.wright@megacorp.com' triggered anomalous behavior alert: 45 bulk export downloads requested in 3 minutes from IP 102.89.23.11 (Lagos, Nigeria). User's historical location is Seattle, US.\nSession has been temporarily quarantined. Immediate verification with account owner required."
+      }
+    ]
+  },
+  {
+    "id": "thread-029",
+    "subject": "Missing filter option for 'Snoozed until today' in ticket list",
+    "from": {
+      "name": "Jessica Taylor",
+      "email": "jtaylor@frontlineops.co",
+      "company": "Frontline Ops"
+    },
+    "receivedAt": "2026-09-22T05:15:00Z",
+    "channel": "support_portal",
+    "customerTier": "free",
+    "tags": ["feature-request", "ui", "filter"],
+    "rawBody": "Hi team, quick question:\n\nWhen I snooze items for 24 hours, is there a quick filter pill to see only items that unsnoozed today? Right now I have to scroll through the full pending list to find them.\n\nWould love to see this in the next release!\nJessica",
+    "threadMessages": [
+      {
+        "id": "msg-029-1",
+        "sender": "Jessica Taylor",
+        "email": "jtaylor@frontlineops.co",
+        "timestamp": "2026-09-22T05:15:00Z",
+        "body": "Hi team, quick question:\n\nWhen I snooze items for 24 hours, is there a quick filter pill to see only items that unsnoozed today? Right now I have to scroll through the full pending list to find them.\n\nWould love to see this in the next release!\nJessica"
+      }
+    ]
+  },
+  {
+    "id": "thread-030",
+    "subject": "Request for proposal: Migration from Intercom to ApproveGate for 80 support reps",
+    "from": {
+      "name": "Nathaniel Ward",
+      "email": "nward@apexcommerce.net",
+      "company": "Apex Commerce"
+    },
+    "receivedAt": "2026-09-22T04:20:00Z",
+    "channel": "web",
+    "customerTier": "enterprise",
+    "tags": ["sales", "rfp", "migration"],
+    "rawBody": "Hello,\n\nWe are currently evaluating replacements for our Intercom suite across 80 agents handling e-commerce customer support. Our primary challenge is preventing AI hallucinations from reaching customers—your hard approval gate architecture is exactly what our compliance team mandates.\n\nCould we schedule an intro call with your head of enterprise partnerships to review data migration and implementation timelines?\n\nNathaniel Ward\nVP Customer Success",
+    "threadMessages": [
+      {
+        "id": "msg-030-1",
+        "sender": "Nathaniel Ward",
+        "email": "nward@apexcommerce.net",
+        "timestamp": "2026-09-22T04:20:00Z",
+        "body": "Hello,\n\nWe are currently evaluating replacements for our Intercom suite across 80 agents handling e-commerce customer support. Our primary challenge is preventing AI hallucinations from reaching customers—your hard approval gate architecture is exactly what our compliance team mandates.\n\nCould we schedule an intro call with your head of enterprise partnerships to review data migration and implementation timelines?\n\nNathaniel Ward\nVP Customer Success"
+      }
+    ]
+  },
+  {
+    "id": "thread-031",
+    "subject": "Fwd: Order Confirmation #ORD-991204 - Digital Camera Lens",
+    "from": {
+      "name": "Personal Shopper",
+      "email": "service@electronics-store-order.com",
+      "company": "Personal"
+    },
+    "receivedAt": "2026-09-22T03:00:00Z",
+    "channel": "email",
+    "customerTier": "free",
+    "tags": ["spam", "wrong-address", "other"],
+    "rawBody": "Thank you for your order! Your 50mm f/1.8 prime lens has shipped via FedEx tracking #982103810291. Estimated arrival: Thursday Sep 25. If you did not place this order, contact support immediately.",
+    "threadMessages": [
+      {
+        "id": "msg-031-1",
+        "sender": "Personal Shopper",
+        "email": "service@electronics-store-order.com",
+        "timestamp": "2026-09-22T03:00:00Z",
+        "body": "Thank you for your order! Your 50mm f/1.8 prime lens has shipped via FedEx tracking #982103810291. Estimated arrival: Thursday Sep 25. If you did not place this order, contact support immediately."
+      }
+    ]
+  },
+  {
+    "id": "thread-032",
+    "subject": "Audit log export failing with HTTP 504 Gateway Timeout on 90-day queries",
+    "from": {
+      "name": "Hannah Abbott",
+      "email": "hannah@fintech-security.co.uk",
+      "company": "Fintech Security UK"
+    },
+    "receivedAt": "2026-09-22T02:15:00Z",
+    "channel": "web",
+    "customerTier": "enterprise",
+    "tags": ["bug", "audit", "timeout"],
+    "rawBody": "Hi Support,\n\nOur internal auditors need all draft state change records for Q2 2026 (approx 18,000 events). When we click 'Export Audit Log (JSON)' with a 90-day date filter, the request hangs for 60 seconds and returns Cloudflare HTTP 504 Gateway Timeout.\n\nCan this query be executed asynchronously with a download link sent via email?\n\nHannah Abbott\nCompliance Auditor",
+    "threadMessages": [
+      {
+        "id": "msg-032-1",
+        "sender": "Hannah Abbott",
+        "email": "hannah@fintech-security.co.uk",
+        "timestamp": "2026-09-22T02:15:00Z",
+        "body": "Hi Support,\n\nOur internal auditors need all draft state change records for Q2 2026 (approx 18,000 events). When we click 'Export Audit Log (JSON)' with a 90-day date filter, the request hangs for 60 seconds and returns Cloudflare HTTP 504 Gateway Timeout.\n\nCan this query be executed asynchronously with a download link sent via email?\n\nHannah Abbott\nCompliance Auditor"
+      }
+    ]
+  },
+  {
+    "id": "thread-033",
+    "subject": "Cancellation Request: Please cancel our subscription before auto-renew on Oct 1",
+    "from": {
+      "name": "Liam Murphy",
+      "email": "liam@corkanalytics.ie",
+      "company": "Cork Analytics"
+    },
+    "receivedAt": "2026-09-22T01:30:00Z",
+    "channel": "email",
+    "customerTier": "pro",
+    "tags": ["billing", "cancellation", "churn"],
+    "rawBody": "Hello,\n\nPlease process the cancellation of our subscription for Cork Analytics (Account ID: CA-4402). We will not be renewing for the upcoming fiscal year. Please confirm in writing that no charges will occur on October 1st.\n\nLiam Murphy",
+    "threadMessages": [
+      {
+        "id": "msg-033-1",
+        "sender": "Liam Murphy",
+        "email": "liam@corkanalytics.ie",
+        "timestamp": "2026-09-22T01:30:00Z",
+        "body": "Hello,\n\nPlease process the cancellation of our subscription for Cork Analytics (Account ID: CA-4402). We will not be renewing for the upcoming fiscal year. Please confirm in writing that no charges will occur on October 1st.\n\nLiam Murphy"
+      }
+    ]
+  },
+  {
+    "id": "thread-034",
+    "subject": "Weekly System Maintenance scheduled for Sunday 02:00 UTC",
+    "from": {
+      "name": "Cloud Infrastructure Ops",
+      "email": "ops-noreply@internal-infra.corp",
+      "company": "Internal Infra"
+    },
+    "receivedAt": "2026-09-22T00:45:00Z",
+    "channel": "api",
+    "customerTier": "free",
+    "tags": ["maintenance", "fyi"],
+    "rawBody": "Notice: Database patch upgrade scheduled for Sunday between 02:00 and 02:30 UTC. Read-only replica failover expected with up to 45 seconds of transient latency. Customer traffic should remain uninterrupted.",
+    "threadMessages": [
+      {
+        "id": "msg-034-1",
+        "sender": "Cloud Infrastructure Ops",
+        "email": "ops-noreply@internal-infra.corp",
+        "timestamp": "2026-09-22T00:45:00Z",
+        "body": "Notice: Database patch upgrade scheduled for Sunday between 02:00 and 02:30 UTC. Read-only replica failover expected with up to 45 seconds of transient latency. Customer traffic should remain uninterrupted."
+      }
+    ]
+  },
+  {
+    "id": "thread-035",
+    "subject": "Urgent legal demand: Trademark violation notice for brand keyword in search ads",
+    "from": {
+      "name": "Sarah Jenkins, Esq.",
+      "email": "sjenkins@legal-partners-llp.com",
+      "company": "Jenkins & Co Legal"
+    },
+    "receivedAt": "2026-09-21T23:10:00Z",
+    "channel": "email",
+    "customerTier": "free",
+    "tags": ["legal", "p1", "trademark"],
+    "rawBody": "VIA ELECTRONIC MAIL\n\nRE: Notice of Trademark Infringement and Cease and Desist Demand\n\nWe represent Apex Automated Systems, owner of US Trademark Reg. #5,892,104 for the mark 'APPROVEGATEWAY'. It has come to our attention that your organization is bidding on our registered trademark in Google AdWords and using confusingly similar copy.\n\nYou are formally demanded to remove these advertisements within forty-eight (48) hours of receipt of this notice. Respond with confirmation of compliance to prevent formal injunctive proceedings.\n\nSarah Jenkins\nSenior Partner",
+    "threadMessages": [
+      {
+        "id": "msg-035-1",
+        "sender": "Sarah Jenkins, Esq.",
+        "email": "sjenkins@legal-partners-llp.com",
+        "timestamp": "2026-09-21T23:10:00Z",
+        "body": "VIA ELECTRONIC MAIL\n\nRE: Notice of Trademark Infringement and Cease and Desist Demand\n\nWe represent Apex Automated Systems, owner of US Trademark Reg. #5,892,104 for the mark 'APPROVEGATEWAY'. It has come to our attention that your organization is bidding on our registered trademark in Google AdWords and using confusingly similar copy.\n\nYou are formally demanded to remove these advertisements within forty-eight (48) hours of receipt of this notice. Respond with confirmation of compliance to prevent formal injunctive proceedings.\n\nSarah Jenkins\nSenior Partner"
+      }
+    ]
+  },
+  {
+    "id": "thread-036",
+    "subject": "Can we configure custom webhook headers for HMAC signature verification?",
+    "from": {
+      "name": "Tobias Lindqvist",
+      "email": "tlindqvist@nordicscale.se",
+      "company": "NordicScale"
+    },
+    "receivedAt": "2026-09-21T22:00:00Z",
+    "channel": "web",
+    "customerTier": "pro",
+    "tags": ["technical", "webhooks", "security"],
+    "rawBody": "Hello,\n\nWe are integrating ApproveGate with our event broker and need to verify message authenticity via sha256 HMAC in the 'X-Signature-SHA256' header. Does your webhook dispatch engine support configuring custom signing secrets and headers?\n\nIf yes, where in the admin console can we find the signing secret?\n\nThanks,\nTobias",
+    "threadMessages": [
+      {
+        "id": "msg-036-1",
+        "sender": "Tobias Lindqvist",
+        "email": "tlindqvist@nordicscale.se",
+        "timestamp": "2026-09-21T22:00:00Z",
+        "body": "Hello,\n\nWe are integrating ApproveGate with our event broker and need to verify message authenticity via sha256 HMAC in the 'X-Signature-SHA256' header. Does your webhook dispatch engine support configuring custom signing secrets and headers?\n\nIf yes, where in the admin console can we find the signing secret?\n\nThanks,\nTobias"
+      }
+    ]
+  }
+]
