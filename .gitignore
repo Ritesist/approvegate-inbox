@@ -34,3 +34,5 @@ next-env.d.ts
 /ui-refs/
 UI_RESTYLE_PROMPT.md
 BUILD_PROMPT.md
+.vercel
+.env*

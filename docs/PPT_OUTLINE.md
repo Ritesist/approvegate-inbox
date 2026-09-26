@@ -3,6 +3,7 @@
 **Build Fast with AI: AI Build Challenge 2026**  
 **Product:** ApproveGate Inbox (Inbox-to-Action Butler)  
 **Track:** AI Butler / Autonomous Operations with Human-in-the-Loop Safety  
+**Submission readiness:** Export this outline to PDF or Google Slides (max 10 slides). Spoken demo: `docs/DEMO_SCRIPT_3MIN.md`. AI disclosure: `docs/AI_DISCLOSURE.md`.
 
 ---
 
@@ -92,7 +93,8 @@
 ---
 
 ## Slide 9: Live Demo Script (3 Minutes)
-1. Open deployed URL — 36 messy threads already loaded (mock AI, zero keys).
+Full spoken script: **`docs/DEMO_SCRIPT_3MIN.md`**.
+1. Open deployed URL (or localhost:3000) — 36 messy threads already loaded (mock AI, zero keys).
 2. Click **Triage All** if needed — P0 outages and billing emergencies surface first.
 3. Open `thread-001` — show summary, category, draft, suggested actions.
 4. Prove safety: **Test Send Invariant** while pending → blocked (HTTP 403 / UI alert).

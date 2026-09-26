@@ -1,61 +1,60 @@
-# ApproveGate Inbox — Build Fast status (as of Wed Sep 23, 2026 ~8:50 PM IST)
+# ApproveGate Inbox — Build Fast status (as of Fri Sep 25, 2026 ~04:44 AM IST)
 
 **Submission window:** Thu Sep 24, 2026 10:00 AM – Sat Sep 26, 2026 10:00 PM IST  
 **Track:** Inbox-to-Action Butler  
 **Product:** ApproveGate Inbox
+
+## Live deployment (DONE)
+
+| Item | Result |
+|------|--------|
+| Vercel account | Logged in as **workstationritalks-8167** (Hobby) |
+| Project | `approvegate-inbox` under that scope |
+| **Production URL** | **https://approvegate-inbox.vercel.app** |
+| Deployment URL | https://approvegate-inbox-7du5tkdtn-workstationritalks-8167.vercel.app |
+| Inspect | https://vercel.com/workstationritalks-8167/approvegate-inbox/6UFtLs8b76hMuQSg4ruRpxrWN67i |
+| Smoke `/` | HTTP **200** (2026-09-25 04:44 IST) |
+| Smoke `/api/threads` | HTTP **200**, `total=36` |
+| Smoke `/api/health` | HTTP **404** (route does not exist; expected) |
+
+Deployed with already-authenticated CLI: `vercel link --yes --project approvegate-inbox` then `vercel --prod --yes`. **No GitHub repo created; no remotes added.**
 
 ## Done now (no waiting)
 
 | Item | Result |
 |------|--------|
 | `npm test` | PASS — 11/11 |
-| `npm run build` | PASS |
-| Light UI restyle (no emojis) | In tree, ready to commit |
+| `npm run build` | PASS (local + Vercel remote) |
+| Light UI restyle (no emojis) | In tree |
+| UI copy polish | Done |
 | Pre-triaged demo `data/store.json` | 36/36 threads triaged, all pending/open |
-| Serverless-safe store/eval (bundled fixtures, read-only FS) | Done via `agy` polish |
-| README (setup, demo, architecture, deploy links) | Ready |
-| `docs/PPT_OUTLINE.md` | 10 slides, ready to export |
-| `docs/AI_DISCLOSURE.md` | Complete (agy/Antigravity, Next.js, etc.) |
-| `docs/SUBMISSION_CHECKLIST.md` | Ready |
-| `docs/DEPLOY.md` | Ready |
+| Serverless-safe store/eval | Done |
+| README / PPT / AI disclosure / checklists | Ready |
 | `vercel.json` | Ready |
 | Local git repo | Exists on `master` (do not force-push) |
+| **Vercel production deploy** | **DONE — https://approvegate-inbox.vercel.app** |
 
 ## Blockers (need Ritesh auth)
 
-1. **GitHub push**
-   - `gh` CLI: **not logged in** (`gh auth login` required).
-   - Cursor GitHub MCP: connected as **Ritesh-Root**, but cannot create/push repos from this agent without CLI credentials.
-   - Action when ready:
+1. **GitHub push / public repo** — still **NEED_AUTH** / no remote
+   - User skipped the widget to create a GitHub repo; do **not** create remotes or `gh repo create`.
+   - `gh` is logged in as Ritesist, but repo creation was explicitly skipped.
+   - When ready (user action only):
      ```bash
      cd /workspace/approvegate-inbox
-     gh auth login
      gh repo create approvegate-inbox --public --source=. --remote=origin --push
-     # OR: create empty repo on github.com/Ritesh-Root, then:
-     git remote add origin https://github.com/Ritesh-Root/approvegate-inbox.git
-     git push -u origin master
+     # OR create empty repo, then git remote add origin … && git push -u origin master
      ```
 
-2. **Vercel deploy**
-   - `npx vercel` works; account **logged out**.
-   - Attempted `npx vercel deploy --temporary --yes` on Sep 23 evening IST — hung without login; no claimable URL.
-   - Action when ready:
-     ```bash
-     npx vercel login
-     npx vercel --prod
-     # OR import the GitHub repo at https://vercel.com/new
-     ```
-   - Paste production URL into Unstop + `docs/SUBMISSION_CHECKLIST.md`.
+2. **Vercel** — **CLEARED** (see Live deployment above).
 
-## Exact steps when the window opens (Sep 24 10:00 AM IST+)
+## Exact steps remaining for Unstop submit
 
-1. Auth GitHub (`gh auth login`) and push — get public repo URL.
-2. Auth Vercel (`npx vercel login` or Dashboard import) — get live URL.
-3. Smoke live URL: inbox loads → Triage All if needed → Approve/Send → Edit-revokes → `/eval` invariant 0 violations.
-4. Export `docs/PPT_OUTLINE.md` to ≤10-slide PDF or Google Slides.
-5. Optional: record 3-min screen demo using README walkthrough.
-6. On Unstop: select track **Inbox-to-Action Butler**; paste live URL, GitHub URL, PPT, demo, and AI disclosure (link or paste `docs/AI_DISCLOSURE.md`).
-7. Submit before Sep 26, 2026 10:00 PM IST.
+1. Smoke live URL: inbox loads → Triage All if needed → Approve/Send → Edit-revokes → `/eval` invariant 0 violations.
+2. Export `docs/PPT_OUTLINE.md` to ≤10-slide PDF or Google Slides if required.
+3. Optional: record 3-min screen demo against https://approvegate-inbox.vercel.app
+4. On Unstop: track **Inbox-to-Action Butler**; paste **live URL** `https://approvegate-inbox.vercel.app`; paste GitHub URL when available; attach PPT, demo, AI disclosure.
+5. Submit before Sep 26, 2026 10:00 PM IST.
 
 ## Artifact paths
 
@@ -66,3 +65,4 @@
 - `/workspace/approvegate-inbox/docs/AI_DISCLOSURE.md`
 - `/workspace/approvegate-inbox/docs/SUBMISSION_CHECKLIST.md`
 - `/workspace/approvegate-inbox/docs/DEPLOY.md`
+- `/workspace/submit-packages/build-fast-approvegate/`

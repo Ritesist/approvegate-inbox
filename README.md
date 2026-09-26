@@ -4,6 +4,28 @@ A support-ticket triage and response management application built for the **Buil
 
 ApproveGate combines ambient AI intelligence with an unbypassable **hard human-approve gate**: incoming support tickets are automatically triaged, summarized, categorized, and drafted with suggested actions, but **nothing is ever sent to a customer without explicit human operator approval**.
 
+**Day-of Sep 24:** Build Fast opens today at 10:00 AM IST. Current references: `docs/STATUS_BUILD_FAST.md` and `submit-packages/build-fast-approvegate/TODAY_IS_SEP24.md`.
+
+---
+
+## TypeSafe Jev typed judgments (with heuristic fallback)
+
+Each thread gets one server-side TypeSafe request (model `jev-latest`) that asks three independent typed questions in parallel, using only the subject and a 280-character snippet:
+
+- **needs_approval** (Noul): probability that a human must approve before anything is sent
+- **action_type** (Choice): escalation, refund, investigation, routine action, or archive (the app's existing action types)
+- **urgency** (Score): four ordered levels mapped onto P3 to P0
+
+Policy stays in code (`src/lib/typesafe.ts`):
+
+- 4 s timeout, no retries, bounded concurrency and a 6 s batch deadline. Any error, timeout, missing key, or confidence below **0.40** falls back to the deterministic rules engine.
+- Confidence below **0.70** (or a needs-approval probability close to 0.5) shows a **Needs review** label for a human.
+- Results are cached in memory per thread, so reloading the page does not re-bill.
+- The UI shows a light label on each thread: `Jev 0.87` (needs-approval probability) or `Rules`.
+- Judgments are advisory. The hard approval gate, triage priority, and eval (36/36) are unchanged.
+- Demo endpoints: `GET /api/judgments` (summary + per-thread judgments, `?refresh=1` clears the cache), `GET /api/threads?judge=rules` or `/?judge=rules` forces the fallback path.
+- Configure with `TYPESAFE_API_KEY` as a server-only env var (never `NEXT_PUBLIC_`). Without it, the app runs fully on rules.
+
 ---
 
 ## Key Highlights
@@ -107,6 +129,8 @@ ApproveGate is pre-configured for one-click deployment to Vercel (Next.js preset
 
 ## 3-Minute Demo Walkthrough
 
+Spoken script for recording/live: **[docs/DEMO_SCRIPT_3MIN.md](docs/DEMO_SCRIPT_3MIN.md)**.
+
 Follow these steps to demonstrate the end-to-end capabilities of ApproveGate:
 
 1. **Explore the Inbox (`/`):**
@@ -191,6 +215,7 @@ approvegate-inbox/
 │       └── golden-labels.json     # Ground truth labels for automated benchmarking
 ├── docs/
 │   ├── PPT_OUTLINE.md             # Executive presentation outline (<= 10 slides)
+│   ├── DEMO_SCRIPT_3MIN.md        # Spoken 3-minute demo script (no emojis)
 │   ├── AI_DISCLOSURE.md           # Transparent disclosure of AI assistance and models
 │   ├── SUBMISSION_CHECKLIST.md    # Unstop Build Fast submit checklist
 │   └── DEPLOY.md                  # Vercel deploy steps

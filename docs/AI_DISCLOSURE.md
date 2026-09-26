@@ -1,5 +1,9 @@
 # AI Assistance & Model Disclosure
 
+## Ready-to-paste disclosure
+
+ApproveGate Inbox was developed with AI assistance for scaffolding, fixture and test generation, drafting, and documentation. Humans defined the product, security boundaries, hard approval gate, and final acceptance; the default runtime uses a deterministic offline mock engine, while optional OpenAI and Google Gemini engines may assist with triage and drafts. AI never sends messages automatically: every outbound action requires explicit human approval, and editing a draft revokes its approval. See below for the full disclosure and limitations.
+
 This document provides transparent disclosure regarding the use of Artificial Intelligence in the design, development, and runtime execution of the **ApproveGate Inbox** application for the Build Fast with AI: AI Build Challenge 2026.
 
 ---
@@ -72,7 +76,7 @@ Performance metrics reported on the `/eval` dashboard reflect:
 | **Tailwind CSS** | Light-palette UI styling (no dark-mode-first, no emojis). |
 | **Vitest** | Unit/integration tests for triage parsing, eval metrics, and ApproveGate invariant. |
 | **Lucide React** | Icon set (vector icons only; no emoji glyphs). |
-| **Vercel** | Intended production host (Next.js serverless). Deploy pending account auth. |
+| **Vercel** | Production host (Next.js serverless). Live: https://approvegate-inbox.vercel.app |
 | **Mock AI engine (built-in)** | Default runtime intelligence — deterministic, offline, no API keys. |
 | **OpenAI API (optional)** | Live triage/draft when `OPENAI_API_KEY` is set. |
 | **Google Gemini API (optional)** | Live triage/draft when `GEMINI_API_KEY` is set. |
@@ -85,3 +89,10 @@ Performance metrics reported on the `/eval` dashboard reflect:
 - Mock engine uses pattern/rules + templates; it is not a frontier model.
 - Optional live LLM drafts can still hallucinate — that is exactly why the **hard human gate** exists and is enforced server-side.
 - Serverless deploys may use ephemeral in-memory state; demo reset + triage restores a clean walkthrough.
+
+---
+
+## 6. Submission note
+
+Attach this file (or paste its contents) on the Unstop Build Fast form under AI / model disclosure. Runtime default is the **Mock Engine** (offline, deterministic). Optional OpenAI or Gemini keys change only triage/draft quality; they do **not** bypass the human approve gate. Live deploy URL and GitHub repo links are separate checklist items (see `docs/SUBMISSION_CHECKLIST.md`).
+

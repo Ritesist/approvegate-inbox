@@ -2,6 +2,7 @@ import React from 'react';
 import { TicketThread } from '@/lib/types';
 import { PriorityBadge } from './PriorityBadge';
 import { CategoryBadge } from './CategoryBadge';
+import { JudgmentBadge } from './JudgmentBadge';
 
 interface ThreadCardProps {
   thread: TicketThread;
@@ -69,6 +70,9 @@ export const ThreadCard: React.FC<ThreadCardProps> = ({ thread, isSelected, onSe
           <>
             <PriorityBadge priority={thread.triage.priority} size="sm" />
             <CategoryBadge category={thread.triage.category} size="sm" />
+            <span className="ml-auto">
+              <JudgmentBadge judgment={thread.judgment} />
+            </span>
           </>
         ) : (
           <span className="text-[10px] px-2 py-0.5 rounded-full bg-slate-100 text-slate-500 font-medium">

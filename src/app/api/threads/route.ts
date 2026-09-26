@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getAllThreads, importTickets, resetToDemoFixture } from '@/lib/store';
 import { Priority, Category, ApprovalStatus } from '@/lib/types';
+import { judgeThreads, summarize } from '@/lib/typesafe';
+
+export const dynamic = 'force-dynamic';
 
 export async function GET(request: NextRequest) {
   try {
@@ -49,9 +52,17 @@ export async function GET(request: NextRequest) {
       return new Date(b.receivedAt).getTime() - new Date(a.receivedAt).getTime();
     });
 
+    // Typed judgments: TypeSafe Jev when configured (cached in memory), rules otherwise.
+    // ?judge=rules forces the heuristic path; default is auto.
+    const judgeParam = searchParams.get('judge');
+    const mode = judgeParam === 'rules' || judgeParam === 'heuristic' ? 'heuristic' : 'auto';
+    const judgments = await judgeThreads(threads, { mode });
+    const withJudgments = threads.map((t) => ({ ...t, judgment: judgments.get(t.id) }));
+
     return NextResponse.json({
-      total: threads.length,
-      threads,
+      total: withJudgments.length,
+      threads: withJudgments,
+      judgmentSummary: summarize(judgments.values()),
     });
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });

@@ -49,7 +49,7 @@ export const ApproveGatePanel: React.FC<ApproveGatePanelProps> = ({ thread, onUp
       const data = await res.json();
       if (data.thread) {
         onUpdate(data.thread);
-        setSuccessBanner('AI Butler triage analysis and reply draft generated.');
+        setSuccessBanner('Triage complete. Draft ready.');
       }
     } catch (err: any) {
       setInvariantWarning(err.message);
@@ -70,7 +70,7 @@ export const ApproveGatePanel: React.FC<ApproveGatePanelProps> = ({ thread, onUp
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || data.error);
       onUpdate(data.thread);
-      setSuccessBanner('Draft approved by operator. Human gate unlocked for authorized dispatch.');
+      setSuccessBanner('Approved. Send unlocked.');
     } catch (err: any) {
       setInvariantWarning(err.message);
     } finally {
@@ -94,7 +94,7 @@ export const ApproveGatePanel: React.FC<ApproveGatePanelProps> = ({ thread, onUp
       if (!res.ok) throw new Error(data.message || data.error);
       onUpdate(data.thread);
       setIsEditing(false);
-      setSuccessBanner('Draft changes saved. Note: Editing resets approval to pending for zero auto-send safety.');
+      setSuccessBanner('Saved. Approval reset to pending.');
     } catch (err: any) {
       setInvariantWarning(err.message);
     } finally {
@@ -114,7 +114,7 @@ export const ApproveGatePanel: React.FC<ApproveGatePanelProps> = ({ thread, onUp
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || data.error);
       onUpdate(data.thread);
-      setSuccessBanner('Draft rejected and recorded in audit ledger.');
+      setSuccessBanner('Rejected. Logged in audit.');
     } catch (err: any) {
       setInvariantWarning(err.message);
     } finally {
@@ -134,7 +134,7 @@ export const ApproveGatePanel: React.FC<ApproveGatePanelProps> = ({ thread, onUp
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || data.error);
       onUpdate(data.thread);
-      setSuccessBanner(`Thread snoozed for ${hours} hours.`);
+      setSuccessBanner(`Snoozed for ${hours} hours.`);
     } catch (err: any) {
       setInvariantWarning(err.message);
     } finally {
@@ -170,7 +170,7 @@ export const ApproveGatePanel: React.FC<ApproveGatePanelProps> = ({ thread, onUp
         throw new Error(data.message || data.error);
       }
       onUpdate(data.thread);
-      setSuccessBanner(`Message sent successfully to ${thread.from.email}. Zero auto-send gate satisfied.`);
+      setSuccessBanner(`Sent to ${thread.from.email}.`);
     } catch (err: any) {
       setInvariantWarning(err.message);
     } finally {
@@ -189,12 +189,12 @@ export const ApproveGatePanel: React.FC<ApproveGatePanelProps> = ({ thread, onUp
       });
       const data = await res.json();
       if (!res.ok) {
-        setInvariantWarning(`HARD GATE TRIGGERED: ${data.message}`);
+        setInvariantWarning(data.message);
       } else {
         onUpdate(data.thread);
       }
     } catch (err: any) {
-      setInvariantWarning(`Network or system error: ${err.message}`);
+      setInvariantWarning(err.message);
     } finally {
       setIsProcessing(false);
     }
@@ -204,16 +204,16 @@ export const ApproveGatePanel: React.FC<ApproveGatePanelProps> = ({ thread, onUp
     return (
       <div className="p-8 bg-slate-50/60 border border-slate-200/80 rounded-xl text-center space-y-3">
         <Sparkles className="w-7 h-7 text-purple-600 mx-auto" />
-        <h3 className="text-sm font-semibold text-slate-800">Thread Awaiting Triage</h3>
+        <h3 className="text-sm font-semibold text-slate-800">Needs triage</h3>
         <p className="text-xs text-slate-500 max-w-sm mx-auto leading-relaxed">
-          Run AI Butler triage to analyze priority, category, summary, SLA target, and generate a draft reply.
+          Run triage to classify this thread and draft a reply.
         </p>
         <button
           onClick={handleRunTriage}
           disabled={isProcessing}
           className="inline-flex items-center gap-1.5 px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white text-xs font-medium rounded-lg shadow-sm transition-colors disabled:opacity-50"
         >
-          {isProcessing ? 'Analyzing Thread...' : 'Run AI Triage & Draft'}
+          {isProcessing ? 'Running triage...' : 'Run triage'}
         </button>
       </div>
     );
@@ -256,7 +256,7 @@ export const ApproveGatePanel: React.FC<ApproveGatePanelProps> = ({ thread, onUp
           <div>
             <div className="flex items-center gap-2">
               <span className="text-xs font-semibold uppercase tracking-wider text-slate-800">
-                Hard Human-Approve Gate
+                ApproveGate
               </span>
               <span
                 className={`text-[10px] font-medium px-2 py-0.5 rounded-full capitalize ${
@@ -276,14 +276,14 @@ export const ApproveGatePanel: React.FC<ApproveGatePanelProps> = ({ thread, onUp
             </div>
             <p className="text-[11px] text-slate-500 mt-0.5">
               {isApproved
-                ? 'Operator verified and approved. Outbound send unlocked.'
+                ? 'Approved. Ready to send.'
                 : isSent
-                ? 'Authorized dispatch completed. Recorded in audit ledger.'
+                ? 'Sent. Logged in the audit trail.'
                 : isRejected
-                ? 'Draft response rejected by human operator. Zero email sent.'
+                ? 'Rejected. Nothing was sent.'
                 : isSnoozed
                 ? `Snoozed until ${new Date(thread.snoozedUntil || '').toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`
-                : 'Zero auto-send rule active. Nothing sends to customer without human operator sign-off.'}
+                : 'Nothing sends until an operator approves.'}
             </p>
           </div>
         </div>
@@ -291,7 +291,7 @@ export const ApproveGatePanel: React.FC<ApproveGatePanelProps> = ({ thread, onUp
         {/* Live Invariant status pill */}
         <div className="text-right hidden sm:block">
           <span className="text-[10px] font-mono font-medium px-2 py-0.5 rounded-full bg-white/80 border border-slate-200/80 text-slate-500">
-            NeverSentWithoutApprove
+            Never send without approve
           </span>
         </div>
       </div>
@@ -301,7 +301,7 @@ export const ApproveGatePanel: React.FC<ApproveGatePanelProps> = ({ thread, onUp
         <div className="p-3 bg-rose-50 border-b border-rose-100 text-xs text-rose-800 flex items-start gap-2">
           <ShieldAlert className="w-4 h-4 mt-0.5 shrink-0 text-rose-600" />
           <div>
-            <span className="font-semibold block">Hard Approval Gate Protection:</span>
+            <span className="font-semibold block">Gate blocked:</span>
             <span>{invariantWarning}</span>
           </div>
         </div>
@@ -320,7 +320,7 @@ export const ApproveGatePanel: React.FC<ApproveGatePanelProps> = ({ thread, onUp
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="text-xs font-semibold text-slate-900">
-              Ready-to-Send Reply Draft
+              Draft reply
             </span>
             <span className="text-[11px] text-slate-400 font-normal">
               (Tone: <span className="text-slate-600 capitalize">{thread.draft.tone}</span>, v{thread.draft.version})
@@ -342,7 +342,7 @@ export const ApproveGatePanel: React.FC<ApproveGatePanelProps> = ({ thread, onUp
                     disabled={isProcessing}
                     className="text-xs font-medium px-3 py-1 rounded-lg bg-purple-600 hover:bg-purple-700 text-white transition-colors"
                   >
-                    Save Changes
+                    Save
                   </button>
                 </>
               ) : (
@@ -351,7 +351,7 @@ export const ApproveGatePanel: React.FC<ApproveGatePanelProps> = ({ thread, onUp
                   className="inline-flex items-center gap-1 text-xs text-slate-600 hover:text-slate-900 px-2.5 py-1 rounded-lg border border-slate-200 hover:bg-slate-50 transition-colors font-medium"
                 >
                   <Edit3 className="w-3 h-3" />
-                  Edit Reply
+                  Edit
                 </button>
               )}
             </div>
@@ -374,11 +374,11 @@ export const ApproveGatePanel: React.FC<ApproveGatePanelProps> = ({ thread, onUp
           )}
         </div>
 
-        {/* Suggested Next Actions Checklist */}
+        {/* Next actions Checklist */}
         {thread.draft.suggestedActions.length > 0 && (
           <div className="pt-2">
             <h5 className="text-xs font-semibold text-slate-800 mb-2">
-              Suggested Next Actions ({thread.draft.suggestedActions.filter((a) => a.completed).length}/{thread.draft.suggestedActions.length} completed)
+              Next actions ({thread.draft.suggestedActions.filter((a) => a.completed).length}/{thread.draft.suggestedActions.length} done)
             </h5>
             <div className="space-y-1.5">
               {thread.draft.suggestedActions.map((action) => (
@@ -427,7 +427,7 @@ export const ApproveGatePanel: React.FC<ApproveGatePanelProps> = ({ thread, onUp
                   }`}
                 >
                   <ShieldCheck className="w-3.5 h-3.5" />
-                  {isApproved ? 'Approved by Operator' : 'Approve Draft'}
+                  {isApproved ? 'Approved' : 'Approve'}
                 </button>
 
                 <button
@@ -457,9 +457,9 @@ export const ApproveGatePanel: React.FC<ApproveGatePanelProps> = ({ thread, onUp
               <button
                 onClick={handleTestInvariantViolation}
                 className="text-[11px] px-2.5 py-1.5 rounded-lg text-slate-500 hover:text-slate-800 border border-slate-200 hover:bg-slate-50 font-normal transition-colors"
-                title="Test sending without approval to verify the server hard-blocks the action"
+                title="Try send without approval to confirm the gate blocks it"
               >
-                Test Invariant Protection
+                Test gate block
               </button>
             )}
 
@@ -474,19 +474,19 @@ export const ApproveGatePanel: React.FC<ApproveGatePanelProps> = ({ thread, onUp
                 }`}
                 title={
                   isApproved
-                    ? 'Operator approval verified. Click to dispatch reply.'
-                    : 'Hard Gate: Button disabled. You must click Approve Draft above before sending.'
+                    ? 'Approval verified. Click to send.'
+                    : 'Approve the draft before sending.'
                 }
               >
                 <Send className="w-3.5 h-3.5" />
-                <span>Send Approved Reply</span>
+                <span>Send reply</span>
               </button>
             )}
 
             {isSent && (
               <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-medium">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                Reply Dispatched to Customer
+                Sent
               </span>
             )}
           </div>

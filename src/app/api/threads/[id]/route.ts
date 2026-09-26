@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getThreadById } from '@/lib/store';
+import { judgeThread } from '@/lib/typesafe';
+
+export const dynamic = 'force-dynamic';
 
 export async function GET(
   request: NextRequest,
@@ -10,7 +13,8 @@ export async function GET(
     if (!thread) {
       return NextResponse.json({ error: 'Thread not found' }, { status: 404 });
     }
-    return NextResponse.json({ thread });
+    const judgment = await judgeThread(thread);
+    return NextResponse.json({ thread: { ...thread, judgment } });
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }

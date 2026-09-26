@@ -88,6 +88,8 @@ export interface TicketThread {
   status: ThreadStatus;
   auditLog: AuditLogEntry[];
   sentAt?: string;
+  /** Computed per request (not persisted): TypeSafe Jev or rules judgment. */
+  judgment?: ThreadJudgment;
 }
 
 export interface GoldenLabel {
@@ -149,4 +151,33 @@ export interface LLMConfig {
   openaiModel?: string;
   geminiApiKey?: string;
   geminiModel?: string;
+}
+
+export interface ThreadJudgment {
+  /** Which engine produced the answer shown in the UI. */
+  source: 'typesafe' | 'heuristic';
+  /** Probability that a human must approve before anything is sent. */
+  probability: number;
+  needsApproval: boolean;
+  actionType: SuggestedAction['type'];
+  urgency: Priority;
+  urgencyScore?: number;
+  /** Lowest confidence across the Choice/Score answers (or rules confidence). */
+  confidence: number;
+  /** True when confidence is below the human-review threshold. */
+  needsReview: boolean;
+  model?: string;
+  latencyMs?: number;
+  cached?: boolean;
+  fallbackReason?: string;
+  /** Raw Jev answer kept for transparency when it was too uncertain to use. */
+  typesafe?: {
+    probability: number;
+    actionType: SuggestedAction['type'];
+    urgency: Priority;
+    urgencyScore: number;
+    confidence: number;
+    model?: string;
+    latencyMs: number;
+  };
 }
