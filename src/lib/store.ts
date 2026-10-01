@@ -25,9 +25,13 @@ interface DatabaseState {
 }
 
 let inMemoryDb: DatabaseState | null = null;
-const DATA_DIR = path.resolve(process.cwd(), 'data');
-const STORE_PATH = path.resolve(DATA_DIR, 'store.json');
-const FIXTURES_PATH = path.resolve(DATA_DIR, 'fixtures', 'messy-inbox.json');
+const FIXTURE_DIR = path.resolve(process.cwd(), 'data');
+/** Override with APPROVEGATE_STORE_PATH (tests use a temp file so data/store.json is never touched). */
+const STORE_PATH = process.env.APPROVEGATE_STORE_PATH
+  ? path.resolve(process.env.APPROVEGATE_STORE_PATH)
+  : path.resolve(FIXTURE_DIR, 'store.json');
+const DATA_DIR = path.dirname(STORE_PATH);
+const FIXTURES_PATH = path.resolve(FIXTURE_DIR, 'fixtures', 'messy-inbox.json');
 
 const IS_SERVERLESS = Boolean(
   process.env.VERCEL ||
