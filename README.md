@@ -1,240 +1,214 @@
-# ApproveGate Inbox — Inbox-to-Action Butler
+# ApproveGate Inbox
 
-A support-ticket triage and response management application built for the **Build Fast with AI: AI Build Challenge 2026**.
+**An AI inbox butler that triages support threads and drafts replies, with a hard human approval gate: nothing risky goes out without an operator.**
 
-ApproveGate combines ambient AI intelligence with an unbypassable **hard human-approve gate**: incoming support tickets are automatically triaged, summarized, categorized, and drafted with suggested actions, but **nothing is ever sent to a customer without explicit human operator approval**.
-
-**Day-of Sep 24:** Build Fast opens today at 10:00 AM IST. Current references: `docs/STATUS_BUILD_FAST.md` and `submit-packages/build-fast-approvegate/TODAY_IS_SEP24.md`.
-
----
-
-## TypeSafe Jev typed judgments (with heuristic fallback)
-
-Each thread gets one server-side TypeSafe request (model `jev-latest`) that asks three independent typed questions in parallel, using only the subject and a 280-character snippet:
-
-- **needs_approval** (Noul): probability that a human must approve before anything is sent
-- **action_type** (Choice): escalation, refund, investigation, routine action, or archive (the app's existing action types)
-- **urgency** (Score): four ordered levels mapped onto P3 to P0
-
-Policy stays in code (`src/lib/typesafe.ts`):
-
-- 4 s timeout, no retries, bounded concurrency and a 6 s batch deadline. Any error, timeout, missing key, or confidence below **0.40** falls back to the deterministic rules engine.
-- Confidence below **0.70** (or a needs-approval probability close to 0.5) shows a **Needs review** label for a human.
-- Results are cached in memory per thread, so reloading the page does not re-bill.
-- The UI shows a light label on each thread: `Jev 0.87` (needs-approval probability) or `Rules`.
-- Judgments are advisory. The hard approval gate, triage priority, and eval (36/36) are unchanged.
-- Demo endpoints: `GET /api/judgments` (summary + per-thread judgments, `?refresh=1` clears the cache), `GET /api/threads?judge=rules` or `/?judge=rules` forces the fallback path.
-- Configure with `TYPESAFE_API_KEY` as a server-only env var (never `NEXT_PUBLIC_`). Without it, the app runs fully on rules.
+- Live demo: **https://approvegate-inbox.vercel.app**
+- Repository: https://github.com/Ritesist/approvegate-inbox
+- Hackathon: Build Fast with AI 2026, round 2 (Project Submission), track Inbox-to-Action Butler
 
 ---
 
-## Key Highlights
+## The problem
 
-- **Frictionless Ingestion:** Built-in fixture with ~36 realistic messy customer threads (outages, billing disputes, procurement RFPs, bugs, and spam), plus universal drag-and-drop CSV and JSON ticket import.
-- **Precision Triage:** Automatic P0 to P3 priority classification, category routing (billing, bug, sales, FYI, other), contextual summaries, suggested team ownership, and SLA target deadlines.
-- **Ready-to-Send Drafts:** Tailored responses matched to customer tone and issue severity, accompanied by interactive checklists of suggested next operational actions.
-- **Hard Human-Approve Gate:** Operators can Approve, Edit, Reject, or Snooze drafts. Outbound dispatch is physically blocked at the API layer unless a prior human approval audit record is verified.
-- **Zero Auto-Send Guarantee:** No background cron, automated trigger, or AI model can dispatch an email autonomously. Editing any draft immediately revokes approval.
-- **Append-Only Audit Ledger:** Full compliance history of every triage classification, draft generation, manual edit, approval, rejection, and snooze event.
-- **Evaluation & Invariant Verification Suite:** Real-time benchmark against 36 ground-truth golden labels calculating precision@priority, recall, F1, and formal invariant compliance.
-- **Zero-Key Mock Mode by Default:** Out of the box, ApproveGate runs fully locally with deterministic mock AI—no external API keys or network calls required. Optional OpenAI and Google Gemini integrations available.
-- **Enterprise Design Standards:** Clean, professional light-mode aesthetic with zero emojis anywhere in the interface or copy.
+Support and ops inboxes mix routine mail (newsletters, invoice copies, demo requests) with messages where a wrong automated reply is costly: refunds and chargebacks, security reports, legal notices, outages, angry enterprise customers. Fully autonomous AI agents are fast but can send a bad refund promise or leak data. Fully manual triage is slow.
 
----
+ApproveGate Inbox sits in the middle. AI does the reading, sorting, and drafting. A server-side gate makes it impossible to send any reply that a human has not explicitly approved, and every decision is written to an audit log.
 
-## Architecture Overview
+## How it works
 
-```
-                   +----------------------------------+
-                   | Inbound Tickets (CSV/JSON/Fixtures)|
-                   +-----------------+----------------+
-                                     |
-                                     v
-                   +----------------------------------+
-                   |       AI Butler Intelligence     |
-                   |  (Mock Engine / OpenAI / Gemini)  |
-                   +-----------------+----------------+
-                                     |
-              +----------------------+----------------------+
-              |                      |                      |
-              v                      v                      v
-     +-----------------+    +-----------------+    +-----------------+
-     | Priority (P0-P3)|    | Category Routing|    | Draft & Actions |
-     +-----------------+    +-----------------+    +-----------------+
-              |                      |                      |
-              +----------------------+----------------------+
-                                     |
-                                     v
-            ====================================================
-            ||            HARD HUMAN-APPROVE GATE             ||
-            ||         (Zero Auto-Send Protection)            ||
-            ====================================================
-                      /              |             \
-                     /               |              \
-                    v                v               v
-            +---------------+ +---------------+ +---------------+
-            | Approve Draft | |  Edit Draft   | | Reject/Snooze |
-            +-------+-------+ +-------+-------+ +---------------+
-                    |                 |
-                    | (Unlocks Gate)  | (Revokes Approval)
-                    v                 v
-            +---------------+ +---------------+
-            |  Send Reply   | | Reset Pending |
-            +-------+-------+ +---------------+
-                    |
-                    v
-            +---------------------------------+
-            | Append-Only Audit Trail Ledger  |
-            +---------------------------------+
+1. **Ingest**: 36 realistic, messy support threads ship as fixtures (`data/fixtures/messy-inbox.json`); CSV/JSON import is also supported.
+2. **Triage**: a deterministic rules engine assigns priority (P0 to P3), category, owner, and a draft reply with suggested actions.
+3. **Typed judgment (TypeSafe Jev)**: each thread is also judged by TypeSafe's `jev-latest` model, which returns typed answers: does this need human approval (probability), what kind of action is it, and how urgent is it. Low-confidence answers are flagged **Needs review**.
+4. **Approval gate**: the operator approves, edits, rejects, or snoozes the draft. `send` is refused (HTTP 403, `send_blocked` audit entry) unless the thread is approved by a human. Editing an approved draft revokes the approval.
+5. **Audit and eval**: `/audit` shows the append-only ledger; `/eval` scores triage against golden labels and checks the "never sent without approval" invariant.
+
+## Architecture
+
+```mermaid
+flowchart LR
+  subgraph Browser
+    UI[Inbox UI<br/>Next.js App Router]
+    EV[/eval page/]
+    AU[/audit page/]
+  end
+  subgraph Server["Next.js API routes (server-only)"]
+    TH[/api/threads/]
+    ACT[/api/threads/:id/action/]
+    JU[/api/judgments/]
+    EVA[/api/eval/]
+    TS[lib/typesafe.ts<br/>judgeThread / judgeThreads]
+    RULES[Rules engine<br/>lib/ai/mock-engine.ts]
+    GATE[ApproveGate<br/>lib/store.ts]
+    STORE[(Store<br/>JSON file or in-memory)]
+  end
+  JEV[(TypeSafe API<br/>model jev-latest)]
+
+  UI --> TH --> TS
+  UI --> ACT --> GATE --> STORE
+  JU --> TS
+  EV --> EVA --> RULES
+  AU --> STORE
+  TS -- "subject + 280-char snippet, 4 s timeout" --> JEV
+  TS -- "no key / timeout / error / malformed / confidence < 0.40" --> RULES
+  TH --> STORE
 ```
 
----
+The TypeSafe key only exists on the server (`import 'server-only'`); the browser never sees it. Only the subject and a 280-character snippet of each thread are sent to TypeSafe.
 
-## Quick Start
+## TypeSafe Jev judgments and the rules fallback
 
-### 1. Installation
-Ensure Node.js 18+ is installed. Clone the repository and install dependencies:
+`src/lib/typesafe.ts` asks Jev three typed questions per thread in one `systemOne` call:
+
+| Question | Type | Used for |
+|---|---|---|
+| `needs_approval` | Noul (probability 0..1) | `needsApproval = p >= 0.5` |
+| `action_type` | Choice: escalation, refund, investigation, action, archive | suggested action |
+| `urgency` | Score over 4 ordered levels | mapped to P3, P2, P1, P0 |
+
+Decision rules:
+
+- **Confidence** = min(Choice confidence, Score confidence).
+- **confidence >= 0.70**: Jev answer is used as is.
+- **0.40 <= confidence < 0.70**: Jev answer is used but the thread is flagged **Needs review**. It is also flagged when the approval probability is indecisive (within 0.15 of 0.5).
+- **confidence < 0.40**: the rules engine answer is used, the thread is flagged Needs review, and the raw Jev answer is kept for display.
+- **4-second timeout** (`TYPESAFE_TIMEOUT_MS = 4000`, no retries). Batch judging runs 8 requests in parallel with a 6-second overall deadline.
+- **Fallback** to the rules engine on: missing or blank key (`no_api_key`), timeout (`timeout`), HTTP or network errors (`error:<status>`), malformed responses (`malformed_response`), low confidence (`low_confidence`). The fallback reason is returned in the API and shown in the UI. Judging never throws.
+- Successful Jev answers are cached in memory per thread content, so reloads do not re-bill; failures are not cached, so the next request retries.
+
+The approval gate does not depend on the AI at all: even if Jev says "no approval needed", `send` still requires a human approval.
+
+## Setup
+
+Requirements: Node.js 18+ and npm.
 
 ```bash
-npm install
+git clone https://github.com/Ritesist/approvegate-inbox.git
+cd approvegate-inbox
+npm i
+cp .env.example .env.local   # optional, only if you have a TypeSafe key
+npm run dev                  # http://localhost:3000
+npm test                     # vitest, no network or key needed
+npm run build                # production build
 ```
 
-### 2. Development Server
-Start the local Next.js development server:
+### Environment variables
 
-```bash
-npm run dev
-```
+| Variable | Required | Default | Purpose |
+|---|---|---|---|
+| `TYPESAFE_API_KEY` | No | unset | Enables TypeSafe Jev typed judgments. Without it, every judgment falls back to the rules engine and the app works fully offline. |
+| `APPROVEGATE_STORE_PATH` | No | `data/store.json` | Where the local JSON store is written. Tests set this to a temp file. |
+| `OPENAI_API_KEY`, `GEMINI_API_KEY` | No | unset | Optional alternative draft engines selectable on `/settings`. |
 
-Open [http://localhost:3000](http://localhost:3000) in your web browser. The application is pre-seeded with 36 diverse support tickets.
+Put keys in `.env.local` (gitignored). Never commit them. On Vercel, set `TYPESAFE_API_KEY` in the project's environment variables. On serverless hosts the store stays in memory.
 
-### 3. Running Automated Tests
-Run Vitest to verify triage parsing, evaluation metrics, and the hard approval invariant:
+## API endpoints
 
-```bash
-npm test
-```
+| Method | Path | Description |
+|---|---|---|
+| GET | `/api/threads` | List threads with triage and judgment. Filters: `search`, `priority`, `category`, `approvalStatus`, `tier`, `judge=rules` |
+| POST | `/api/threads` | Import threads (CSV/JSON payload) |
+| GET | `/api/threads/:id` | One thread |
+| POST | `/api/threads/:id/triage` | Re-run triage for a thread |
+| POST | `/api/threads/:id/action` | `{action: "approve" \| "edit" \| "reject" \| "snooze" \| "toggle_action" \| "send"}`. `send` returns 403 unless human-approved |
+| GET | `/api/threads/:id/audit` | Audit entries for a thread |
+| GET | `/api/judgments` | TypeSafe judgments for all threads plus a summary (`typesafe`, `heuristic`, `needsReview`, `keyConfigured`). `?refresh=1` clears the cache, `?judge=rules` forces the fallback |
+| GET/POST | `/api/eval` | Run the evaluation against golden labels and the invariant check |
+| POST | `/api/triage-all` | Triage all untriaged threads |
+| POST | `/api/seed` | Reset to the demo fixture |
+| GET | `/api/audit-log` | Full audit ledger |
+| GET/POST | `/api/settings` | Engine settings |
 
-### 4. Production Build
-Verify production compilation:
+## Evaluation (real numbers)
 
-```bash
-npm run build
-```
+All numbers below come from the app itself on the live deployment (1 Oct 2026).
 
-### 5. Deploy to Vercel
-ApproveGate is pre-configured for one-click deployment to Vercel (Next.js preset). For step-by-step Dashboard import and CLI instructions, see **[docs/DEPLOY.md](docs/DEPLOY.md)**. For the final demo and submission items, see **[docs/SUBMISSION_CHECKLIST.md](docs/SUBMISSION_CHECKLIST.md)**.
+**Rules engine vs golden labels** (`/api/eval`, 36 threads with hand-checked labels in `data/fixtures/golden-labels.json`):
 
----
+| Metric | Result |
+|---|---|
+| Threads evaluated | 36 / 36 |
+| Priority accuracy | 100% (P0: 6, P1: 12, P2: 7, P3: 11) |
+| Category accuracy | 100% |
+| Invariant "never sent without approval" | Passed, 0 violations |
 
-## 3-Minute Demo Walkthrough
+Honest caveat: the rules engine was calibrated on these same 36 threads, so 100% here shows the fallback is consistent, not that it generalises. A larger held-out set is future work.
 
-Spoken script for recording/live: **[docs/DEMO_SCRIPT_3MIN.md](docs/DEMO_SCRIPT_3MIN.md)**.
+**TypeSafe Jev in production** (`/api/judgments?refresh=1`, model `jev-latest`):
 
-Follow these steps to demonstrate the end-to-end capabilities of ApproveGate:
+| Metric | Result |
+|---|---|
+| Threads judged | 36 (full batch in 892 ms server time) |
+| Answered by Jev (`source: typesafe`) | 35 / 36 |
+| Fell back to rules | 1 / 36 (`thread-002`, reason `low_confidence`) |
+| Flagged Needs review | 18 / 36 |
+| Flagged needs approval | 22 / 36 |
+| Median Jev confidence | 0.77 |
+| Median Jev latency per thread | 158 ms (max 285 ms) |
+| Jev urgency = golden priority (exact) | 26 / 35 (74%) |
+| Jev urgency within one level of golden | 35 / 35 (100%) |
+| Golden P0 threads marked needs approval | 6 / 6 (Jev rated 5 of 6 as P0) |
 
-1. **Explore the Inbox (`/`):**
-   - Review the pre-loaded tickets in the master pane. Notice how critical P0 tickets (production outages, unauthorized charges, security alerts) are highlighted at the top.
-   - Click on `thread-001` ("URGENT: Production API throwing 500 errors"). Observe the AI triage card: Priority P0, Category bug, Owner Core Platform Engineering, 1-hour SLA target, and an apologetic reply draft.
-   - Check off suggested next actions in the checklist (e.g., "Escalate to P0 On-Call SRE Bridge"). Notice that each action update is immediately logged into the audit ledger below.
+Model version reported by the API: `jev-1.13.0`. Numbers can shift slightly between runs.
 
-2. **Test Invariant Protection ("Zero Auto-Send"):**
-   - On `thread-001`, observe that the "Send Approved Reply" button is disabled.
-   - Click the "Test Send Invariant Protection" button. Notice the alert: the server intercepts and blocks the call because the draft has not yet been approved by a human operator.
+Jev was not tuned on these labels, so its agreement number is the more realistic measure; the cases where it disagrees are exactly the ones the Needs review flag and the human gate are designed to catch.
 
-3. **Approve and Dispatch:**
-   - Click "Approve Draft". The banner updates to "Approved by Operator", and the "Send Approved Reply" button turns green.
-   - Click "Send Approved Reply". The message is dispatched, the thread is resolved, and an immutable dispatch entry is appended to the audit ledger.
+## Tests
 
-4. **Verify Safety on Modification:**
-   - Select another ticket (e.g., `thread-002`). Click "Approve Draft".
-   - Now click "Edit Reply", modify the text, and click "Save Changes".
-   - Notice that saving changes automatically revokes approval and resets the status to "Pending Approval", ensuring that unreviewed modifications cannot be dispatched accidentally.
+`npm test` runs 49 Vitest tests in 6 files. The network is mocked, no key is needed, and the store is redirected to a temp file so `data/store.json` is never modified.
 
-5. **Inspect the Evaluation Suite (`/eval`):**
-   - Click "Evaluation & Invariants" in the top navigation bar.
-   - Review precision, recall, and F1 metrics across P0 to P3 priority levels and categories.
-   - Review the "Invariant Proof" card confirming 0 violations and 100% adherence to the `NeverSentWithoutApprove` rule.
-   - Click "Run Full Benchmark" to re-verify against the golden label dataset in real time.
+| File | What it covers |
+|---|---|
+| `approve-gate-invariant.test.ts` | send blocked without approval, edit revokes approval, audit entries |
+| `triage.test.ts` | rules triage on fixture threads |
+| `eval-metrics.test.ts` | precision / recall / F1 computation |
+| `typesafe-fallback.test.ts` | Jev happy path, cache, basic fallback |
+| `typesafe-reliability.test.ts` | 4 s timeout, HTTP errors, needs-review thresholds (0.40 / 0.70), missing or blank key, 10 malformed response shapes, score clamping |
+| `typesafe-sdk-network.test.ts` | the real SDK caller with the TypeSafe client mocked: model, timeout, no retries, network error, malformed payload |
 
-6. **Inspect the Audit Trail (`/audit`):**
-   - Navigate to "Audit Trail" to view the append-only ledger of every triage run, manual edit, approval, rejection, and blocked send.
-   - Filter by actor ("Operator", "AI Butler", "System") or export the audit log to JSON.
+## Demo
 
----
+- Live app: https://approvegate-inbox.vercel.app (no login, no key needed to try it)
+- 3-minute walkthrough script: [docs/DEMO_SCRIPT_3MIN.md](docs/DEMO_SCRIPT_3MIN.md)
+- Demo video and deck: attached to the GitHub release [v1.0-round2](https://github.com/Ritesist/approvegate-inbox/releases/tag/v1.0-round2)
 
-## Formal Invariant: `NeverSentWithoutApprove`
-
-ApproveGate provides an unbypassable guarantee:
-
-$$\forall m \in \text{Messages}, \text{status}(m) = \text{SENT} \implies \exists a \in \text{AuditLogs}: \text{action}(a) = \text{DRAFT\_APPROVED} \land \text{actor}(a) = \text{OPERATOR} \land t(a) \le t(m)$$
-
-### Implementation Details:
-- The dispatch controller verifies that the thread state is `approved` and queries the thread audit trail for an explicit prior approval signed by a human operator.
-- Direct API calls to `/api/threads/[id]/action` with action `send` on unapproved tickets throw an `ApproveGateInvariantViolationError` and return HTTP 403 Forbidden.
-- The violation event is logged as `send_blocked` in the audit ledger for compliance tracking.
-
----
-
-## AI Configuration Options
-
-ApproveGate operates completely standalone in Mock Mode without requiring external API keys. To connect live external LLMs:
-
-1. Navigate to **Engine & Settings** (`/settings`).
-2. Select your preferred provider:
-   - **Mock Engine (Default):** Deterministic, fast, offline.
-   - **OpenAI:** Enter your API key (or set `OPENAI_API_KEY` in your environment) and choose between `gpt-4o-mini` or `gpt-4o`.
-   - **Google Gemini:** Enter your API key (or set `GEMINI_API_KEY` in your environment) and choose between `gemini-1.5-flash` or `gemini-1.5-pro`.
-3. If an external API call fails or encounters rate limits, ApproveGate automatically falls back to the deterministic mock engine.
-
----
-
-## Directory Structure
+## Project structure
 
 ```
-approvegate-inbox/
-├── src/
-│   ├── app/
-│   │   ├── layout.tsx             # Root layout with navigation & light styling
-│   │   ├── page.tsx               # Primary Inbox & Triage workspace
-│   │   ├── eval/page.tsx          # Benchmark & Invariant Verification dashboard
-│   │   ├── audit/page.tsx         # Comprehensive audit ledger viewer
-│   │   ├── settings/page.tsx      # Engine & Model configuration
-│   │   └── api/                   # REST endpoints (threads, actions, triage, eval, seed)
-│   ├── components/                # React UI components (badges, panels, modals, lists)
-│   ├── lib/
-│   │   ├── types.ts               # Core TypeScript domain models
-│   │   ├── store.ts               # Storage layer with invariant enforcement
-│   │   ├── eval.ts                # Precision/recall/F1 metrics & invariant evaluator
-│   │   ├── csv-parser.ts          # Universal CSV/JSON ticket ingestion engine
-│   │   └── ai/                    # Mock, OpenAI, and Gemini triage engines
-│   └── test/                      # Vitest test suites (triage, invariant, eval)
-├── data/
-│   └── fixtures/
-│       ├── messy-inbox.json       # 36 realistic messy customer support threads
-│       └── golden-labels.json     # Ground truth labels for automated benchmarking
-├── docs/
-│   ├── PPT_OUTLINE.md             # Executive presentation outline (<= 10 slides)
-│   ├── DEMO_SCRIPT_3MIN.md        # Spoken 3-minute demo script (no emojis)
-│   ├── AI_DISCLOSURE.md           # Transparent disclosure of AI assistance and models
-│   ├── SUBMISSION_CHECKLIST.md    # Unstop Build Fast submit checklist
-│   └── DEPLOY.md                  # Vercel deploy steps
-├── vercel.json                    # Vercel Next.js project hints
-├── package.json
-└── README.md
+src/
+  app/            pages (inbox, /eval, /audit, /settings) and API routes
+  components/     UI components (JudgmentBadge, ApproveGatePanel, modals)
+  lib/
+    typesafe.ts   TypeSafe Jev judgments, thresholds, timeout, fallback, cache
+    store.ts      store + ApproveGate invariant enforcement
+    eval.ts       metrics and invariant evaluator
+    ai/           rules (mock) engine, optional OpenAI / Gemini engines
+  test/           Vitest suites
+data/fixtures/    36 messy threads and golden labels
+docs/             deploy notes, demo script, deck outline, AI disclosure
 ```
 
----
+## AI tools used (disclosure)
 
-## Deploy
+ApproveGate Inbox was built with AI assistance. Humans (Ritesh) defined the product, the hard approval gate, the security boundaries, and accepted the final behaviour.
 
-See **[docs/DEPLOY.md](docs/DEPLOY.md)** for Vercel Dashboard and CLI steps.  
-Submission packaging: **[docs/SUBMISSION_CHECKLIST.md](docs/SUBMISSION_CHECKLIST.md)**.
+**During development**
 
-Mock mode needs no environment variables. Optional: `OPENAI_API_KEY`, `GEMINI_API_KEY`.
+| Tool | Role |
+|---|---|
+| Antigravity (`agy`) | AI coding agent for scaffolding, UI restyle, polish |
+| Cursor and Grok Bot agents | build, tests, TypeSafe integration, docs, deck and demo video packaging |
+| AI-generated fixtures | the 36 messy support threads; golden labels were reviewed by hand |
 
----
+**At runtime**
+
+| Component | Role |
+|---|---|
+| TypeSafe Jev (`jev-latest`) | typed judgments: needs approval, action type, urgency, with confidence |
+| Rules engine (built in) | deterministic triage and drafts; fallback for every Jev failure |
+| OpenAI / Gemini (optional) | alternative draft engines if keys are set on `/settings` |
+
+AI never sends anything. Every outbound reply needs explicit human approval, editing revokes approval, and the check runs on the server. Limitations: the rules engine is pattern based and calibrated on the demo set; model judgments can be wrong, which is why low-confidence answers are flagged and the gate is unconditional. Full text: [docs/AI_DISCLOSURE.md](docs/AI_DISCLOSURE.md).
 
 ## License
 
-Created for the Build Fast with AI: AI Build Challenge 2026. Distributed under the MIT License.
+MIT. Built for Build Fast with AI 2026.
