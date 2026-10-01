@@ -13,15 +13,15 @@ Use this list when the submission window opens. Mark each item before final subm
 |---|------|--------|-------|
 | 1 | Deployed live URL | **READY** — production live | https://approvegate-inbox.vercel.app |
 | 2 | Public GitHub repository | **READY** — public, `gh` logged in as Ritesist | https://github.com/Ritesist/approvegate-inbox |
-| 3 | 3-minute demo (script) | READY | `docs/DEMO_SCRIPT_3MIN.md` (spoken) + README walkthrough |
-| 4 | PPT / pitch deck (≤10 slides) | READY (markdown outline) | `docs/PPT_OUTLINE.md` — export to PDF/Google Slides before submit |
+| 3 | 3-minute demo video | **READY** — 2:48 MP4, 1280x720 | https://github.com/Ritesist/approvegate-inbox/releases/download/v1.0-round2/ApproveGate_Demo.mp4 |
+| 4 | Deck (10 slides) | **READY** — PDF | https://github.com/Ritesist/approvegate-inbox/releases/download/v1.0-round2/ApproveGate_BuildFast.pdf |
 | 5 | Track selection | READY | **Inbox-to-Action Butler** |
 | 6 | AI disclosure | READY | `docs/AI_DISCLOSURE.md` |
 
 ## Pre-flight (do before clicking Submit)
 
-- [ ] `npm test` passes locally
-- [ ] `npm run build` passes locally
+- [x] `npm test` passes locally (49/49)
+- [x] `npm run build` passes locally
 - [x] Deployed URL loads inbox with ~36 threads (`https://approvegate-inbox.vercel.app` → HTTP 200; `/api/threads` total=36)
 - [ ] Click **Triage All** on deploy if needed; confirm P0s sort to top
 - [ ] Demo: Approve → Send works; Edit after Approve revokes gate; blocked send shows invariant

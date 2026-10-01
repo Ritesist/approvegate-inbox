@@ -21,10 +21,12 @@
 | Public GitHub repo | DONE: https://github.com/Ritesist/approvegate-inbox |
 | Vercel production deploy | DONE: https://approvegate-inbox.vercel.app |
 | TypeSafe (Jev) typed judgments + rules fallback | DONE (key set in Vercel prod and gitignored `.env.local`) |
-| `npm test` / `npm run build` | See README "Tests" section for current counts |
+| `npm test` / `npm run build` | PASS: 49/49 tests; build passes |
 | README (setup, architecture, eval, AI disclosure) | DONE |
-| 3-minute demo video | `submit-packages/build-fast-approvegate/ApproveGate_Demo.mp4` (outside repo) |
-| Deck (10 slides) | `submit-packages/build-fast-approvegate/ApproveGate_BuildFast.pptx` / `.pdf` (outside repo) |
+| 3-minute demo video (2:48) | Release asset: https://github.com/Ritesist/approvegate-inbox/releases/download/v1.0-round2/ApproveGate_Demo.mp4 |
+| Deck (10 slides) | Release asset: https://github.com/Ritesist/approvegate-inbox/releases/download/v1.0-round2/ApproveGate_BuildFast.pdf |
+| Release page | https://github.com/Ritesist/approvegate-inbox/releases/tag/v1.0-round2 |
+| Live TypeSafe counts (1 Oct) | typesafe 35, heuristic 1, needsReview 18, keyConfigured true |
 
 ## Blockers
 

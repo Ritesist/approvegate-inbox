@@ -169,7 +169,9 @@ Jev was not tuned on these labels, so its agreement number is the more realistic
 
 - Live app: https://approvegate-inbox.vercel.app (no login, no key needed to try it)
 - 3-minute walkthrough script: [docs/DEMO_SCRIPT_3MIN.md](docs/DEMO_SCRIPT_3MIN.md)
-- Demo video and deck: attached to the GitHub release [v1.0-round2](https://github.com/Ritesist/approvegate-inbox/releases/tag/v1.0-round2)
+- Demo video (2:48): [ApproveGate_Demo.mp4](https://github.com/Ritesist/approvegate-inbox/releases/download/v1.0-round2/ApproveGate_Demo.mp4)
+- Deck (10 slides): [ApproveGate_BuildFast.pdf](https://github.com/Ritesist/approvegate-inbox/releases/download/v1.0-round2/ApproveGate_BuildFast.pdf)
+- Release page: [v1.0-round2](https://github.com/Ritesist/approvegate-inbox/releases/tag/v1.0-round2)
 
 ## Project structure
 
