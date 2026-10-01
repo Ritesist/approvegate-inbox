@@ -1,7 +1,7 @@
 # Build Fast with AI — Submission Checklist
 
 **Event:** Build Fast with AI (Unstop)  
-**Window:** Sep 24, 2026 10:00 AM – Sep 26, 2026 10:00 PM IST  
+**Round 2 (Project Submission) deadline:** Thu Oct 1, 2026, 11:59 PM IST  
 **Project:** ApproveGate Inbox  
 **Track:** Inbox-to-Action Butler  
 
@@ -12,7 +12,7 @@ Use this list when the submission window opens. Mark each item before final subm
 | # | Item | Status | Where |
 |---|------|--------|-------|
 | 1 | Deployed live URL | **READY** — production live | https://approvegate-inbox.vercel.app |
-| 2 | Public GitHub repository | PENDING — `gh` CLI not logged in; MCP auth as Ritesh-Root available for API | Paste URL here: _______________ |
+| 2 | Public GitHub repository | **READY** — public, `gh` logged in as Ritesist | https://github.com/Ritesist/approvegate-inbox |
 | 3 | 3-minute demo (script) | READY | `docs/DEMO_SCRIPT_3MIN.md` (spoken) + README walkthrough |
 | 4 | PPT / pitch deck (≤10 slides) | READY (markdown outline) | `docs/PPT_OUTLINE.md` — export to PDF/Google Slides before submit |
 | 5 | Track selection | READY | **Inbox-to-Action Butler** |
@@ -40,12 +40,13 @@ ApproveGate Inbox is an Inbox-to-Action Butler that auto-triages messy support t
 
 **Track:** Inbox-to-Action Butler
 
-**Tech stack:** Next.js 14 (App Router), TypeScript, Tailwind CSS, Vitest, optional OpenAI/Gemini, deterministic mock AI by default. Built with Antigravity (`agy`) and Cursor/Grok agent assistance.
+**Tech stack:** Next.js 14 (App Router), TypeScript, Tailwind CSS, Vitest, TypeSafe Jev typed judgments (optional key) with a deterministic rules fallback. Built with Antigravity (`agy`) and Cursor/Grok agent assistance.
 
-**Demo credentials:** None required. Mock mode, zero API keys.
+**Demo credentials:** None required. Runs without any API key (rules fallback).
 
-## Blockers / status (as of Sep 25, 2026 ~04:44 IST)
+## Blockers / status (as of Oct 1, 2026)
 
-1. **Vercel:** **CLEARED** — production live at https://approvegate-inbox.vercel.app (CLI as workstationritalks-8167). Smoke: `/` 200, `/api/threads` 200.
-2. **GitHub:** still **NEED_AUTH** / no remote — user skipped repo-create widget; do **not** `gh repo create` or add remotes until asked.
-3. **Do not force-push.** Local `master` history is clean for a normal first push when a repo exists.
+1. **Vercel:** production live at https://approvegate-inbox.vercel.app (CLI as workstationritalks-8167).
+2. **GitHub:** public repo live at https://github.com/Ritesist/approvegate-inbox (account Ritesist, branch `master`).
+3. **TypeSafe:** Jev judgments live in production; `/api/judgments` reports counts and `keyConfigured`.
+4. **Do not force-push.**
