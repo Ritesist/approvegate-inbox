@@ -36,3 +36,4 @@ UI_RESTYLE_PROMPT.md
 BUILD_PROMPT.md
 .vercel
 .env*
+!.env.example
